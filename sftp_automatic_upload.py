@@ -23,6 +23,7 @@ tz = pytz.timezone('America/Bogota')
 parameters = sys.argv
 print('----------------------------------------------------------------')
 print('1 . parameters :', parameters)
+# parameters.append('C:/Users/jhospinal/Documents/text.html')
 
 try:
 
@@ -48,7 +49,7 @@ try:
 except IndexError as e:
 
     print('Error : Local file is missing check your command :')
-    print('Example : python terminal.py local_file_path target_path directory_name')
+    print('Example : python sftp_automatic_upload.py local_file_path target_path directory_name')
     print(e)
 
     pass
@@ -68,4 +69,4 @@ else:
         )
     )
 
-# python terminal.py 'C:/Users/jhospinal/Documents/secrets.json'
+# python sftp_automatic_upload.py 'C:/Users/jhospinal/Documents/secrets.json'

@@ -39,6 +39,9 @@ class ServerRequestRepository(ServerRequestRepositoryInterface):
         return num_matriz_line
 
     def upload_file_into_external_folder(self, sftp_parameter: SftpParameter):
+        open('//HOST/share/path/to/file')
+        print('hola')
+        return False
 
         with pysftp.Connection(
                 host=sftp_parameter.host,
@@ -67,7 +70,7 @@ class ServerRequestRepository(ServerRequestRepositoryInterface):
                 sftp.put(
                     sftp_parameter.local_file_path,
                     preserve_mtime=True,
-                    remotepath=f"/{sftp_parameter.target_path}/{sftp_parameter.directory_name}/hola.txt"
+                    remotepath=f"/{sftp_parameter.target_path}/{sftp_parameter.directory_name}/xd.html"
                 )
             except FileNotFoundError as e:
                 print('check if your local file exists :')
