@@ -49,7 +49,7 @@ class LogReaderService(LogReaderServiceInterface):
                         if 'POST' in line_split:
                             log_reader.post_counter = log_reader.post_counter + 1
 
-                        if log_reader.counter == 100:
+                        if log_reader.counter == 100000000:
                             log_reader.message = 'Too much lines'
                             raise StopIteration
 

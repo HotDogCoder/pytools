@@ -2,6 +2,7 @@ import os
 import numpy as np
 import pysftp
 
+import constants
 from app.application.repositories_interfaces.server_request_repository_interface import ServerRequestRepositoryInterface
 from app.domain.models.server_request import ServerRequest
 from app.domain.models.server_request_filter import ServerRequestFilter
@@ -39,10 +40,6 @@ class ServerRequestRepository(ServerRequestRepositoryInterface):
         return num_matriz_line
 
     def upload_file_into_external_folder(self, sftp_parameter: SftpParameter):
-        open('//HOST/share/path/to/file')
-        print('hola')
-        return False
-
         with pysftp.Connection(
                 host=sftp_parameter.host,
                 username=sftp_parameter.user_name,
@@ -52,31 +49,52 @@ class ServerRequestRepository(ServerRequestRepositoryInterface):
             print("sftp connection success")
             sftp.cwd(sftp_parameter.target_path)
             fnames = sftp.listdir()
-            print('old file list: ', fnames)
-            if sftp_parameter.directory_name in fnames:
-                print('directory maybe exist')
-                if not sftp.isdir('test'):
-                    print('warning there is some file with the same name of the target folder')
-                    print('creating directory anyway')
-                    sftp.rename(sftp_parameter.directory_name, f"{sftp_parameter.directory_name}_backup")
-                    sftp.mkdir(sftp_parameter.directory_name)
-                else:
-                    print('directory exist the file will be created or replaced there')
-            else:
-                sftp.mkdir(sftp_parameter.directory_name)
-                print(sftp_parameter.directory_name)
+            shared_directory_list = os.listdir(f'{constants.SHARED_FOLDER}')
 
-            try:
-                sftp.put(
-                    sftp_parameter.local_file_path,
-                    preserve_mtime=True,
-                    remotepath=f"/{sftp_parameter.target_path}/{sftp_parameter.directory_name}/xd.html"
-                )
-            except FileNotFoundError as e:
-                print('check if your local file exists :')
-                print(e)
+            if sftp_parameter.directory_name in shared_directory_list:
+                # print('old file list: ', fnames)
+                if sftp_parameter.directory_name in fnames:
+                    print('directory maybe exist')
+                    if not sftp.isdir('test'):
+                        print('warning there is some file with the same name of the target folder')
+                        print('creating directory anyway')
+                        sftp.rename(sftp_parameter.directory_name, f"{sftp_parameter.directory_name}_backup")
+                        sftp.mkdir(sftp_parameter.directory_name)
+                    else:
+                        print('directory exist the file will be created or replaced there')
+                else:
+                    sftp.mkdir(sftp_parameter.directory_name)
+                    print(f'{sftp_parameter.directory_name} folder was created')
+
+                directories_files_inside = sftp.listdir(sftp_parameter.directory_name)
+                directories_inside = [dir for dir in directories_files_inside if sftp.isdir(f'{sftp_parameter.directory_name}/{dir}')]
+                print('there is this directories inside: ', directories_inside)
+                sftp.cwd(sftp_parameter.directory_name)
+                print('creating new one for this cut ......')
+                count = len(directories_inside) + 1
+                sftp.mkdir(f'{sftp_parameter.directory_name}_{count}')
+                print(f'{sftp_parameter.directory_name}_{count} created')
+
+                try:
+                    shared_directory_file_list = \
+                        os.listdir(f'{constants.SHARED_FOLDER}\{sftp_parameter.directory_name}')
+                    for shared_directory_file in shared_directory_file_list:
+                        if not os.path.isdir(f'{constants.SHARED_FOLDER}\{sftp_parameter.directory_name}\{shared_directory_file}'):
+                            print(f'coping {constants.SHARED_FOLDER}\{sftp_parameter.directory_name}\{shared_directory_file}')
+                            sftp.put(
+                                f'{constants.SHARED_FOLDER}\{sftp_parameter.directory_name}\{shared_directory_file}',
+                                preserve_mtime=True,
+                                remotepath=f"/{sftp_parameter.target_path}/{sftp_parameter.directory_name}/{sftp_parameter.directory_name}_{count}/{shared_directory_file}"
+                            )
+                except FileNotFoundError as e:
+                    print('check if your local file exists :')
+                    print(e)
+                else:
+                    fnames = sftp.listdir()
+                    print('new file list :', fnames)
+
             else:
-                fnames = sftp.listdir()
-                print('new file list :', fnames)
+                print(f'{sftp_parameter.directory_name} do not exist in shared folder')
+
         print('----------------------------------------------------------------')
         return False

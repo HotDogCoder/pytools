@@ -1,12 +1,11 @@
+import os
 import sys
 import constants
 from datetime import datetime
 import pytz
 import logging
 
-from app.application.services.server_request_service import ServerRequestService
 from app.domain.models.sftp_parameter import SftpParameter
-from app.infrastructure.repositories.server_request_repository import ServerRequestRepository
 from app.presentation.controllers.server_request_controller import ServerRequestController
 
 logger = logging.getLogger(__name__)
@@ -24,6 +23,7 @@ parameters = sys.argv
 print('----------------------------------------------------------------')
 print('1 . parameters :', parameters)
 # parameters.append('C:/Users/jhospinal/Documents/text.html')
+parameters.append('no specific file')
 
 try:
 
