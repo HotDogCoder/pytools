@@ -34,12 +34,13 @@ try:
     else:
         # target_path = datetime.now(tz).strftime('%Y-%m-%d %H:%M:%S')
         target_path = 'public_html'
-
+        # PE280\llazo
     if len(parameters) > 3:
         directory_name = sys.argv[3]
     else:
         # target_path = datetime.now(tz).strftime('%Y-%m-%d %H:%M:%S')
-        directory_name = datetime.now(tz).strftime('%Y%m%d')
+        directory_name = datetime.now(tz).strftime('%d%m%Y')
+        # directory_name = '04112022'
 
     print('2 . local path: ', local_file_path)
     print('3 . target path: ', target_path)

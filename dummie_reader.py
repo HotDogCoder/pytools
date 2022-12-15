@@ -1,8 +1,34 @@
 import os
-import pytz
 from datetime import datetime
 
+import cpuinfo
+import pytz
+import wmi
+import platform
+import psutil
 
+print(f'Architecture: {platform.architecture()}')
+print(f'Network Name: {platform.node()}')
+print(f'platform: {platform.platform()}')
+print(f'processor: {platform.processor()}')
+
+my_cpuinfo = cpuinfo.get_cpu_info()
+
+print(f"Full CPU Name: {my_cpuinfo['brand_raw']}")
+print(f"Full CPU Name: {my_cpuinfo['hz_actual_friendly']}")
+print(f"Full CPU Name: {my_cpuinfo['hz_advertised_friendly']}")
+
+print(f"virtual memory: {psutil.virtual_memory().total / 1024 / 1024 / 1024}")
+
+pc = wmi.WMI()
+
+print(pc.Win32_Processor()[0].name)
+print(pc.Win32_VideoController()[0].name)
+print((pc.MSAcpi_ThermalZoneTemperature()[0].CurrentTemperature / 10.0)-273.15)
+
+# w_temp = wmi.WMI(namespace="root\\wmi")
+# print(w_temp)
+# print((w_temp.MSAcpi_ThermalZoneTemperature()[0].CurrentTemperature / 10.0)-273.15)
 class DummieReader():
 
     def __init__(self, counter, get_counter, post_counter, date_string):
@@ -52,17 +78,17 @@ class DummieReader():
         except UnicodeDecodeError as e:
 
             print('error on: ', self.last_file_readed)
-            print('line: ', dummie_reader.counter + 1)
+            print('line: ', self.counter + 1)
             print('error: ', e)
 
 
 tz = pytz.timezone('America/Bogota')
 directory_name = datetime.now(tz).strftime('%Y%m%d')
-dummie_reader = DummieReader(0, 0, 0)
-dummie_reader.read_directories()
+# dummie_reader = DummieReader(0, 0, 0)
+# dummie_reader.read_directories()
 
-print('message: ', dummie_reader.message)
-print('counter: ', dummie_reader.counter)
-print('get_counter: ', dummie_reader.get_counter)
-print('post_counter: ', dummie_reader.post_counter)
+# print('message: ', dummie_reader.message)
+# print('counter: ', dummie_reader.counter)
+# print('get_counter: ', dummie_reader.get_counter)
+# print('post_counter: ', dummie_reader.post_counter)
 
