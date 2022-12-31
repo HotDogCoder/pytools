@@ -5,3 +5,12 @@ class Screenshot:
         self.image_name_prefix = image_name_prefix
         self.driver = driver
         self.image_list = []
+
+
+class Url:
+
+    def __init__(self, id, url):
+        self.id = id
+        self.url = url
+
+

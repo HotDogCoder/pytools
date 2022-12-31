@@ -9,6 +9,10 @@ class ScreenshotRepositoryInterface(ABC):
         super().__init__()
 
     @abstractmethod
-    def take_screenshot_servers_status_report(self, screenshot: Screenshot):
+    def take_screenshot_of_servers_status_1(self, screenshot: Screenshot):
+        return screenshot
+
+    @abstractmethod
+    def test_atlantic_city_casino_and_sports(self, screenshot: Screenshot):
         return screenshot
 

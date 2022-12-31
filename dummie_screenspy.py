@@ -11,7 +11,7 @@ screenshot = Screenshot(
 )
 
 SC = ScreenshotController()
-SS = SC.take_screenshot_servers_status_report(screenshot=screenshot)
+SS = SC.take_screenshot_of_servers_status_1(screenshot=screenshot)
 
 print('------------- termino -----------------')
 print(SS.image_list)
