@@ -1,0 +1,18 @@
+from app.domain.models.alira import Alira
+from app.presentation.controllers.alira_controller import AliraController
+
+driver = 'Chrome'
+image_name_prefix = 'alira_'
+
+alira = Alira(
+    url="https://gms-internacional.pre.tecnalis.com/alira-server/login.jsp",
+    image_name_prefix=image_name_prefix,
+    driver=driver
+)
+
+AC = AliraController()
+AS = AC.get_layouts_of_alira_page(alira=alira)
+
+print('------------- termino -----------------')
+print(AS.image_list)
+

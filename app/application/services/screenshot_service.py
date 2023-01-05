@@ -2,6 +2,7 @@ import math
 import os
 from time import sleep
 
+import pytz
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -20,8 +21,10 @@ class ScreenshotService(ScreenshotServiceInterface):
         super().__init__()
         self.screenshot_repository = ScreenshotRepository()
 
-    def scroll_and_take_screenshot(self, screenshot: Screenshot, url, driver):
+    def scroll_and_take_screenshot(self, screenshot: Screenshot, url, driver, target_iterations=None, zoom=None):
 
+        tz = pytz.timezone('America/Bogota')
+        directory_name = datetime.now(tz).strftime('%Y%m%d%H%M%S')
         driver.maximize_window()
         driver.get(url.url)
 
@@ -37,46 +40,70 @@ class ScreenshotService(ScreenshotServiceInterface):
         target_string = target_string.replace("px", '')
         target_string = target_string.replace(";", '')
         target_height_value = int(target_string)
+
+        target_scrollbar = driver.find_element(By.CSS_SELECTOR, '.thumb-vertical')
+        target_scrollbar_height = target.get_attribute('style')
+        target_scrollbar_arr = target_height.split(' ')
+        target_scrollbar_string = target_arr[3]
+        target_scrollbar_string = target_string.strip()
+        target_scrollbar_string = target_string.replace('}', '')
+        target_scrollbar_string = target_string.replace("'", '')
+        target_scrollbar_string = target_string.replace("px", '')
+        target_scrollbar_string = target_string.replace(";", '')
+        target_scrollbar_height_value = int(target_string)
+
         print(f'----------- number of chars : {len(targets)} ----------------')
         size = driver.get_window_size()
         target_height_clear = size.get('height') - 163 - 30 - 64 - 130
-        target_iterations = math.floor(target_height_value / target_height_clear)
+
+        if target_iterations is None:
+            target_iterations = math.floor(target_height_value / target_height_clear)
 
         print(f"----------- screen height :{size.get('height')} ----------------")
         print(f"----------- scroll tag height : {target_string} ----------------")
+
+        if zoom is not None:
+            driver.execute_script(f"document.body.style.zoom='{zoom}%'")
+
         scroll_pause_time = 10
 
         sleep(scroll_pause_time)
+
         print(f"----------- scroll tag iterations : {target_iterations} ----------------")
 
         current_directory = os.getcwd()
 
         driver.save_screenshot(
             f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-            f"{datetime.now().strftime('%y%m%d')}_0_{url.id}.png")
+            f"{datetime.now().strftime('%y%m%d')}_0_{url.id}_{directory_name}.png")
 
         screenshot.image_list.append(
             f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-            f"{datetime.now().strftime('%y%m%d')}_0_{url.id}.png")
+            f"{datetime.now().strftime('%y%m%d')}_0_{url.id}_{directory_name}.png")
 
-        #for x in range(target_iterations):
-        #    driver.execute_script(f"var scroll_targets = document.querySelectorAll('.scrollbar-view');"
-        #                          f"var scroll_target = scroll_targets[1];"
-        #                          f"scroll_target.scrollTo(0, {target_height_clear * (x + 1)});")
-        #
-        #    sleep(5)
-        #
-        #    # driver.implicitly_wait(100)
-        #
-        #    driver.save_screenshot(
-        #        f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-        #        f"{datetime.now().strftime('%y%m%d')}_{x + 1}_{url.id}.png")
-        #
-        #    screenshot.image_list.append(
-        #        f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-        #        f"{datetime.now().strftime('%y%m%d')}_{x + 1}_{url.id}.png")
+        sleep(5)
+
+        for x in range(target_iterations):
+            driver.execute_script(f"var scroll_targets = document.querySelectorAll('.scrollbar-view');"
+                                  f"var scroll_target = scroll_targets[1];"
+                                  f"scroll_target.scrollTo(0, {target_height_clear * (x + 1)});")
+
+            sleep(5)
+
+            driver.implicitly_wait(100)
+
+            driver.save_screenshot(
+                f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
+                f"{datetime.now().strftime('%y%m%d')}_{x + 1}_{url.id}.png")
+
+            screenshot.image_list.append(
+                f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
+                f"{datetime.now().strftime('%y%m%d')}_{x + 1}_{url.id}.png")
 
     def scroll_and_take_screenshot_monitoreo(self, screenshot: Screenshot, url, driver):
+
+        tz = pytz.timezone('America/Bogota')
+        directory_name = datetime.now(tz).strftime('%Y%m%d%H%M%S')
 
         driver.maximize_window()
         driver.get(url.url)
@@ -100,37 +127,38 @@ class ScreenshotService(ScreenshotServiceInterface):
 
         driver.save_screenshot(
             f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-            f"{datetime.now().strftime('%y%m%d')}_0_{url.id}.png")
+            f"{datetime.now().strftime('%y%m%d')}_0_{url.id}_{directory_name}.png")
 
         screenshot.image_list.append(
             f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-            f"{datetime.now().strftime('%y%m%d')}_0_{url.id}.png")
+            f"{datetime.now().strftime('%y%m%d')}_0_{url.id}_{directory_name}.png")
 
-        for x in range(target_iterations):
-            driver.execute_script(f"var scroll_target = document.querySelector('html');"
-                                  f"scroll_target.scrollTo(0, {target_height_clear * (x + 1)});")
-
-            sleep(5)
-
-            driver.implicitly_wait(100)
-
-            driver.save_screenshot(
-                f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-                f"{datetime.now().strftime('%y%m%d')}_{x + 1}_{url.id}.png")
-
-            screenshot.image_list.append(
-                f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-                f"{datetime.now().strftime('%y%m%d')}_{x + 1}_{url.id}.png")
+        # for x in range(target_iterations):
+        #    driver.execute_script(f"var scroll_target = document.querySelector('html');"
+        #                          f"scroll_target.scrollTo(0, {target_height_clear * (x + 1)});")
+        #
+        #    sleep(5)
+        #
+        #    driver.implicitly_wait(100)
+        #
+        #    driver.save_screenshot(
+        #        f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
+        #        f"{datetime.now().strftime('%y%m%d')}_{x + 1}_{url.id}_{directory_name}.png")
+        #
+        #    screenshot.image_list.append(
+        #        f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
+        #        f"{datetime.now().strftime('%y%m%d')}_{x + 1}_{url.id}_{directory_name}.png")
 
     def take_screenshot_of_servers_status_1(self, screenshot: Screenshot):
 
         urls = [
-            UrlModel(0, 'https://grafana.acity.com.pe/d/hT18KZz4z/monitoreo-url-internas?orgId=1&refresh=5s'),
-            UrlModel(1, 'https://grafana.acity.com.pe/d/LLSTg4zVz/estado-replica?orgId=1&refresh=5s'),
-            UrlModel(2, 'https://monitoreo.acity.com.pe/apps/platform/dashboard/3'),
+            UrlModel(0, 'https://monitoreo.acity.com.pe/apps/platform/dashboard/3'),
+            UrlModel(1, 'https://grafana.acity.com.pe/d/hT18KZz4z/monitoreo-url-internas?orgId=1&refresh=5s'),
+            UrlModel(2, 'https://grafana.acity.com.pe/d/LLSTg4zVz/estado-replica?orgId=1&refresh=5s'),
             UrlModel(3, 'https://grafana.acity.com.pe/d/DjMVuiMVk/dashboard-casino-online?orgId=1&refresh=5s'),
             UrlModel(4, 'https://grafana.acity.com.pe/d/-JFbnTn4z/estado-aplicaciones-web?orgId=1&refresh=5s'),
-            UrlModel(5, 'https://grafana.acity.com.pe/d/ac0OemdVk/total-competencias?orgId=1&refresh=5s')
+            UrlModel(5, 'https://grafana.acity.com.pe/d/ac0OemdVk/total-competencias?orgId=1&refresh=5s'),
+            UrlModel(6, 'https://grafana.acity.com.pe/d/XYVkz7V4k/views-nzgp?orgId=1&refresh=5s')
         ]
 
         try:
@@ -149,11 +177,29 @@ class ScreenshotService(ScreenshotServiceInterface):
             for url in urls:
 
                 match url.id:
-                    case 2:
+
+                    case 0:
                         self.scroll_and_take_screenshot_monitoreo(screenshot, url, driver)
 
-                    case _:
+                    case 1:
+                        self.scroll_and_take_screenshot(screenshot, url, driver)
 
+                    case 2:
+                        self.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=50)
+
+                    case 3:
+                        self.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=70)
+
+                    case 4:
+                        self.scroll_and_take_screenshot(screenshot, url, driver, zoom=80)
+
+                    case 5:
+                        self.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=40)
+
+                    case 6:
+                        self.scroll_and_take_screenshot(screenshot, url, driver, zoom=75)
+
+                    case _:
                         self.scroll_and_take_screenshot(screenshot, url, driver)
                         # raise StopIteration
 

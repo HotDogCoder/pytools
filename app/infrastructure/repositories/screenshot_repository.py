@@ -28,13 +28,13 @@ class ScreenshotRepository(ScreenshotRepositoryInterface):
 
         for file in paths:
             url = constants.API_WHATSAPP_WEB
-            body = {'message': '', 'number': '51945633041-1464183842@g.us', 'photo': f'{constants.API_WHATSAPP_WEB_BOT}/{file}'}
+            body = {'message': '', 'number': '51966153268@c.us', 'photo': f'{constants.API_WHATSAPP_WEB_BOT}/{file}'}
             r = requests.post(url, json=body)
             print(f'send whatsapp: {r.content}')
             sleep(5)
 
         url = constants.API_WHATSAPP_WEB
-        body = {'message': '🤖 Buenas noches estimados, se envia print de monitoreo 🤖', 'number': '51945633041-1464183842@g.us',
+        body = {'message': '🤖 Buenas noches estimados, se envia print de monitoreo 🤖', 'number': '51981272606@c.us',
                 'photo': f''}
         r = requests.post(url, json=body)
         print(f'send whatsapp: {r.content}')
