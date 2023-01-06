@@ -6,11 +6,3 @@ class Screenshot:
         self.driver = driver
         self.image_list = []
 
-
-class Url:
-
-    def __init__(self, id, url):
-        self.id = id
-        self.url = url
-
-

@@ -10,3 +10,4 @@ class LogReaderController:
     def read_log_file_directories(self, log_reader: LogReader):
         return self.log_reader_service.read_log_file_directories(log_reader)
 
+# pytest

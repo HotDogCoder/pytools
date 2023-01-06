@@ -11,7 +11,8 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait as Wait
 from datetime import datetime, time
 from app.application.services_interfaces.screenshot_service_interface import ScreenshotServiceInterface
-from app.domain.models.screenshot import Screenshot, Url as UrlModel
+from app.domain.models.screenshot import Screenshot
+from core.domain.models.url import Url as UrlModel
 from app.infrastructure.repositories.screenshot_repository import ScreenshotRepository
 
 
@@ -40,17 +41,6 @@ class ScreenshotService(ScreenshotServiceInterface):
         target_string = target_string.replace("px", '')
         target_string = target_string.replace(";", '')
         target_height_value = int(target_string)
-
-        target_scrollbar = driver.find_element(By.CSS_SELECTOR, '.thumb-vertical')
-        target_scrollbar_height = target.get_attribute('style')
-        target_scrollbar_arr = target_height.split(' ')
-        target_scrollbar_string = target_arr[3]
-        target_scrollbar_string = target_string.strip()
-        target_scrollbar_string = target_string.replace('}', '')
-        target_scrollbar_string = target_string.replace("'", '')
-        target_scrollbar_string = target_string.replace("px", '')
-        target_scrollbar_string = target_string.replace(";", '')
-        target_scrollbar_height_value = int(target_string)
 
         print(f'----------- number of chars : {len(targets)} ----------------')
         size = driver.get_window_size()
@@ -164,43 +154,39 @@ class ScreenshotService(ScreenshotServiceInterface):
         try:
             driver = None
             # url = screenshot.url
-            match screenshot.driver:
-                case 'Chrome':
-                    driver = webdriver.Chrome()
-                case 'Firefox':
-                    driver = webdriver.Firefox()
-                case 'Safari':
-                    driver = webdriver.Safari()
-                case 'Edge':
-                    driver = webdriver.Edge()
+            if screenshot.driver == 'Chrome':                    driver = webdriver.Chrome()
+            elif screenshot.driver == 'Firefox':
+                driver = webdriver.Firefox()
+            elif screenshot.driver == 'Safari':
+                driver = webdriver.Safari()
+            elif screenshot.driver == 'Edge':
+                driver = webdriver.Edge()
 
             for url in urls:
 
-                match url.id:
+                if url.id ==  0:
+                    self.scroll_and_take_screenshot_monitoreo(screenshot, url, driver)
 
-                    case 0:
-                        self.scroll_and_take_screenshot_monitoreo(screenshot, url, driver)
+                elif url.id ==  1:
+                    self.scroll_and_take_screenshot(screenshot, url, driver)
 
-                    case 1:
-                        self.scroll_and_take_screenshot(screenshot, url, driver)
+                elif url.id ==  2:
+                    self.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=50)
 
-                    case 2:
-                        self.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=50)
+                elif url.id ==  3:
+                    self.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=70)
 
-                    case 3:
-                        self.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=70)
+                elif url.id ==  4:
+                    self.scroll_and_take_screenshot(screenshot, url, driver, zoom=80)
 
-                    case 4:
-                        self.scroll_and_take_screenshot(screenshot, url, driver, zoom=80)
+                elif url.id == 5:
+                    self.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=40)
 
-                    case 5:
-                        self.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=40)
+                elif url.id == 6:
+                    self.scroll_and_take_screenshot(screenshot, url, driver, zoom=75)
 
-                    case 6:
-                        self.scroll_and_take_screenshot(screenshot, url, driver, zoom=75)
-
-                    case _:
-                        self.scroll_and_take_screenshot(screenshot, url, driver)
+                else:
+                    self.scroll_and_take_screenshot(screenshot, url, driver)
                         # raise StopIteration
 
             driver.close()
@@ -217,15 +203,14 @@ class ScreenshotService(ScreenshotServiceInterface):
         try:
             driver = None
             url = screenshot.url
-            match screenshot.driver:
-                case 'Chrome':
-                    driver = webdriver.Chrome()
-                case 'Firefox':
-                    driver = webdriver.Firefox()
-                case 'Safari':
-                    driver = webdriver.Safari()
-                case 'Edge':
-                    driver = webdriver.Edge()
+            if screenshot.driver ==  'Chrome':
+                driver = webdriver.Chrome()
+            elif screenshot.driver ==  'Firefox':
+                driver = webdriver.Firefox()
+            elif screenshot.driver ==  'Safari':
+                driver = webdriver.Safari()
+            elif screenshot.driver ==  'Edge':
+                driver = webdriver.Edge()
 
             driver.maximize_window()
             driver.get(url)
@@ -235,8 +220,8 @@ class ScreenshotService(ScreenshotServiceInterface):
 
             for target in targets:
                 print(f'-------------------- {target.text} -----------------------')
-                match target.text:
-                    case 'INGRESAR':
+
+                if target.text == 'INGRESAR':
                         target.click()
                         new_target = Wait(driver, timeout=10).until(
                             ec.visibility_of_element_located((By.CSS_SELECTOR, ".btn-sports")))
@@ -251,7 +236,7 @@ class ScreenshotService(ScreenshotServiceInterface):
                             f"{datetime.now().strftime('%y%m%d')}.png")
 
                         break
-                    case 'REGISTRATE':
+                elif target.text == 'REGISTRATE':
                         # target.send_keys(Keys.ENTER)
                         # target.click()
                         break
