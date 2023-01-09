@@ -9,5 +9,13 @@ class AliraRepositoryInterface(ABC):
         super().__init__()
 
     @abstractmethod
-    def get_layouts_of_alira_page(self, alira: Alira):
+    def set_seo_parameters_per_page(self, alira: Alira):
+        return alira
+
+    @abstractmethod
+    def get_layouts(self, alira: Alira):
+        return alira
+
+    @abstractmethod
+    def set_page_url(self, alira: Alira):
         return alira

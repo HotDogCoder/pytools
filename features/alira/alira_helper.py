@@ -5,9 +5,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait as Wait
 
-from core.domain.models.url import Url
-from features.excel.excel_helper import ExcelHelper
-from features.excel.sheet import Sheet
+from core.util.debug.trace_helper import TraceHelper
+from core.util.excel.excel_helper import ExcelHelper
+from core.util.excel.sheet import Sheet
 
 
 class AliraHelper:
@@ -21,6 +21,7 @@ class AliraHelper:
         self.target_urls = target_urls
         self.table_page_total = table_page_total
         self.sheets = []
+        self.trace_helper = TraceHelper()
 
     def access_to_pages_tab(self):
         if self.reload is True:
@@ -95,12 +96,11 @@ class AliraHelper:
             print(f"-------- total pages: {self.table_page_total} ----------")
             try:
                 # for index in range(self.table_page_total):
-
-                table_paginator_next = self.driver.find_element(By.ID, "allPagesEditor_next") \
-                    .find_element(By.CSS_SELECTOR, "a")
-
                 if self.page > 1:
                     for thing in range(self.page - 1):
+                        table_paginator_next_container = Wait(self.driver, timeout=20).until(
+                            ec.visibility_of_element_located((By.ID, "allPagesEditor_next")))
+                        table_paginator_next = table_paginator_next_container.find_element(By.CSS_SELECTOR, "a")
                         table_paginator_next.click()
                         sleep(2)
 
@@ -124,18 +124,19 @@ class AliraHelper:
                             raise StopIteration
 
                         for target_url in target_urls:
-                            if target_url.url.strip() == tds[3].text.strip() and target_url.flag is True:
+                            target_url_str = target_url.url.strip()
+                            td_str = tds[3].text.strip()
+                            if target_url_str == td_str and target_url.flag is True:
+                                print(f"there is a match with some url : {target_url.url}")
                                 flag = True
+                                print("searching for popup menu button")
                                 new_tab_buttons = tr.find_elements(By.CSS_SELECTOR, "button")
-                                # print(f"-----------  TR : {new_tab_link} ------------")
-                                # action.key_down(Keys.CONTROL).click(new_tab_link).key_up(Keys.CONTROL).perform()
                                 new_tab_buttons[1].click()
                                 sleep(1)
+                                print("searching for link")
                                 new_tab_links = tr.find_elements(By.CSS_SELECTOR, "a")
-                                # print(f"-----------  TR : {new_tab_link} ------------")
-                                # action.key_down(Keys.CONTROL).click(new_tab_link).key_up(Keys.CONTROL).perform()
                                 new_tab_links[1].click()
-
+                                print("loading page link")
                                 sleep(5)
 
                                 target_buttons = self.driver.find_elements(By.CSS_SELECTOR, "button")
@@ -149,31 +150,28 @@ class AliraHelper:
                                 cancel_page_button = self.driver.find_element(By.ID, "cancelPage")
                                 cancel_page_button.click()
                                 sleep(5)
-
                                 target_url.flag = False
-                                # self.driver.switch_to.window(self.driver.window_handles[1])
+                                print(f"{target_url.url} was set it False")
+                                print(target_urls)
 
-                                # self.driver.switch_to.window(current_window)
-                                # sleep(5)
                     if flag is False:
                         self.page = self.page + 1
 
                 except (Exception, NoSuchElementException, StopIteration) as e:
-                    print(f"Error inside tbody tr : {e}")
+                    print(f"Error : {self.trace_helper.get_trace_str(e)}")
 
                 if self.page == self.table_page_total:
                     raise StopIteration
 
             except (NoSuchElementException, StopIteration) as e:
-                print(f"Error : {e}")
+                print(f"Error : {self.trace_helper.get_trace_str(e)}")
         else:
             table_input.clear()
             self.page = self.table_page_total
-            # raise StopIteration
             print("--------- no results -------------")
 
     def get_kwr(self, excel_path):
-        # data = excel_helper.df.at[0, "Propuesta"]
+
         sheets = [
             Sheet("Categorías", 0, [
                 "N1 Actual",
@@ -290,13 +288,8 @@ class AliraHelper:
         ]
 
         sheet_names = [sheets[i].name for i in range(len(sheets))]
-        # sheets = [k.name for k, v in sheet_names if v]
         excel_helper = ExcelHelper(path=excel_path, sheet_name=sheet_names)
-        # print(excel_helper.df.info())
-        # print(excel_helper.df["Categorías"].head(0))
         for sheet in sheets:
-            # print(f"------------ {sheet.name} ---------------")
-            # print(excel_helper.df[sheet.name].info())
             if len(sheet.columns) > 0:
                 number_of_rows = excel_helper.df[sheet.name].shape[0]
                 print(f"------ number_of_rows : {number_of_rows} -------")
@@ -304,12 +297,10 @@ class AliraHelper:
                     row = excel_helper.get_row(sheet.name, time)
                     row_data = excel_helper.get_row_values(row, sheet.columns)
                     sheet.rows.append(row_data)
-                    # print(row_data)
                 self.sheets.append(sheet)
 
     def get_sheet_data(self, index, field_index, prefix=[]):
         for row in self.sheets[index].rows:
-            # print(row)
             if row[field_index]['value'] != "" and row[field_index]['value'] != "-":
                 data_raw = row[field_index]['value']
                 if len(prefix) > 0:

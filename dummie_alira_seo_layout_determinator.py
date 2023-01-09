@@ -12,8 +12,7 @@ alira = Alira(
 )
 
 AC = AliraController()
-AS = AC.get_layouts_of_alira_page(alira=alira)
+AS = AC.set_seo_parameters_per_page(alira=alira)
 
 print('------------- termino -----------------')
 # print(AS.alira_helper.layouts)
-

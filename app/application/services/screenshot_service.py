@@ -154,7 +154,8 @@ class ScreenshotService(ScreenshotServiceInterface):
         try:
             driver = None
             # url = screenshot.url
-            if screenshot.driver == 'Chrome':                    driver = webdriver.Chrome()
+            if screenshot.driver == 'Chrome':
+                driver = webdriver.Chrome()
             elif screenshot.driver == 'Firefox':
                 driver = webdriver.Firefox()
             elif screenshot.driver == 'Safari':
@@ -164,19 +165,19 @@ class ScreenshotService(ScreenshotServiceInterface):
 
             for url in urls:
 
-                if url.id ==  0:
+                if url.id == 0:
                     self.scroll_and_take_screenshot_monitoreo(screenshot, url, driver)
 
-                elif url.id ==  1:
+                elif url.id == 1:
                     self.scroll_and_take_screenshot(screenshot, url, driver)
 
-                elif url.id ==  2:
+                elif url.id == 2:
                     self.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=50)
 
-                elif url.id ==  3:
+                elif url.id == 3:
                     self.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=70)
 
-                elif url.id ==  4:
+                elif url.id == 4:
                     self.scroll_and_take_screenshot(screenshot, url, driver, zoom=80)
 
                 elif url.id == 5:
@@ -188,6 +189,7 @@ class ScreenshotService(ScreenshotServiceInterface):
                 else:
                     self.scroll_and_take_screenshot(screenshot, url, driver)
                         # raise StopIteration
+                    pass
 
             driver.close()
             print('-------------------- finished -----------------------')
