@@ -1,0 +1,17 @@
+# PyCharm settings
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# PyCharm generated files
+out/
+*.pyc
+*.pyo
+
+# PyCharm local history
+.idea_modules/
+
+# PyCharm virtualenv
+.idea_virtualenvs/
+venv/
