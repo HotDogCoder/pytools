@@ -12,6 +12,7 @@ from app.application.services_interfaces.screenshot_service_interface import Scr
 from app.domain.models.screenshot import Screenshot
 from core.domain.models.url import Url as UrlModel
 from app.infrastructure.repositories.screenshot_repository import ScreenshotRepository
+from features.screenshot.screenshot_helper import ScreenshotHelper
 
 
 class ScreenshotService(ScreenshotServiceInterface):
@@ -19,127 +20,6 @@ class ScreenshotService(ScreenshotServiceInterface):
     def __init__(self):
         super().__init__()
         self.screenshot_repository = ScreenshotRepository()
-
-    @staticmethod
-    def scroll_and_take_screenshot(screenshot: Screenshot, url, driver, target_iterations=None, zoom=None):
-
-        tz = pytz.timezone('America/Bogota')
-        directory_name = datetime.now(tz).strftime('%Y%m%d%H%M%S')
-        driver.maximize_window()
-        driver.get(url.url)
-
-        targets = driver.find_elements(By.CSS_SELECTOR, ".react-grid-item")
-
-        target = driver.find_element(By.CSS_SELECTOR, '.react-grid-layout')
-        target_height = target.get_attribute('style')
-        target_arr = target_height.split(' ')
-        target_string = target_arr[1]
-        target_string = target_string.strip()
-        target_string = target_string.replace('}', '')
-        target_string = target_string.replace("'", '')
-        target_string = target_string.replace("px", '')
-        target_string = target_string.replace(";", '')
-        target_height_value = int(target_string)
-
-        print(f'----------- number of chars : {len(targets)} ----------------')
-        size = driver.get_window_size()
-        target_height_clear = size.get('height') - 163 - 30 - 64 - 130
-
-        if target_iterations is None:
-            target_iterations = math.floor(target_height_value / target_height_clear)
-
-        print(f"----------- screen height :{size.get('height')} ----------------")
-        print(f"----------- scroll tag height : {target_string} ----------------")
-
-        scrollHeight = driver.execute_script(
-            f"var scroll_targets = document.querySelectorAll('.scrollbar-view');"
-            f"var scroll_target = scroll_targets[1];"
-
-        )
-        if zoom is not None:
-            """
-            // Get the height of the document
-            var scrollHeight = document.body.scrollHeight;
-
-            // Get the height of the viewable area
-            var clientHeight = document.documentElement.clientHeight;
-
-            // Get the current scroll position
-            var scrollTop = window.pageYOffset;
-
-            // Calculate the maximum number of scrolls
-            var maxScrolls = Math.ceil( (scrollHeight - clientHeight) / scrollTop);
-            """
-            driver.execute_script(f"document.body.style.zoom='{zoom}%'")
-
-        scroll_pause_time = 10
-
-        sleep(scroll_pause_time)
-
-        print(f"----------- scroll tag iterations : {target_iterations} ----------------")
-
-        current_directory = os.getcwd()
-
-        driver.save_screenshot(
-            f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-            f"{datetime.now().strftime('%y%m%d')}_0_{url.id}_{directory_name}.png")
-
-        screenshot.image_list.append(
-            f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-            f"{datetime.now().strftime('%y%m%d')}_0_{url.id}_{directory_name}.png")
-
-        sleep(5)
-
-        for x in range(target_iterations):
-            driver.execute_script(f"var scroll_targets = document.querySelectorAll('.scrollbar-view');"
-                                  f"var scroll_target = scroll_targets[1];"
-                                  f"scroll_target.scrollTo(0, {target_height_clear * (x + 1)});")
-
-            sleep(5)
-
-            driver.implicitly_wait(100)
-
-            driver.save_screenshot(
-                f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-                f"{datetime.now().strftime('%y%m%d')}_{x + 1}_{url.id}.png")
-
-            screenshot.image_list.append(
-                f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-                f"{datetime.now().strftime('%y%m%d')}_{x + 1}_{url.id}.png")
-
-    @staticmethod
-    def scroll_and_take_screenshot_monitoreo(screenshot: Screenshot, url, driver):
-
-        tz = pytz.timezone('America/Bogota')
-        directory_name = datetime.now(tz).strftime('%Y%m%d%H%M%S')
-
-        driver.maximize_window()
-        driver.get(url.url)
-
-        scroll_pause_time = 10
-
-        target = driver.find_element(By.CSS_SELECTOR, 'html')
-
-        size = driver.get_window_size()
-        target_height_clear = size.get('height') - 163 - 30 - 64 - 130
-        target_height_value = driver.execute_script("return document.querySelector('html').scrollHeight")
-        target_iterations = math.floor(target_height_value / target_height_clear)
-
-        print(f"----------- screen height :{size.get('height')} ----------------")
-        print(f"----------- scroll tag height : {target_height_value} ----------------")
-
-        sleep(scroll_pause_time)
-        print(f"----------- scroll tag iterations : {target_iterations} ----------------")
-
-        current_directory = os.getcwd()
-
-        driver.save_screenshot(
-            f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-            f"{datetime.now().strftime('%y%m%d')}_0_{url.id}_{directory_name}.png")
-
-        screenshot.image_list.append(
-            f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-            f"{datetime.now().strftime('%y%m%d')}_0_{url.id}_{directory_name}.png")
 
     def take_screenshot_of_servers_status_1(self, screenshot: Screenshot):
 
@@ -165,31 +45,39 @@ class ScreenshotService(ScreenshotServiceInterface):
             elif screenshot.driver == 'Edge':
                 driver = webdriver.Edge()
 
+            screenshot_helper = ScreenshotHelper()
+
             for url in urls:
 
                 if url.id == 0:
-                    self.scroll_and_take_screenshot_monitoreo(screenshot, url, driver)
+                    screenshot_helper.scroll_and_take_screenshot_monitoreo(screenshot, url, driver, zoom=50)
 
                 elif url.id == 1:
-                    self.scroll_and_take_screenshot(screenshot, url, driver)
+                    print("1")
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, zoom=50)
 
                 elif url.id == 2:
-                    self.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=50)
+                    print("2")
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=30)
 
                 elif url.id == 3:
-                    self.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=70)
+                    print("3")
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=35)
 
                 elif url.id == 4:
-                    self.scroll_and_take_screenshot(screenshot, url, driver, zoom=80)
+                    print("4")
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, zoom=40)
 
                 elif url.id == 5:
-                    self.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=40)
+                    print("5")
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=20)
 
                 elif url.id == 6:
-                    self.scroll_and_take_screenshot(screenshot, url, driver, zoom=75)
+                    print("6")
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, zoom=38)
 
                 else:
-                    self.scroll_and_take_screenshot(screenshot, url, driver)
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver)
                     pass
 
             driver.close()
