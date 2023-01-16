@@ -1,0 +1,274 @@
+{
+  "id": "5d6dafbd-a522-4eab-86ec-9f322651b8f8",
+  "version": "2.0",
+  "name": "Automatización",
+  "url": "https://atlanticcity.pre.tecnalis.com/",
+  "tests": [{
+    "id": "6ef02783-59a2-4bed-b791-722003adddcc",
+    "name": "Login ingreso Unhappy",
+    "commands": [{
+      "id": "153cd7c2-931a-4b81-8c22-cc6179e34e4a",
+      "comment": "",
+      "command": "open",
+      "target": "https://atlanticcity.pre.tecnalis.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cb2bdeb0-a0a4-4126-8c74-b7d68c578d6c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1065x817",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "412e6169-13a4-4e53-ba7e-1a1b9cd70edd",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=INGRESAR",
+      "targets": [
+        ["linkText=INGRESAR", "linkText"],
+        ["css=.ml-2", "css:finder"],
+        ["xpath=//a[contains(text(),'INGRESAR')]", "xpath:link"],
+        ["xpath=//a[@onclick='mpu(\"/mpu-sorteoLandingDondeVamos\")']", "xpath:attributes"],
+        ["xpath=//div[2]/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'INGRESAR')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e17861dc-7b15-4842-9348-99951b28b18c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.d-xl-block > .btn-casino",
+      "targets": [
+        ["css=.d-xl-block > .btn-casino", "css:finder"],
+        ["xpath=//button[@onclick='goCasino()']", "xpath:attributes"],
+        ["xpath=//div[@id='popupContent']/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'IR A CASINO')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bfd549ad-29e9-4751-a9c7-5ef5080de433",
+      "comment": "",
+      "command": "type",
+      "target": "id=username_aside",
+      "targets": [
+        ["id=username_aside", "id"],
+        ["name=username", "name"],
+        ["css=#username_aside", "css:finder"],
+        ["xpath=//input[@id='username_aside']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm_aside']/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Testjordan02"
+    }, {
+      "id": "730a84d1-b546-42fc-a743-ffc390a3aaba",
+      "comment": "",
+      "command": "type",
+      "target": "id=password_aside",
+      "targets": [
+        ["id=password_aside", "id"],
+        ["name=password", "name"],
+        ["css=#password_aside", "css:finder"],
+        ["xpath=//input[@id='password_aside']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm_aside']/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "Testjordan02"
+    }, {
+      "id": "ba97ba8d-54cc-4f6f-b2ba-c429133c571b",
+      "comment": "",
+      "command": "click",
+      "target": "css=html",
+      "targets": [
+        ["css=html", "css:finder"],
+        ["xpath=//html", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "478a5bb7-e04e-4828-a26b-7f529c27f27e",
+      "comment": "",
+      "command": "type",
+      "target": "id=username_aside",
+      "targets": [
+        ["id=username_aside", "id"],
+        ["name=username", "name"],
+        ["css=#username_aside", "css:finder"],
+        ["xpath=//input[@id='username_aside']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm_aside']/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4f8bd025-6eaa-45d1-b77a-b57e74f32f4a",
+      "comment": "",
+      "command": "click",
+      "target": "id=password_aside",
+      "targets": [
+        ["id=password_aside", "id"],
+        ["name=password", "name"],
+        ["css=#password_aside", "css:finder"],
+        ["xpath=//input[@id='password_aside']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm_aside']/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8c98559f-c0ae-44f3-be04-9f6f2372a45f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.clear-scroll",
+      "targets": [
+        ["css=.clear-scroll", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4bc37e33-792f-4ba1-8924-ae26f87fdede",
+      "comment": "",
+      "command": "type",
+      "target": "id=password_aside",
+      "targets": [
+        ["id=password_aside", "id"],
+        ["name=password", "name"],
+        ["css=#password_aside", "css:finder"],
+        ["xpath=//input[@id='password_aside']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm_aside']/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8c5074cf-bbcd-4b2c-a8c7-10f43ae0b568",
+      "comment": "",
+      "command": "click",
+      "target": "css=#loginForm_aside > .a-col-xs-12:nth-child(2)",
+      "targets": [
+        ["css=#loginForm_aside > .a-col-xs-12:nth-child(2)", "css:finder"],
+        ["xpath=//form[@id='loginForm_aside']/div[2]", "xpath:idRelative"],
+        ["xpath=//form/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fb953765-289c-4dbe-a23f-13b7767d3d7f",
+      "comment": "",
+      "command": "click",
+      "target": "id=login_button_aside",
+      "targets": [
+        ["id=login_button_aside", "id"],
+        ["name=login_button", "name"],
+        ["css=#login_button_aside", "css:finder"],
+        ["xpath=//button[@id='login_button_aside']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm_aside']/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "8259193d-6a55-4060-80bd-cb3395cb70e3",
+    "name": "Login ingreso Happy",
+    "commands": [{
+      "id": "301077e7-d500-4a93-9fad-f7707306d979",
+      "comment": "",
+      "command": "open",
+      "target": "https://atlanticcity.pre.tecnalis.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bb505825-1cd3-46e0-9bf3-e392f0731911",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1065x817",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c2c249b4-2318-41da-bc37-fc4f7b3103ba",
+      "comment": "",
+      "command": "click",
+      "target": "css=.d-xl-block > .btn-casino",
+      "targets": [
+        ["css=.d-xl-block > .btn-casino", "css:finder"],
+        ["xpath=//button[@onclick='goCasino()']", "xpath:attributes"],
+        ["xpath=//div[@id='popupContent']/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'IR A CASINO')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a8a801ef-a7ba-4796-b26e-6c73d14af593",
+      "comment": "",
+      "command": "type",
+      "target": "id=username_aside",
+      "targets": [
+        ["id=username_aside", "id"],
+        ["name=username", "name"],
+        ["css=#username_aside", "css:finder"],
+        ["xpath=//input[@id='username_aside']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm_aside']/div/div/div/div/input", "xpath:idRelative"],
+        ["xpath=//div/div/input", "xpath:position"]
+      ],
+      "value": "Testjordan01"
+    }, {
+      "id": "f4b0c3ba-ebe2-4f23-ade2-151062d799f8",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=INGRESAR",
+      "targets": [
+        ["linkText=INGRESAR", "linkText"],
+        ["css=.ml-2", "css:finder"],
+        ["xpath=//a[contains(text(),'INGRESAR')]", "xpath:link"],
+        ["xpath=//a[@onclick='mpu(\"/mpu-sorteoLandingDondeVamos\")']", "xpath:attributes"],
+        ["xpath=//div[2]/a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'INGRESAR')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "622a314c-214a-4bf2-9939-c2f9fd8fbac5",
+      "comment": "",
+      "command": "type",
+      "target": "id=password_aside",
+      "targets": [
+        ["id=password_aside", "id"],
+        ["name=password", "name"],
+        ["css=#password_aside", "css:finder"],
+        ["xpath=//input[@id='password_aside']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm_aside']/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "Testjordan01"
+    }, {
+      "id": "a9af93d7-2d28-488f-b9d5-f2e628bbe12d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.clear-scroll",
+      "targets": [
+        ["css=.clear-scroll", "css:finder"],
+        ["xpath=//body", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e8aa51ce-3e58-467f-b39a-bdcdb0d2c114",
+      "comment": "",
+      "command": "click",
+      "target": "id=login_button_aside",
+      "targets": [
+        ["id=login_button_aside", "id"],
+        ["name=login_button", "name"],
+        ["css=#login_button_aside", "css:finder"],
+        ["xpath=//button[@id='login_button_aside']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm_aside']/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "13ac9b43-45d4-4792-8d04-7cf15fec38cf",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["8259193d-6a55-4060-80bd-cb3395cb70e3", "6ef02783-59a2-4bed-b791-722003adddcc"]
+  }],
+  "urls": ["https://atlanticcity.pre.tecnalis.com/"],
+  "plugins": []
+}
