@@ -1,0 +1,1367 @@
+{
+  "id": "46e47f03-a1c1-4aae-864b-215dfbf82933",
+  "version": "2.0",
+  "name": "end2end",
+  "url": "https://atlanticcity.pre.tecnalis.com/canjea-tus-puntos",
+  "tests": [{
+    "id": "54416b0a-e388-480a-a91c-4712aa3311b5",
+    "name": "Inicio Sesión",
+    "commands": [{
+      "id": "56fc6276-88d1-4824-92b6-2461fc7d6447",
+      "comment": "",
+      "command": "open",
+      "target": "https://atlantic:viQ%5B3UJ*Rk*Q1zC@atlanticcity.pre.tecnalis.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "16766b49-e69c-4213-94d6-23119e035a82",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5ee109aa-f52d-4351-8879-20c06386e734",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=INGRESAR",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "931c0853-a437-4f86-a597-c6e2be7ccd91",
+      "comment": "",
+      "command": "click",
+      "target": "css=.d-xl-block > .btn-casino",
+      "targets": [
+        ["css=.d-xl-block > .btn-casino", "css:finder"],
+        ["xpath=//button[@onclick='goCasino()']", "xpath:attributes"],
+        ["xpath=//div[@id='popupContent']/div/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'IR A CASINO')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "67e28445-6a83-4f10-9883-64e4025a5e9d",
+      "comment": "",
+      "command": "//click",
+      "target": "css=.lista-botones > .a-button-primary",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dfe13ccc-52e5-42c5-b478-495d68e04f1e",
+      "comment": "",
+      "command": "type",
+      "target": "id=username_aside",
+      "targets": [],
+      "value": "PruebasFide3"
+    }, {
+      "id": "27043f52-2cc2-41ed-8fa0-8bc3a1568a6e",
+      "comment": "",
+      "command": "type",
+      "target": "id=password_aside",
+      "targets": [
+        ["id=password_aside", "id"],
+        ["name=password", "name"],
+        ["css=#password_aside", "css:finder"],
+        ["xpath=//input[@id='password_aside']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm_aside']/div/div[2]/div/div/input", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/input", "xpath:position"]
+      ],
+      "value": "Fide2021"
+    }, {
+      "id": "086ffb12-2c98-4b7e-8899-413659b6d2cc",
+      "comment": "",
+      "command": "click",
+      "target": "id=ojoLogin",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d9a37b2c-e62b-44a6-a8f8-6287b53c0327",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.close-icon:nth-child(1)",
+      "targets": [
+        ["css=.close-icon:nth-child(1)", "css:finder"],
+        ["xpath=//div[@onclick=\"openCloseMenu('right')\"]", "xpath:attributes"],
+        ["xpath=//aside[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "015c176d-fd74-4d5e-9ff9-c74a511dad42",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "linkText=CREAR CUENTA",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d23995e8-eb9b-4383-8f43-92b2740a7f2f",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "linkText=¿OLVIDÓ SU CONTRASEÑA?",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "81dd3b75-648c-4ff2-aef7-073bd4c2bdd6",
+      "comment": "",
+      "command": "//click",
+      "target": "css=.lista-botones > .a-button-primary",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e97f4f70-5f68-42fd-a83d-fe87891c5d58",
+      "comment": "",
+      "command": "check",
+      "target": "id=recordar_pass",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "780fb9b9-9226-4328-86bf-b7e58aa05e7e",
+      "comment": "",
+      "command": "click",
+      "target": "id=login_button_aside",
+      "targets": [
+        ["id=login_button_aside", "id"],
+        ["name=login_button", "name"],
+        ["css=#login_button_aside", "css:finder"],
+        ["xpath=//button[@id='login_button_aside']", "xpath:attributes"],
+        ["xpath=//form[@id='loginForm_aside']/div[2]/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "d589f119-0e82-4a9a-a09d-a535cb1a4b2e",
+    "name": "Detalle producto",
+    "commands": [{
+      "id": "5a2da9bc-78a5-4e81-86c1-6e9eca41a6cb",
+      "comment": "",
+      "command": "open",
+      "target": "https://atlanticcity.pre.tecnalis.com/casino-online",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "03af0d5f-44e9-4ed2-a13c-279de0c1819f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e577b553-d618-40d2-a0f8-61b753701395",
+      "comment": "",
+      "command": "click",
+      "target": "css=.material-icons-round",
+      "targets": [
+        ["css=.material-icons-round", "css:finder"],
+        ["xpath=//span", "xpath:position"],
+        ["xpath=//span[contains(.,'menu')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "57274043-8e1e-47e4-a0e0-f84747218bf1",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(5) > #atlanticCityClubLeft-js",
+      "targets": [
+        ["css=li:nth-child(5) > #atlanticCityClubLeft-js", "css:finder"],
+        ["xpath=(//a[@id='atlanticCityClubLeft-js'])[2]", "xpath:attributes"],
+        ["xpath=(//a[contains(@href, 'javascript:void(0);')])[4]", "xpath:href"],
+        ["xpath=//aside/ul/li[5]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "407defc0-6f89-44fb-80eb-507e85f25162",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=CANJE DE PUNTOS",
+      "targets": [
+        ["linkText=CANJE DE PUNTOS", "linkText"],
+        ["css=li:nth-child(2) > .n-padding-left-28px", "css:finder"],
+        ["xpath=//a[contains(text(),'CANJE DE PUNTOS')]", "xpath:link"],
+        ["xpath=(//ul[@id='atlanticClubSubmenu']/li[2]/a)[2]", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/canjea-tus-puntos')]", "xpath:href"],
+        ["xpath=//li[4]/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'CANJE DE PUNTOS')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "673f9b88-0dc4-4585-b6ed-13dc1fde3b54",
+      "comment": "",
+      "command": "click",
+      "target": "css=.direccion-ubicacion",
+      "targets": [
+        ["css=.direccion-ubicacion", "css:finder"],
+        ["xpath=//a/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bbb91179-ea23-458f-9b7a-f91504c88afd",
+      "comment": "",
+      "command": "click",
+      "target": "id=DireccionID_99958",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c1924f32-8936-44ed-afd7-682d1c895c2f",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "linkText=VOLVER",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2de1e3c2-812f-45bd-993f-bdc4d70e60ca",
+      "comment": "",
+      "command": "open",
+      "target": "https://atlanticcity.pre.tecnalis.com/ver-detalle-de-producto/?detalle-producto=126",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "ec79ca30-af85-4b8e-a8b8-c6cf9afaaccc",
+    "name": "Cerrar Sesión",
+    "commands": [{
+      "id": "f6e0113e-3609-43e5-af72-c4b6b3eb94ec",
+      "comment": "",
+      "command": "open",
+      "target": "https://atlanticcity.pre.tecnalis.com/casino-online",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8a774525-ee1e-4b4c-a850-e59a35425168",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f8ff8269-4a1e-475e-bd7b-16864a9fd311",
+      "comment": "",
+      "command": "click",
+      "target": "css=.a-button-secondary--dark:nth-child(3)",
+      "targets": [
+        ["css=.a-button-secondary--dark:nth-child(3)", "css:finder"],
+        ["xpath=//a[@onclick=\"openCloseMenu('right')\"]", "xpath:attributes"],
+        ["xpath=(//a[contains(@href, 'javascript:void(0);')])[2]", "xpath:href"],
+        ["xpath=//div[2]/div/a[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d6e69a1f-ff14-4ef0-a5f1-1c452e4aedfd",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "css=.info-montos",
+      "targets": [
+        ["css=.info-montos", "css:finder"],
+        ["xpath=//aside[2]/div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9d65d547-2ba5-4764-af3e-cea10e884d5c",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "linkText=DEPOSITAR",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0ae3a665-db3f-47b4-a0fc-e9a1b1d6de42",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "linkText=SALDOS  Y  RETIROS",
+      "targets": [
+        ["linkText=SALDOS  Y  RETIROS", "linkText"],
+        ["css=.gtm--micuentasaldo", "css:finder"],
+        ["xpath=//a[contains(text(),'SALDOS  Y  RETIROS')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/casino-online/members/bonos-y-balances.html')]", "xpath:href"],
+        ["xpath=//aside[2]/ul/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'SALDOS  Y  RETIROS')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "94a0fe6b-1a8d-44e1-9d55-57a4797b6cf5",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "linkText=PERFIL",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "48dad1e9-c5e3-49da-be19-18d273c4820e",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "linkText=CONTRASEÑA",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cc9c1f38-dbe4-4085-a9c3-8e23d7b25fb0",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "linkText=HISTORIAL",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1824773e-b986-40d5-ba23-b8a84f9ab583",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=CERRAR SESIÓN",
+      "targets": [
+        ["linkText=CERRAR SESIÓN", "linkText"],
+        ["css=.gtm--btn--cerrarSesion--menulateral", "css:finder"],
+        ["xpath=//a[contains(text(),'CERRAR SESIÓN')]", "xpath:link"],
+        ["xpath=//a[@onclick='lastSessionInfo()']", "xpath:attributes"],
+        ["xpath=(//a[contains(@href, 'javascript:void(0);')])[5]", "xpath:href"],
+        ["xpath=//aside[2]/div[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'CERRAR SESIÓN')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e611935e-745d-4f05-a397-02ec7b4f11ee",
+      "comment": "",
+      "command": "verifyElementPresent",
+      "target": "linkText=INGRESAR",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "d04d2988-a271-4f8a-bf30-84bbcfc3b6dd",
+    "name": "Canje producto P",
+    "commands": [{
+      "id": "adda2ddc-310f-482c-be26-324d589a0860",
+      "comment": "",
+      "command": "open",
+      "target": "https://atlanticcity.pre.tecnalis.com/ver-detalle-de-producto/?detalle-producto=112",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "373571bb-c99d-4823-96bf-186911c93b85",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4d58fb7f-1d9e-4c5e-9241-30724c85f24b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-plus",
+      "targets": [
+        ["css=.button-plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ec296f0b-9d49-4fbb-8c13-8ac7333a3253",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-minus",
+      "targets": [
+        ["css=.button-minus", "css:finder"],
+        ["xpath=//input[@value='-']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "72cda6ba-e01a-4c2a-8cec-d5d2d76c644b",
+      "comment": "",
+      "command": "check",
+      "target": "id=check0",
+      "targets": [
+        ["css=.m-group:nth-child(3) span", "css:finder"],
+        ["xpath=//div[3]/div/label/span", "xpath:position"],
+        ["xpath=//span[contains(.,'sin lechuga')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "553ee74a-9aca-4398-be6a-d45ef8e2ed0b",
+      "comment": "",
+      "command": "check",
+      "target": "id=radiob1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "31240e88-6777-4734-b465-45b79d772b37",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnagregar",
+      "targets": [
+        ["id=btnagregar", "id"],
+        ["css=.col-xl-12 #btnagregar", "css:finder"],
+        ["xpath=//button[@id='btnagregar']", "xpath:attributes"],
+        ["xpath=//div[7]/div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ee2d95f4-4332-494c-b344-2df4b76a295c",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,201)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b8e52a74-a892-466b-9275-f1143d66f331",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=IR AL CARRITO",
+      "targets": [
+        ["linkText=IR AL CARRITO", "linkText"],
+        ["css=.btn2", "css:finder"],
+        ["xpath=//a[contains(text(),'IR AL CARRITO')]", "xpath:link"],
+        ["xpath=//div[@id='popupContent']/div/div/div[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/carrito-de-compras')]", "xpath:href"],
+        ["xpath=//div/div[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'IR AL CARRITO')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2a694ac7-cd0b-4f1a-ad77-8eb0a05c2f7e",
+      "comment": "",
+      "command": "open",
+      "target": "https://atlanticcity.pre.tecnalis.com/carrito-de-compras",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a8a78c2a-54ea-4d81-b4fc-43b4c25388c6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-1-confirma",
+      "targets": [
+        ["css=.btn-1-confirma", "css:finder"],
+        ["xpath=//a[contains(text(),'Continuar')]", "xpath:link"],
+        ["xpath=//a[@onclick='confirmaCanje1()']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, '#subirtop')]", "xpath:href"],
+        ["xpath=//div[4]/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "254c0a98-2dfe-4aa8-bd1e-01c8d406b556",
+      "comment": "",
+      "command": "//click",
+      "target": "css=.button-plus",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "74175bfa-3914-4558-b06c-b42e8efae1a0",
+      "comment": "",
+      "command": "//click",
+      "target": "css=.button-minus",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "cfe1b50d-8564-4d32-bd32-d67d919c2b22",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-2-confirma",
+      "targets": [
+        ["css=.btn-2-confirma", "css:finder"],
+        ["xpath=//a[contains(text(),'Canjear')]", "xpath:link"],
+        ["xpath=//a[@onclick='confirmaCanje2()']", "xpath:attributes"],
+        ["xpath=//div[4]/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6a463f2e-e190-4e26-b960-75981d969cc4",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "185b6e81-8a1c-40d9-aa0a-24236d1e2171",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=IR AL HISTORIAL DE PEDIDOS",
+      "targets": [
+        ["linkText=IR AL HISTORIAL DE PEDIDOS", "linkText"],
+        ["css=.btn1", "css:finder"],
+        ["xpath=//a[contains(text(),'IR AL HISTORIAL DE PEDIDOS')]", "xpath:link"],
+        ["xpath=//div[@id='popupContent']/div/div/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/historial-detalle-de-pedidos')]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'IR AL HISTORIAL DE PEDIDOS')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b0b12fcb-9397-4a50-a890-158f23fd2d13",
+      "comment": "",
+      "command": "open",
+      "target": "https://atlanticcity.pre.tecnalis.com/historial-detalle-de-pedidos",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8db073c0-52a1-4440-b1c8-7f188e66f890",
+      "comment": "",
+      "command": "click",
+      "target": "css=.acc-toggler-titulo > .flex-grow-1",
+      "targets": [
+        ["css=.acc-toggler-titulo > .flex-grow-1", "css:finder"],
+        ["xpath=//div[@id='tab1']/article/div/div", "xpath:idRelative"],
+        ["xpath=//article/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8632f8bf-8f8a-4e6d-96dd-ac58c7bfc0cd",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-12 > .n-pedido",
+      "targets": [
+        ["css=.col-12 > .n-pedido", "css:finder"],
+        ["xpath=//div[@id='card-pedido-41050']/div/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/div/div/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5cb268ea-5492-4f82-a135-06e8494e3403",
+      "comment": "",
+      "command": "click",
+      "target": "css=.p-2",
+      "targets": [
+        ["css=.p-2", "css:finder"],
+        ["xpath=//button[@onclick='btnVerMasDetalle(1711)']", "xpath:attributes"],
+        ["xpath=//div[@id='card-pedido-41050']/div[4]/div/button", "xpath:idRelative"],
+        ["xpath=//div[4]/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "120130c5-c1eb-49a8-809c-26a44ca2e6d4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.p-2",
+      "targets": [
+        ["css=.p-2", "css:finder"],
+        ["xpath=//button[@onclick='btnVerMasDetalle(1711)']", "xpath:attributes"],
+        ["xpath=//div[@id='card-pedido-41050']/div[4]/div/button", "xpath:idRelative"],
+        ["xpath=//div[4]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'MENOS DETALLE')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a7f3f8f6-d6e1-47f5-b2fe-8610de314089",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Completados",
+      "targets": [
+        ["linkText=Completados", "linkText"],
+        ["css=.flex-fill:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Completados')]", "xpath:link"],
+        ["xpath=//ul[@id='tab-wrapper']/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#tab2')]", "xpath:href"],
+        ["xpath=//div/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Completados')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "6b2475a2-9871-4268-ab5a-266541de182d",
+    "name": "Canje Efectivo",
+    "commands": [{
+      "id": "b647473b-a2a8-4004-8f6c-8268f2aff5b2",
+      "comment": "",
+      "command": "open",
+      "target": "https://atlanticcity.pre.tecnalis.com/canjea-tus-puntos",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6c664a5f-bcc5-403d-87bc-7b9e655d638f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "371b4ab8-1051-459e-a372-f47ac57a2aee",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Efectivo",
+      "targets": [
+        ["linkText=Efectivo", "linkText"],
+        ["css=.flex-fill:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Efectivo')]", "xpath:link"],
+        ["xpath=//ul[@id='tab-wrapper']/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#tab3')]", "xpath:href"],
+        ["xpath=//div/ul/li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Efectivo')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "76fb7de7-f8d6-4637-9f4a-4ae9e2e3afff",
+      "comment": "",
+      "command": "click",
+      "target": "css=.disponible:nth-child(2) .checkmark",
+      "targets": [
+        ["css=.disponible:nth-child(2) .checkmark", "css:finder"],
+        ["xpath=//table[@id='tabla-efectivo']/tbody/tr[2]/td/label/span", "xpath:idRelative"],
+        ["xpath=//label/span", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "330e03ae-9cf0-4f26-bb16-d20dbaf16962",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-add-efectivo",
+      "targets": [
+        ["css=.btn-add-efectivo", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='tab3']/div[4]/div/button", "xpath:idRelative"],
+        ["xpath=//div[4]/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7fab2c9-341f-4856-9715-1e17494aa369",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fdd4242a-6d42-427c-ba0b-2d7130bfa524",
+      "comment": "",
+      "command": "click",
+      "target": "id=click-btn2-efectivo",
+      "targets": [
+        ["id=click-btn2-efectivo", "id"],
+        ["linkText=IR AL CARRITO", "linkText"],
+        ["css=#click-btn2-efectivo", "css:finder"],
+        ["xpath=//a[contains(text(),'IR AL CARRITO')]", "xpath:link"],
+        ["xpath=//a[@id='click-btn2-efectivo']", "xpath:attributes"],
+        ["xpath=//div[@id='popupContent']/div/div/div[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/carrito-de-compras')]", "xpath:href"],
+        ["xpath=//div[4]/div/div/div/div/div[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'IR AL CARRITO')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8c104c5b-4722-4b4e-917c-bc0b195c0290",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-2-confirma",
+      "targets": [
+        ["css=.btn-2-confirma", "css:finder"],
+        ["xpath=//a[contains(text(),'Continuar')]", "xpath:link"],
+        ["xpath=//a[@onclick='confirmaCanje1()']", "xpath:attributes"],
+        ["xpath=//div[4]/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a9f896fc-3c77-44ba-b2c6-af039c328618",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-2-confirma",
+      "targets": [
+        ["css=.btn-2-confirma", "css:finder"],
+        ["xpath=//a[contains(text(),'Canjear')]", "xpath:link"],
+        ["xpath=//a[@onclick='confirmaCanje2()']", "xpath:attributes"],
+        ["xpath=//div[4]/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "851be8d9-7087-4a6a-a006-feae156ae1f1",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "635c77f2-dfba-44c4-8ba4-b54b51173290",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=IR AL HISTORIAL DE PEDIDOS",
+      "targets": [
+        ["linkText=IR AL HISTORIAL DE MIS PEDIDOS", "linkText"],
+        ["css=.btn1", "css:finder"],
+        ["xpath=//a[contains(text(),'IR AL HISTORIAL DE MIS PEDIDOS')]", "xpath:link"],
+        ["xpath=//div[@id='popupContent']/div/div/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/historial-detalle-de-pedidos')]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'IR AL HISTORIAL DE MIS PEDIDOS')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "26ab35c3-bb1b-458d-8c3f-45d6481bd122",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Completados",
+      "targets": [
+        ["linkText=Completados", "linkText"],
+        ["css=.flex-fill:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Completados')]", "xpath:link"],
+        ["xpath=//ul[@id='tab-wrapper']/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#tab2')]", "xpath:href"],
+        ["xpath=//div/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Completados')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "015bc6c9-aa8c-42bd-a1cd-c779e3192161",
+      "comment": "",
+      "command": "click",
+      "target": "css=.articulo-4446 > .acc-toggler-titulo > .flex-grow-1",
+      "targets": [
+        ["css=.articulo-4446 > .acc-toggler-titulo > .flex-grow-1", "css:finder"],
+        ["xpath=//div[@id='tab2']/div[2]/article/div/div", "xpath:idRelative"],
+        ["xpath=//div[2]/article/div/div", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "61bde71b-7087-4f8b-9045-eda3322bbf44",
+    "name": "Canje Efectivo-Producto P",
+    "commands": [{
+      "id": "e8827759-e549-4552-b082-89abd4518b5f",
+      "comment": "",
+      "command": "open",
+      "target": "https://atlanticcity.pre.tecnalis.com/ver-detalle-de-producto/?detalle-producto=112",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "55a7e513-414e-47aa-99ae-d345f2ac74d8",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f6810be2-3ca8-4a03-9ae3-781fb92cd491",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-plus",
+      "targets": [
+        ["css=.button-plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "82c839c2-b9cb-4509-8bb4-7889e2e27064",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-minus",
+      "targets": [
+        ["css=.button-minus", "css:finder"],
+        ["xpath=//input[@value='-']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b58cc0b4-1012-4105-a773-e347feb423a5",
+      "comment": "",
+      "command": "check",
+      "target": "id=check0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b480607c-d655-48e8-af8f-9ee0f8764ca2",
+      "comment": "",
+      "command": "check",
+      "target": "id=radiob1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f9f0fc34-5049-428f-a088-00e0d3864e05",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnagregar",
+      "targets": [
+        ["id=btnagregar", "id"],
+        ["css=.col-xl-12 #btnagregar", "css:finder"],
+        ["xpath=//button[@id='btnagregar']", "xpath:attributes"],
+        ["xpath=//div[7]/div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5c1ce467-79bc-4601-a5ff-606ccce5b1eb",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,201)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "14e65fe0-f61c-4c0b-8472-e242b0e3f314",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=SEGUIR CANJEANDO",
+      "targets": [
+        ["linkText=IR AL CARRITO", "linkText"],
+        ["css=.btn2", "css:finder"],
+        ["xpath=//a[contains(text(),'IR AL CARRITO')]", "xpath:link"],
+        ["xpath=//div[@id='popupContent']/div/div/div[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/carrito-de-compras')]", "xpath:href"],
+        ["xpath=//div/div[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'IR AL CARRITO')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e88b43ec-b257-405b-bfc0-e4be858e3856",
+      "comment": "",
+      "command": "//open",
+      "target": "https://atlanticcity.pre.tecnalis.com/canjea-tus-puntos",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1f7ce726-8662-4376-ac95-86ebb078c82b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Efectivo",
+      "targets": [
+        ["linkText=Efectivo", "linkText"],
+        ["css=.flex-fill:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Efectivo')]", "xpath:link"],
+        ["xpath=//ul[@id='tab-wrapper']/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#tab3')]", "xpath:href"],
+        ["xpath=//div/ul/li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Efectivo')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b8f9a620-493f-4ef9-a1d4-42abc6d32bd8",
+      "comment": "",
+      "command": "click",
+      "target": "css=.disponible:nth-child(2) > td:nth-child(2)",
+      "targets": [
+        ["css=.disponible:nth-child(2) > td:nth-child(2)", "css:finder"],
+        ["xpath=//table[@id='tabla-efectivo']/tbody/tr[2]/td[2]", "xpath:idRelative"],
+        ["xpath=//tr[2]/td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'$10.00')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5de40fea-c397-45df-8c82-f74f94036324",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-add-efectivo",
+      "targets": [
+        ["css=.btn-add-efectivo", "css:finder"],
+        ["xpath=(//button[@type='button'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='tab3']/div[4]/div/button", "xpath:idRelative"],
+        ["xpath=//div[4]/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "05b1af1b-a123-4c7c-a2ce-9e883f4d4965",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ef0ade3e-4e36-4d0b-ba8f-6ec5fef6b889",
+      "comment": "",
+      "command": "click",
+      "target": "id=click-btn2-efectivo",
+      "targets": [
+        ["id=click-btn2-efectivo", "id"],
+        ["linkText=IR AL CARRITO", "linkText"],
+        ["css=#click-btn2-efectivo", "css:finder"],
+        ["xpath=//a[contains(text(),'IR AL CARRITO')]", "xpath:link"],
+        ["xpath=//a[@id='click-btn2-efectivo']", "xpath:attributes"],
+        ["xpath=//div[@id='popupContent']/div/div/div[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/carrito-de-compras')]", "xpath:href"],
+        ["xpath=//div[4]/div/div/div/div/div[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'IR AL CARRITO')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b565779a-0b5f-44b7-88b8-e008c3256e21",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-plus",
+      "targets": [
+        ["css=.button-plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "034f9947-4135-4634-89e4-4c9648fe12d7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-minus",
+      "targets": [
+        ["css=.button-minus", "css:finder"],
+        ["xpath=//input[@value='-']", "xpath:attributes"],
+        ["xpath=//section/div/div/div/div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "eef0bf84-a60c-46d8-b430-8a8da0c98f8f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-1-confirma",
+      "targets": [
+        ["css=.btn-1-confirma", "css:finder"],
+        ["xpath=//a[contains(text(),'Continuar')]", "xpath:link"],
+        ["xpath=//a[@onclick='confirmaCanje1()']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, '#subirtop')]", "xpath:href"],
+        ["xpath=//div[4]/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9eb8286a-2557-412e-abc3-dc9b1eb1a909",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-2-confirma",
+      "targets": [
+        ["css=.btn-2-confirma", "css:finder"],
+        ["xpath=//a[contains(text(),'Canjear')]", "xpath:link"],
+        ["xpath=//a[@onclick='confirmaCanje2()']", "xpath:attributes"],
+        ["xpath=//div[4]/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9b7f7055-54a3-4e84-a178-320127b0740e",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5c100d92-9615-4737-9c23-a7d626c0765f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=IR AL HISTORIAL DE PEDIDOS",
+      "targets": [
+        ["linkText=IR AL HISTORIAL DE MIS PEDIDOS", "linkText"],
+        ["css=.btn1", "css:finder"],
+        ["xpath=//a[contains(text(),'IR AL HISTORIAL DE MIS PEDIDOS')]", "xpath:link"],
+        ["xpath=//div[@id='popupContent']/div/div/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/historial-detalle-de-pedidos')]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'IR AL HISTORIAL DE MIS PEDIDOS')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4a725267-d762-4365-9750-09c5982578a0",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Completados",
+      "targets": [
+        ["linkText=Completados", "linkText"],
+        ["css=.flex-fill:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Completados')]", "xpath:link"],
+        ["xpath=//ul[@id='tab-wrapper']/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#tab2')]", "xpath:href"],
+        ["xpath=//div/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Completados')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "9c8b767e-90a7-4b4f-9720-0c6f1e585044",
+    "name": "Canje Efectivo-Producto P + No P",
+    "commands": [{
+      "id": "e44f5ef4-0f75-4291-ac48-9ba47e3e8d62",
+      "comment": "",
+      "command": "open",
+      "target": "https://atlanticcity.pre.tecnalis.com/ver-detalle-de-producto/?detalle-producto=112",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "aa178c5f-597f-44a7-bae6-cbde06bf6ba8",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1552x840",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "da2c9ac7-d3e5-4202-a971-e059db94edc1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-plus",
+      "targets": [
+        ["css=.button-plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8dec7d67-fd03-4a32-b492-903d0f09cc6a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-minus",
+      "targets": [
+        ["css=.button-minus", "css:finder"],
+        ["xpath=//input[@value='-']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "68bfb72b-8665-4092-81eb-77d1cecf33f8",
+      "comment": "",
+      "command": "check",
+      "target": "id=check0",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d8eca21a-b1b5-428e-b0f0-93231b9b1e96",
+      "comment": "",
+      "command": "check",
+      "target": "id=radiob1",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8637f82b-e90e-4f81-9c3a-a8b88dbcb86a",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnagregar",
+      "targets": [
+        ["id=btnagregar", "id"],
+        ["css=.col-xl-12 #btnagregar", "css:finder"],
+        ["xpath=//button[@id='btnagregar']", "xpath:attributes"],
+        ["xpath=//div[7]/div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "cd325ebc-aa0e-4031-ae06-1cf1d560ec11",
+      "comment": "",
+      "command": "runScript",
+      "target": "window.scrollTo(0,201)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2cab9936-e1f1-4af6-a28f-a00024dcda61",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=SEGUIR CANJEANDO",
+      "targets": [
+        ["linkText=IR AL CARRITO", "linkText"],
+        ["css=.btn2", "css:finder"],
+        ["xpath=//a[contains(text(),'IR AL CARRITO')]", "xpath:link"],
+        ["xpath=//div[@id='popupContent']/div/div/div[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/carrito-de-compras')]", "xpath:href"],
+        ["xpath=//div/div[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'IR AL CARRITO')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7a05332a-8913-4270-8522-ba370b6aed10",
+      "comment": "",
+      "command": "//open",
+      "target": "https://atlanticcity.pre.tecnalis.com/canjea-tus-puntos",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1d09fbfe-1b8a-4534-99f1-dbb6f2998a11",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Efectivo",
+      "targets": [
+        ["linkText=Efectivo", "linkText"],
+        ["css=.flex-fill:nth-child(3) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Efectivo')]", "xpath:link"],
+        ["xpath=//ul[@id='tab-wrapper']/li[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#tab3')]", "xpath:href"],
+        ["xpath=//div/ul/li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Efectivo')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "68ad4936-6aed-4e36-bd63-b5d3f05a236c",
+      "comment": "",
+      "command": "//click",
+      "target": "css=.disponible:nth-child(2) > td:nth-child(2)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3f6a4928-800d-4a74-b33d-bb4cd521a408",
+      "comment": "",
+      "command": "//click",
+      "target": "css=.btn-add-efectivo",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a91719d2-b41f-4d36-8edf-8b070a358fc6",
+      "comment": "",
+      "command": "//runScript",
+      "target": "window.scrollTo(0,0)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "beb412f0-d16f-4ec9-a26e-e7bca815cbbc",
+      "comment": "",
+      "command": "//click",
+      "target": "id=click-btn2-efectivo",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f0f3b524-375d-43e8-a00e-4f8cf00ba1d1",
+      "comment": "",
+      "command": "//runScript",
+      "target": "window.scrollTo(0,124)",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "42173f8c-2380-475a-86b9-7889e66128aa",
+      "comment": "",
+      "command": "open",
+      "target": "https://atlanticcity.pre.tecnalis.com/ver-detalle-de-producto/?detalle-producto=126",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a8c0df92-48d0-4eb9-8d8c-5eca9aa387ef",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-plus",
+      "targets": [
+        ["css=.button-plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3518e24b-b571-4736-9fbd-9f6368ab2afa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-plus",
+      "targets": [
+        ["css=.button-plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "89a506b3-a3f3-46f3-8d5e-15c8568cda84",
+      "comment": "",
+      "command": "click",
+      "target": "css=.cerrar-tooltip",
+      "targets": [
+        ["css=.cerrar-tooltip", "css:finder"],
+        ["xpath=//a[contains(text(),'Entendido')]", "xpath:link"],
+        ["xpath=//div[3]/div[2]/div/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "58581cd0-5e02-4782-b04c-037a13b16be0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.button-minus",
+      "targets": [
+        ["css=.button-minus", "css:finder"],
+        ["xpath=//input[@value='-']", "xpath:attributes"],
+        ["xpath=//div[3]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4142299c-ce0b-4e14-8a84-27a1ce221f43",
+      "comment": "",
+      "command": "click",
+      "target": "id=btnagregar",
+      "targets": [
+        ["id=btnagregar", "id"],
+        ["css=.col-xl-12 #btnagregar", "css:finder"],
+        ["xpath=//button[@id='btnagregar']", "xpath:attributes"],
+        ["xpath=//div[7]/div[2]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "62cd7f7a-b6a4-443c-808a-e28b115c5bf3",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=IR AL CARRITO",
+      "targets": [
+        ["linkText=IR AL CARRITO", "linkText"],
+        ["css=.btn2", "css:finder"],
+        ["xpath=//a[contains(text(),'IR AL CARRITO')]", "xpath:link"],
+        ["xpath=//div[@id='popupContent']/div/div/div[4]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/carrito-de-compras')]", "xpath:href"],
+        ["xpath=//div/div[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'IR AL CARRITO')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f778e72b-00cf-40b8-a4a1-896fd1c6142c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-group-uid-1671573045796 > .button-plus",
+      "targets": [
+        ["css=.input-group-uid-1671573045796 > .button-plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab5bef97-0aaf-49f1-bfba-f31ec47d0f37",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-group-uid-1671573045796 > .button-minus",
+      "targets": [
+        ["css=.input-group-uid-1671573045796 > .button-minus", "css:finder"],
+        ["xpath=//input[@value='-']", "xpath:attributes"],
+        ["xpath=//section/div/div/div/div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d5d8cb98-8193-405c-910c-e883d3690aa9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-group-uid-1671573045796 > .button-plus",
+      "targets": [
+        ["css=.input-group-uid-1671573045796 > .button-plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1e778818-05de-42af-9655-5c570092ae5e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-group-uid-1671573045796 > .button-plus",
+      "targets": [
+        ["css=.input-group-uid-1671573045796 > .button-plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "29500d41-a837-4f06-b1fc-7734734ab7d0",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-group-uid-1671573045796 > .button-plus",
+      "targets": [
+        ["css=.input-group-uid-1671573045796 > .button-plus", "css:finder"],
+        ["xpath=//input[@value='+']", "xpath:attributes"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "98ef013c-87cb-4717-9bd8-0aafece3f43e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.idtooltipProducto-126 .cerrar-tooltip",
+      "targets": [
+        ["css=.idtooltipProducto-126 .cerrar-tooltip", "css:finder"],
+        ["xpath=(//a[contains(text(),'Entendido')])[2]", "xpath:link"],
+        ["xpath=//div[2]/div[2]/div/div/div/div[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f4f86036-9999-4eb6-9a46-e108d792555a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-group-uid-1671573067696 > .button-minus",
+      "targets": [
+        ["css=.input-group-uid-1671573067696 > .button-minus", "css:finder"],
+        ["xpath=(//input[@value='-'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4f8233b0-983b-42f0-8df4-42ad4211f093",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-group-uid-1671573067696 > .button-plus",
+      "targets": [
+        ["css=.input-group-uid-1671573067696 > .button-plus", "css:finder"],
+        ["xpath=(//input[@value='+'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div[2]/div/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3418ed39-d4b4-4eb3-88ca-cbf921fedef3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-group-uid-1671573067696 > .button-plus",
+      "targets": [
+        ["css=.input-group-uid-1671573067696 > .button-plus", "css:finder"],
+        ["xpath=(//input[@value='+'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div[2]/div/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "54744b3c-db5d-4f24-9994-256553a30d63",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-group-uid-1671573067696 > .button-plus",
+      "targets": [
+        ["css=.input-group-uid-1671573067696 > .button-plus", "css:finder"],
+        ["xpath=(//input[@value='+'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div[2]/div/input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3402b01c-70ba-4bc3-8843-22cd38d44657",
+      "comment": "",
+      "command": "click",
+      "target": "css=.idtooltipProducto-112 .cerrar-tooltip",
+      "targets": [
+        ["css=.idtooltipProducto-112 .cerrar-tooltip", "css:finder"],
+        ["xpath=//a[contains(text(),'Entendido')]", "xpath:link"],
+        ["xpath=//div/div/div/div[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "04be8231-336c-44a5-8f03-13dbe476fecc",
+      "comment": "",
+      "command": "click",
+      "target": "css=.input-group-uid-1671573067696 > .button-minus",
+      "targets": [
+        ["css=.input-group-uid-1671573067696 > .button-minus", "css:finder"],
+        ["xpath=(//input[@value='-'])[2]", "xpath:attributes"],
+        ["xpath=//div[2]/div[2]/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1d10b7b6-d16f-4ab7-8e8f-cd8da1207570",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-1-confirma",
+      "targets": [
+        ["css=.btn-1-confirma", "css:finder"],
+        ["xpath=//a[contains(text(),'Continuar')]", "xpath:link"],
+        ["xpath=//a[@onclick='confirmaCanje1()']", "xpath:attributes"],
+        ["xpath=//a[contains(@href, '#subirtop')]", "xpath:href"],
+        ["xpath=//div[4]/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e3f5b146-4d64-45c4-ac8e-01b63dd3ac3e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.btn-2-confirma",
+      "targets": [
+        ["css=.btn-2-confirma", "css:finder"],
+        ["xpath=//a[contains(text(),'Canjear')]", "xpath:link"],
+        ["xpath=//a[@onclick='confirmaCanje2()']", "xpath:attributes"],
+        ["xpath=//div[4]/div/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "26095e50-511f-465c-afdb-834bc3c32922",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=IR AL HISTORIAL DE PEDIDOS",
+      "targets": [
+        ["linkText=IR AL HISTORIAL DE MIS PEDIDOS", "linkText"],
+        ["css=.btn1", "css:finder"],
+        ["xpath=//a[contains(text(),'IR AL HISTORIAL DE MIS PEDIDOS')]", "xpath:link"],
+        ["xpath=//div[@id='popupContent']/div/div/div[3]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/historial-detalle-de-pedidos')]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'IR AL HISTORIAL DE MIS PEDIDOS')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e532c936-f931-4c5b-a6f0-e71ecff9ae71",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Completados",
+      "targets": [
+        ["linkText=Completados", "linkText"],
+        ["css=.flex-fill:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Completados')]", "xpath:link"],
+        ["xpath=//ul[@id='tab-wrapper']/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '#tab2')]", "xpath:href"],
+        ["xpath=//div/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Completados')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "0d09a021-902e-45d2-b8f7-9cc1d637e193",
+    "name": "Canje Puntos",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["54416b0a-e388-480a-a91c-4712aa3311b5", "d589f119-0e82-4a9a-a09d-a535cb1a4b2e", "d04d2988-a271-4f8a-bf30-84bbcfc3b6dd", "6b2475a2-9871-4268-ab5a-266541de182d", "61bde71b-7087-4f8b-9045-eda3322bbf44", "ec79ca30-af85-4b8e-a8b8-c6cf9afaaccc"]
+  }],
+  "urls": ["https://atlanticviQ%5B3UJ*Rk*Q1zC@atlanticcity.pre.tecnalis.com/", "https://atlantic:viQ%5B3UJ*Rk*Q1zC@atlanticcity.pre.tecnalis.com/", "https://atlanticcity.pre.tecnalis.com/ver-detalle-de-producto-personalizado/?detalle-producto=112", "https://atlanticcity.pre.tecnalis.com/canjea-tus-puntos"],
+  "plugins": []
+}
