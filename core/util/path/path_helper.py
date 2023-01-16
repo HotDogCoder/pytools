@@ -1,4 +1,5 @@
 from pathlib import Path
+import os
 
 
 class PathHelper:
@@ -8,3 +9,8 @@ class PathHelper:
     @staticmethod
     def get_project_root_path() -> Path:
         return Path(__file__).parent.parent.parent.parent
+
+    @staticmethod
+    def create_directory(path):
+        if not os.path.exists(path):
+            os.makedirs(path)

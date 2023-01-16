@@ -1,6 +1,6 @@
 import sys
 from app.domain.models.log_reader import LogReader
-from app.presentation.controllers import LogReaderController
+from app.presentation.controllers.log_reader_controller import LogReaderController
 
 LRC = LogReaderController()
 
