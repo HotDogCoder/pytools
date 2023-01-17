@@ -50,9 +50,9 @@ class ScreenshotHelper:
 
         target_height_clear = client_height + 10
 
+        trash = (scroll_height - client_height) % client_height
         if target_iterations is None:
-            target_iterations = driver.execute_script(
-                f"return Math.ceil( ({scroll_height} - {client_height}) / {client_height})")
+            target_iterations = math.floor((scroll_height - client_height) / client_height)
 
         print(f"----------- screen height :{client_height} ----------------")
         print(f"----------- scroll tag height : {target_string} ----------------")
@@ -78,6 +78,23 @@ class ScreenshotHelper:
             driver.execute_script(f"var scroll_targets = document.querySelectorAll('.scrollbar-view');"
                                   f"var scroll_target = scroll_targets[1];"
                                   f"scroll_target.scrollTo(0, {target_height_clear * (x + 1)});")
+
+            sleep(5)
+
+            driver.implicitly_wait(100)
+
+            driver.save_screenshot(
+                f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
+                f"{datetime.now().strftime('%y%m%d')}_{x + 1}_{url.id}.png")
+
+            screenshot.image_list.append(
+                f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
+                f"{datetime.now().strftime('%y%m%d')}_{x + 1}_{url.id}.png")
+
+        if trash > 0:
+            driver.execute_script(f"var scroll_targets = document.querySelectorAll('.scrollbar-view');"
+                                  f"var scroll_target = scroll_targets[1];"
+                                  f"scroll_target.scrollTo(0, {target_height_clear * (target_iterations + trash)});")
 
             sleep(5)
 
