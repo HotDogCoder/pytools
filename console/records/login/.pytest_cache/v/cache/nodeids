@@ -1,3 +1,4 @@
 [
+  "test_login_ingreso_happy.py::TestLoginingresoHappy::test_loginingresoHappy",
   "test_login_ingreso_unhappy.py::TestLoginingresoHappy::test_loginingresoHappy"
 ]

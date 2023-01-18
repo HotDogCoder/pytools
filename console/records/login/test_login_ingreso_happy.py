@@ -3,6 +3,7 @@ import pytest
 import time
 import json
 from selenium import webdriver
+from selenium.common import InvalidSelectorException, NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
@@ -23,7 +24,7 @@ class TestLoginingresoHappy():
     # Test name: Login ingreso Happy
     # Step # | name | target | value
     # 1 | open | https://atlanticcity.pre.tecnalis.com/ |
-    self.driver.get("https://atlantic:viQ[3UJ*Rk*Q1zC@atlanticcity.pre.tecnalis.com/")
+    self.driver.get("https://www.casinoatlanticcity.com/")
     # wait = WebDriverWait(self.driver, 10)
     # alert = wait.until(EC.alert_is_present())
 
@@ -57,6 +58,48 @@ class TestLoginingresoHappy():
     # 6| click | linkText=INGRESAR |
     self.driver.find_element(By.ID, "login_button_aside").click()
     time.sleep(10)
+
+    flag_modal = False
+    flag_modal_2 = False
+
+    try:
+      wait=WebDriverWait(driver=self.driver, timeout=10)
+      modal=wait.until(EC.visibility_of_element_located((By.ID, "formEliminarBono")))
+      modal.find_element(By.LINK_TEXT, "ACTIVAR LUEGO").click()
+      flag_modal = True
+
+      wait = WebDriverWait(driver=self.driver, timeout=10)
+      modal = wait.until(EC.visibility_of_element_located((By.ID, "popupContent")))
+
+      flag_modal_2 = True
+      links = modal.find_elements(By.CSS_SELECTOR, "a")
+      for link in links:
+        if link.text == "ENTENDIDO":
+          link.click()
+          time.sleep(10)
+
+
+    except (Exception, NoSuchElementException) as e:
+      menutouchCarrusel_promociones = self.driver.find_element(By.CSS_SELECTOR, ".x|")
+      gamecarrusels = menutouchCarrusel_promociones.find_elements(By.CSS_SELECTOR, ".gamecarrusel")
+      for gamecarrusel in gamecarrusels:
+        txt1 = gamecarrusel.find_element(By.CSS_SELECTOR, ".txt1").text
+        if txt1 == "Torneo de Verano":
+          a = gamecarrusel.find_element(By.CSS_SELECTOR, "a")
+          a.click()
+
+    if flag_modal == True and flag_modal_2 == True:
+      menutouchCarrusel_promociones = self.driver.find_element(By.CSS_SELECTOR, ".x|")
+      gamecarrusels = menutouchCarrusel_promociones.find_elements(By.CSS_SELECTOR, ".gamecarrusel")
+      for gamecarrusel in gamecarrusels:
+        txt1 = gamecarrusel.find_element(By.CSS_SELECTOR, ".txt1").text
+        if txt1 == "Torneo de Verano":
+          a = gamecarrusel.find_element(By.CSS_SELECTOR, "a")
+          a.click()
+
+    time.sleep(10)
+
+
 
     #self.driver.find_element(By.ID, "").click()
 
