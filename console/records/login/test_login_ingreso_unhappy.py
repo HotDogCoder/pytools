@@ -51,8 +51,8 @@ class TestLoginingresoHappy():
     target_button.click()
     #time.sleep(10)
     # 5 | type | id=username_aside | Testjordan01
-    self.driver.find_element(By.ID, "username_aside").send_keys("Testjordan01")
-    self.driver.find_element(By.ID, "password_aside").send_keys("Testjordan01")
+    self.driver.find_element(By.ID, "username_aside").send_keys("Testordan01")
+    self.driver.find_element(By.ID, "password_aside").send_keys("Testordan01")
     time.sleep(2)
     # 6| click | linkText=INGRESAR |
     self.driver.find_element(By.ID, "login_button_aside").click()
