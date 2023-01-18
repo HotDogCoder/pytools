@@ -1,0 +1,42 @@
+{
+  "id": "f5071821-a717-4938-a373-c6e538f364f2",
+  "version": "2.0",
+  "name": "Registro",
+  "url": "https://atlanticcity.pre.tecnalis.com/",
+  "tests": [{
+    "id": "a43d875a-5be3-4ef1-9283-431d3d041645",
+    "name": "Untitled",
+    "commands": [{
+      "id": "f435d5bc-9ac0-4715-8068-51c7639c4c00",
+      "comment": "",
+      "command": "open",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "391c567e-6456-42bd-badd-976ff584f064",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b4be1e9d-4e4b-480b-b53b-7b7451c33758",
+      "comment": "",
+      "command": "close",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "8f4dcb3a-a153-4c2b-b514-57232ce2cdf0",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["a43d875a-5be3-4ef1-9283-431d3d041645"]
+  }],
+  "urls": ["https://atlanticcity.pre.tecnalis.com/"],
+  "plugins": []
+}
