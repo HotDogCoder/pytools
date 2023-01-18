@@ -1,6 +1,6 @@
 from kivy.uix.screenmanager import Screen
 
 
-class AdPage(Screen):
+class ColPage(Screen):
     pass
 

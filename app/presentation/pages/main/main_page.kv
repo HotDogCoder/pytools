@@ -1,0 +1,15 @@
+<MainPage>:
+    name: "MAIN"
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+        Label:
+            text: "Main Screen"
+            font_size: 32
+
+        Button:
+            text: "Back to Main"
+            font_size: 32
+            on_release:
+                app.root.current = "COL"
+                root.manager.transition.direction = "left"

@@ -1,6 +1,5 @@
 from kivy.uix.screenmanager import Screen
 
 
-class AdPage(Screen):
+class MainPage(Screen):
     pass
-
