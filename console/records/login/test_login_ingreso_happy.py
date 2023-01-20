@@ -80,24 +80,47 @@ class TestLoginingresoHappy():
 
 
     except (Exception, NoSuchElementException) as e:
-      menutouchCarrusel_promociones = self.driver.find_element(By.CSS_SELECTOR, ".x|")
-      gamecarrusels = menutouchCarrusel_promociones.find_elements(By.CSS_SELECTOR, ".gamecarrusel")
-      for gamecarrusel in gamecarrusels:
-        txt1 = gamecarrusel.find_element(By.CSS_SELECTOR, ".txt1").text
-        if txt1 == "Torneo de Verano":
-          a = gamecarrusel.find_element(By.CSS_SELECTOR, "a")
-          a.click()
 
-    if flag_modal == True and flag_modal_2 == True:
-      menutouchCarrusel_promociones = self.driver.find_element(By.CSS_SELECTOR, ".x|")
-      gamecarrusels = menutouchCarrusel_promociones.find_elements(By.CSS_SELECTOR, ".gamecarrusel")
-      for gamecarrusel in gamecarrusels:
-        txt1 = gamecarrusel.find_element(By.CSS_SELECTOR, ".txt1").text
-        if txt1 == "Torneo de Verano":
-          a = gamecarrusel.find_element(By.CSS_SELECTOR, "a")
-          a.click()
+      try:
+        menutouchCarrusel_promociones = self.driver.find_element(By.CSS_SELECTOR, ".menutouchCarrusel_promociones")
+        gamecarrusels = menutouchCarrusel_promociones.find_elements(By.CSS_SELECTOR, ".gamecarrusel")
+        for gamecarrusel in gamecarrusels:
+          txt1 = gamecarrusel.find_element(By.CSS_SELECTOR, ".txt1").text
+          if txt1 == "TORNEO DE VERANO":
+            print("Encontro torneo de verano")
+            a = gamecarrusel.find_element(By.CSS_SELECTOR, "a")
+            url = a.get_attribute("href")
+            self.driver.get(url)
 
-    time.sleep(10)
+        flag_modal = False
+        flag_modal_2 = False
+
+      except Exception as e:
+
+        print(e)
+
+    try:
+      if flag_modal is True and flag_modal_2 is True:
+        menutouchCarrusel_promociones = self.driver.find_element(By.CSS_SELECTOR, ".menutouchCarrusel_promociones")
+        gamecarrusels = menutouchCarrusel_promociones.find_elements(By.CSS_SELECTOR, ".gamecarrusel")
+        for gamecarrusel in gamecarrusels:
+          txt1 = gamecarrusel.find_element(By.CSS_SELECTOR, ".txt1").text
+          if txt1 == "TORNEO DE VERANO":
+            print("Encontro torneo de verano")
+            a = gamecarrusel.find_element(By.CSS_SELECTOR, "a")
+            url = a.get_attribute("href")
+            self.driver.get(url)
+    except Exception as e:
+      print(e)
+
+    """
+    Jordan
+    """
+
+    time.sleep(15)
+
+
+
 
 
 
