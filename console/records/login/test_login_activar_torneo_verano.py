@@ -51,19 +51,20 @@ class TestLoginingresoHappy():
     target_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".cardDondeVamosCasino > button")))
     target_button.click()
     #time.sleep(10)
-    # 5 | type | id=username_aside | Testjordan01
+    # 5 | type | id=username_aside | Testjordan01 (Ingresar usuario y contraseña)
     self.driver.find_element(By.ID, "username_aside").send_keys("Testjordan01")
     self.driver.find_element(By.ID, "password_aside").send_keys("Testjordan01")
     time.sleep(2)
-    # 6| click | linkText=INGRESAR |
+    # 6| click | linkText=INGRESAR |(Click en ingresar)
     self.driver.find_element(By.ID, "login_button_aside").click()
     time.sleep(5)
+    # 7 Seleccionar ID de jugador
     self.driver.find_element(By.ID, "contentModalPlayerOculto").click()
-    # 7 | type | id=idAliraCampo | 850
+    # 8 | type | id=idAliraCampo | 850 (ingresar ID de jugador)
     self.driver.find_element(By.ID, "idAliraCampo").send_keys("850")
-    # 8 | click | css=button:nth-child(4) |
+    # 9 | click | css=button:nth-child(4) | (Cambiar ID)
     self.driver.find_element(By.CSS_SELECTOR, "button:nth-child(4)").click()
-    # 9 | mouseOver | css=.item-prev > button |
+    # 10 | mouseOver | css=.item-prev > button |
     flag_modal = False
     flag_modal_2 = False
 
@@ -121,13 +122,19 @@ class TestLoginingresoHappy():
       """
       Jordan
       """
-    time.sleep(5)
-    #self.driver.find_element(By.CSS_SELECTOR, ".boton:nth-child(2)").click()
-     # Bajar cursor
+    time.sleep(10)
+    #Bajar cursor
     self.driver.execute_script("window.scrollTo(0,600)")
     self.vars["window_handles"] = self.driver.window_handles
+    #Click (Activar promoción)
+    torveactivar = self.driver.find_element(By.CSS_SELECTOR, ".navidad-wrapper-activar")
+    buttonver = torveactivar.find_elements(By.CSS_SELECTOR, "button")[1]
+    buttonver.click()
 
-#Click activar torneo
+    time.sleep(10)
+     # ".navidad-wrapper-activar"
+
+#Click activar torneo|
 
 
 

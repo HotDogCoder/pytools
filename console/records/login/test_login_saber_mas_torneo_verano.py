@@ -57,7 +57,13 @@ class TestLoginingresoHappy():
     time.sleep(2)
     # 6| click | linkText=INGRESAR |
     self.driver.find_element(By.ID, "login_button_aside").click()
-    time.sleep(10)
+    time.sleep(5)
+    # 7 Seleccionar ID de jugador
+    self.driver.find_element(By.ID, "contentModalPlayerOculto").click()
+    # 8 | type | id=idAliraCampo | 850 (ingresar ID de jugador)
+    self.driver.find_element(By.ID, "idAliraCampo").send_keys("850")
+    # 9 | click | css=button:nth-child(4) | (Cambiar ID)
+    self.driver.find_element(By.CSS_SELECTOR, "button:nth-child(4)").click()
 
     flag_modal = False
     flag_modal_2 = False
@@ -119,6 +125,14 @@ class TestLoginingresoHappy():
     Jordan
     """
     time.sleep(5)
+    # Bajar cursor
+    self.driver.execute_script("window.scrollTo(0,300)")
+    self.vars["window_handles"] = self.driver.window_handles
+    # Click (Saber mas)
+    torvesabermas = self.driver.find_element(By.CSS_SELECTOR, ".navidad-wrapper-activar")
+    buttonsaber = torvesabermas.find_elements(By.CSS_SELECTOR, "button")[0]
+    buttonsaber.click()
+    time.sleep(10)
     # Bajar cursor
     #self.driver.execute_script("window.scrollTo(0,600)")
     #self.vars["window_handles"] = self.driver.window_handles

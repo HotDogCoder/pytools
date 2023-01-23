@@ -2,6 +2,7 @@
   "testPRE_login_ingreso_happy.py::TestLoginingresoHappy::test_loginingresoHappy",
   "test_login_activar_torneo_verano.py::TestLoginingresoHappy::test_loginingresoHappy",
   "test_login_ingreso_happy.py::TestLoginingresoHappy::test_loginingresoHappy",
+  "test_login_ingreso_recupearcontraseña.py::TestLoginingresoHappy::test_loginingresoHappy",
   "test_login_ingreso_unhappy.py::TestLoginingresoHappy::test_loginingresoHappy",
   "test_login_saber_mas_torneo_verano.py::TestLoginingresoHappy::test_loginingresoHappy",
   "test_visualizar_atlantic_VIP_royal.py::TestLoginingresoHappy::test_loginingresoHappy",

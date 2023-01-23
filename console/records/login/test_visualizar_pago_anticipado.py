@@ -123,19 +123,15 @@ class TestLoginingresoHappy():
             self.driver.get(url)
     except Exception as e:
       print(e)
-    #Seleccionar
-    self.driver.find.element(By.CSS_SELECTOR,".bee-mobile_hide:nth-child(1) > a > .bee-center").click()
+
     """
     Jordan
     """
-
-    time.sleep(5)
-
-    #END
-    #self.driver.find_element(By.CSS_SELECTOR, ".boton:nth-child(2)").click()
+    pagoanticipado = self.driver.find_element(By.CSS_SELECTOR, ".bee-row-content")
+    buttopago = pagoanticipado.find_elements(By.CSS_SELECTOR, "a")
+    buttopago.click()
 
 
-#Click activar torneo
 
 
 
