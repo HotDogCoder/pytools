@@ -59,8 +59,8 @@ class TestLoginingresoHappy():
 
     time.sleep(10)
 
-    # 6 Ingresar correo
-    self.driver.find_element(By.ID, "e_mail_forgot").click()
+
+
     # 7 | type | id=e_mail_forgot | jisla
     self.driver.find_element(By.ID, "e_mail_forgot").send_keys("jisla@acity.com.pe")
     #8 Enviar correo
