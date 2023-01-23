@@ -24,7 +24,7 @@ class TestLoginingresoHappy():
     # Test name: Login ingreso Happy
     # Step # | name | target | value
     # 1 | open | https://atlanticcity.pre.tecnalis.com/ |
-    self.driver.get("https://www.casinoatlanticcity.com/")
+    self.driver.get("https://atlantic:viQ[3UJ*Rk*Q1zC@atlanticcity.pre.tecnalis.com/")
     # wait = WebDriverWait(self.driver, 10)
     # alert = wait.until(EC.alert_is_present())
 
@@ -65,6 +65,7 @@ class TestLoginingresoHappy():
     # 8 | click | css=button:nth-child(4) |
     self.driver.find_element(By.CSS_SELECTOR, "button:nth-child(4)").click()
     # 9 | mouseOver | css=.item-prev > button |
+
 
   
 test_login_ingreso_happy = TestLoginingresoHappy()
