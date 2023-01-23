@@ -86,6 +86,10 @@ class TestLoginingresoHappy():
 
 
     except (Exception, NoSuchElementException) as e:
+      # Bajar cursor
+      self.driver.execute_script("window.scrollTo(0,600)")
+      self.vars["window_handles"] = self.driver.window_handles
+      # Ampliar opciones de carrusel"
       self.driver.find_element(By.CSS_SELECTOR, ".menutouchCarrusel_promociones .carrusel_derecha").click()
       try:
         menutouchCarrusel_promociones = self.driver.find_element(By.CSS_SELECTOR, ".menutouchCarrusel_promociones")

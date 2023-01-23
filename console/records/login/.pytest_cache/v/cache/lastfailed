@@ -1,6 +1,6 @@
 {
   "test_login_ingreso_happy.py::TestLoginingresoHappy::test_loginingresoHappy": true,
-  "test_login_activar_torneo_verano.py::TestLoginingresoHappy::test_loginingresoHappy": true,
   "test_visualizar_top100.py::TestLoginingresoHappy": true,
-  "test_visualizar_pago_anticipado.py::TestLoginingresoHappy::test_loginingresoHappy": true
+  "test_visualizar_pago_anticipado.py::TestLoginingresoHappy::test_loginingresoHappy": true,
+  "test_login_saber_mas_torneo_verano.py::TestLoginingresoHappy::test_loginingresoHappy": true
 }

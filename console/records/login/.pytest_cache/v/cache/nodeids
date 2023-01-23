@@ -8,5 +8,6 @@
   "test_visualizar_pago_anticipado.py::TestLoginingresoHappy::test_loginingresoHappy",
   "test_visualizar_sorteo_de_sueños.py::TestLoginingresoHappy::test_loginingresoHappy",
   "test_visualizar_sorteo_estelar.py::TestLoginingresoHappy::test_loginingresoHappy",
-  "test_visualizar_top100.py::TestLoginingresoHappy::test_loginingresoHappy"
+  "test_visualizar_top100.py::TestLoginingresoHappy::test_loginingresoHappy",
+  "test_visualizar_torneo_de_cuotas.py::TestLoginingresoHappy::test_loginingresoHappy"
 ]
