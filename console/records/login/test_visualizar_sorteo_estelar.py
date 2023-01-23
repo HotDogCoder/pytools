@@ -91,8 +91,8 @@ class TestLoginingresoHappy():
         gamecarrusels = menutouchCarrusel_promociones.find_elements(By.CSS_SELECTOR, ".gamecarrusel")
         for gamecarrusel in gamecarrusels:
           txt1 = gamecarrusel.find_element(By.CSS_SELECTOR, ".txt1").text
-          if txt1 == "TORNEO DE CUOTAS":
-            print("Encontro torneo de cuotas")
+          if txt1 == "SORTEO ESTELAR":
+            print("Encontro sorteo estelar")
             a = gamecarrusel.find_element(By.CSS_SELECTOR, "a")
             url = a.get_attribute("href")
             self.driver.get(url)
@@ -109,8 +109,8 @@ class TestLoginingresoHappy():
         gamecarrusels = menutouchCarrusel_promociones.find_elements(By.CSS_SELECTOR, ".gamecarrusel")
         for gamecarrusel in gamecarrusels:
           txt1 = gamecarrusel.find_element(By.CSS_SELECTOR, ".txt1").text
-          if txt1 == "TORNEO DE CUOTAS":
-            print("Encontro torneo de cuotas")
+          if txt1 == "SORTEO ESTELAR":
+            print("Encontro sorteo estelar")
             a = gamecarrusel.find_element(By.CSS_SELECTOR, "a")
             url = a.get_attribute("href")
             self.driver.get(url)
@@ -122,7 +122,8 @@ class TestLoginingresoHappy():
     """
 
     time.sleep(5)
-    self.driver.find_element(By.CSS_SELECTOR, ".boton:nth-child(2)").click()
+    #END
+    #self.driver.find_element(By.CSS_SELECTOR, ".boton:nth-child(2)").click()
 
 
 #Click activar torneo

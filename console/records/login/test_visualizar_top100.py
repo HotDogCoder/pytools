@@ -58,13 +58,89 @@ class TestLoginingresoHappy():
     # 6| click | linkText=INGRESAR |
     self.driver.find_element(By.ID, "login_button_aside").click()
     time.sleep(10)
-
     self.driver.find_element(By.ID, "contentModalPlayerOculto").click()
     # 7 | type | id=idAliraCampo | 850
     self.driver.find_element(By.ID, "idAliraCampo").send_keys("850")
     # 8 | click | css=button:nth-child(4) |
     self.driver.find_element(By.CSS_SELECTOR, "button:nth-child(4)").click()
     # 9 | mouseOver | css=.item-prev > button |
+    flag_modal = False
+    flag_modal_2 = False
+
+    try:
+      wait=WebDriverWait(driver=self.driver, timeout=10)
+      modal=wait.until(EC.visibility_of_element_located((By.ID, "formEliminarBono")))
+      modal.find_element(By.LINK_TEXT, "ACTIVAR LUEGO").click()
+      flag_modal = True
+
+      wait = WebDriverWait(driver=self.driver, timeout=10)
+      modal = wait.until(EC.visibility_of_element_located((By.ID, "popupContent")))
+
+      flag_modal_2 = True
+      links = modal.find_elements(By.CSS_SELECTOR, "a")
+      for link in links:
+        if link.text == "ENTENDIDO":
+          link.click()
+          time.sleep(10)
+
+
+
+    except (Exception, NoSuchElementException) as e:
+
+      try:
+        menutouchCarrusel_promociones = self.driver.find_element(By.CSS_SELECTOR, ".menutouchCarrusel_promociones")
+        gamecarrusels = menutouchCarrusel_promociones.find_elements(By.CSS_SELECTOR, ".gamecarrusel")
+        for gamecarrusel in gamecarrusels:
+          txt1 = gamecarrusel.find_element(By.CSS_SELECTOR, ".txt1").text
+          if txt1 == "TOP 100":
+            print("Encontro top 100")
+            a = gamecarrusel.find_element(By.CSS_SELECTOR, "a")
+            url = a.get_attribute("href")
+            self.driver.get(url)
+        flag_modal = False
+        flag_modal_2 = False
+
+      except Exception as e:
+
+        print(e)
+
+    try:
+      if flag_modal is True and flag_modal_2 is True:
+        menutouchCarrusel_promociones = self.driver.find_element(By.CSS_SELECTOR, ".menutouchCarrusel_promociones")
+        gamecarrusels = menutouchCarrusel_promociones.find_elements(By.CSS_SELECTOR, ".gamecarrusel")
+        for gamecarrusel in gamecarrusels:
+          txt1 = gamecarrusel.find_element(By.CSS_SELECTOR, ".txt1").text
+          if txt1 == "TOP 100":
+            print("Encontro top 100")
+            a = gamecarrusel.find_element(By.CSS_SELECTOR, "a")
+            url = a.get_attribute("href")
+            self.driver.get(url)
+    except Exception as e:
+      print(e)
+
+    """
+    Jordan
+    """
+
+    time.sleep(5)
+
+    #END
+    #self.driver.find_element(By.CSS_SELECTOR, ".boton:nth-child(2)").click()
+
+
+#Click activar torneo
+
+
+
+    #self.driver.find_element(By.ID, "").click()
+
+
+  #BOTON promocion verano
+
+
+
+  ##probar codigo
+
 
 
   

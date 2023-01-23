@@ -84,15 +84,22 @@ class TestLoginingresoHappy():
           time.sleep(10)
 
 
+
     except (Exception, NoSuchElementException) as e:
+      #Bajar cursor
+
+      self.driver.execute_script("window.scrollTo(0,600)")
+      self.vars["window_handles"] = self.driver.window_handles
+      #Ampliar opciones de carrusel"
+      self.driver.find_element(By.CSS_SELECTOR, ".menutouchCarrusel_promociones .carrusel_derecha").click()
 
       try:
         menutouchCarrusel_promociones = self.driver.find_element(By.CSS_SELECTOR, ".menutouchCarrusel_promociones")
         gamecarrusels = menutouchCarrusel_promociones.find_elements(By.CSS_SELECTOR, ".gamecarrusel")
         for gamecarrusel in gamecarrusels:
           txt1 = gamecarrusel.find_element(By.CSS_SELECTOR, ".txt1").text
-          if txt1 == "TORNEO DE CUOTAS":
-            print("Encontro torneo de cuotas")
+          if txt1 == "PAGO ANTICIPADO":
+            print("Encontro pago anticipado")
             a = gamecarrusel.find_element(By.CSS_SELECTOR, "a")
             url = a.get_attribute("href")
             self.driver.get(url)
@@ -109,20 +116,23 @@ class TestLoginingresoHappy():
         gamecarrusels = menutouchCarrusel_promociones.find_elements(By.CSS_SELECTOR, ".gamecarrusel")
         for gamecarrusel in gamecarrusels:
           txt1 = gamecarrusel.find_element(By.CSS_SELECTOR, ".txt1").text
-          if txt1 == "TORNEO DE CUOTAS":
-            print("Encontro torneo de cuotas")
+          if txt1 == "PAGO ANTICIPADO":
+            print("Encontro pago anticipado")
             a = gamecarrusel.find_element(By.CSS_SELECTOR, "a")
             url = a.get_attribute("href")
             self.driver.get(url)
     except Exception as e:
       print(e)
-
+    #Seleccionar
+    self.driver.find.element(By.CSS_SELECTOR,".bee-mobile_hide:nth-child(1) > a > .bee-center").click()
     """
     Jordan
     """
 
     time.sleep(5)
-    self.driver.find_element(By.CSS_SELECTOR, ".boton:nth-child(2)").click()
+
+    #END
+    #self.driver.find_element(By.CSS_SELECTOR, ".boton:nth-child(2)").click()
 
 
 #Click activar torneo

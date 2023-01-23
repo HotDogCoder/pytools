@@ -122,7 +122,9 @@ class TestLoginingresoHappy():
     """
 
     time.sleep(5)
-    self.driver.find_element(By.CSS_SELECTOR, ".boton:nth-child(2)").click()
+
+    #END
+    #self.driver.find_element(By.CSS_SELECTOR, ".boton:nth-child(2)").click()
 
 
 #Click activar torneo
