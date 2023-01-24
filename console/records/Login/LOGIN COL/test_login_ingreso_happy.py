@@ -24,7 +24,7 @@ class TestLoginingresoHappy():
     # Test name: Login ingreso Happy
     # Step # | name | target | value
     # 1 | open | https://atlanticcity.pre.tecnalis.com/ |
-    self.driver.get("https://www.casinoatlanticcity.com/")
+    self.driver.get("https://atlantic:viQ[3UJ*Rk*Q1zC@atlanticcity.pre.tecnalis.com/")
     # wait = WebDriverWait(self.driver, 10)
     # alert = wait.until(EC.alert_is_present())
 

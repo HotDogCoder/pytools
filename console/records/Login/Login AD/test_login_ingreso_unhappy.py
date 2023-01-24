@@ -47,23 +47,27 @@ class TestLoginingresoHappy():
     # self.driver.find_element(By.CSS_SELECTOR, ".d-xl-block > .btn-casino").click()
     # 4 click to casino online
     wait = WebDriverWait(self.driver, 60)
-    target_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".cardDondeVamosCasino > button")))
+    target_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".cardDondeVamosSports > button")))
     target_button.click()
-    time.sleep(5)
-    # 5 ¿Olvidó su contraseña? (Click)
-    aside = self.driver.find_element(By.CSS_SELECTOR, ".o-aside.fixed-right")
-    olvbuttons = aside.find_elements(By.CSS_SELECTOR, "a")
-    for olvbutton in olvbuttons:
-      if "¿OLVIDÓ SU CONTRASEÑA?" in olvbutton.text:
-        olvbutton.click()
-
+    #time.sleep(10)
+    # 5 | type | id=username_aside | Testjordan01
+    self.driver.find_element(By.ID, "username_aside").send_keys("Testordan01")
+    self.driver.find_element(By.ID, "password_aside").send_keys("Testordan01")
+    time.sleep(2)
+    # 6| click | linkText=INGRESAR |
+    self.driver.find_element(By.ID, "login_button_aside").click()
     time.sleep(10)
 
+    #self.driver.find_element(By.ID, "").click()
 
 
-    # 7 | type | id=e_mail_forgot | jisla
-    self.driver.find_element(By.ID, "e_mail_forgot").send_keys("jisla@acity.com.pe")
-    #8 Enviar correo
-    self.driver.find_element(By.ID, "send_button").click()
+  #BOTON promocion verano
 
+
+
+  ##probar codigo
+
+
+
+  
 test_login_ingreso_happy = TestLoginingresoHappy()
