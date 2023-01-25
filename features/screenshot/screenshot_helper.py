@@ -50,9 +50,9 @@ class ScreenshotHelper:
 
         target_height_clear = client_height + 10
 
+        trash = (scroll_height - client_height) % client_height
         if target_iterations is None:
-            target_iterations = driver.execute_script(
-                f"return Math.ceil( ({scroll_height} - {client_height}) / {client_height})")
+            target_iterations = math.floor((scroll_height - client_height) / client_height)
 
         print(f"----------- screen height :{client_height} ----------------")
         print(f"----------- scroll tag height : {target_string} ----------------")
@@ -66,18 +66,36 @@ class ScreenshotHelper:
 
         driver.save_screenshot(
             f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-            f"{datetime.now().strftime('%y%m%d')}_0_{url.id}_{directory_name}.png")
+            f"{datetime.now().strftime('%y%m%d')}_{url.id}_0_{directory_name}.png")
 
         screenshot.image_list.append(
             f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-            f"{datetime.now().strftime('%y%m%d')}_0_{url.id}_{directory_name}.png")
+            f"{datetime.now().strftime('%y%m%d')}_{url.id}_0_{directory_name}.png")
 
         sleep(5)
 
-        for x in range(target_iterations):
+        if target_iterations > 1:
+            for x in range(target_iterations):
+                driver.execute_script(f"var scroll_targets = document.querySelectorAll('.scrollbar-view');"
+                                      f"var scroll_target = scroll_targets[1];"
+                                      f"scroll_target.scrollTo(0, {target_height_clear * (x + 1)});")
+
+                sleep(5)
+
+                driver.implicitly_wait(100)
+
+                driver.save_screenshot(
+                    f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
+                    f"{datetime.now().strftime('%y%m%d')}_{url.id}_{x + 1}_{directory_name}.png")
+
+                screenshot.image_list.append(
+                    f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
+                    f"{datetime.now().strftime('%y%m%d')}_{url.id}_{x + 1}_{directory_name}.png")
+
+        if trash > 0 and target_iterations > 1:
             driver.execute_script(f"var scroll_targets = document.querySelectorAll('.scrollbar-view');"
                                   f"var scroll_target = scroll_targets[1];"
-                                  f"scroll_target.scrollTo(0, {target_height_clear * (x + 1)});")
+                                  f"scroll_target.scrollTo(0, {target_height_clear * (target_iterations + trash)});")
 
             sleep(5)
 
@@ -85,11 +103,11 @@ class ScreenshotHelper:
 
             driver.save_screenshot(
                 f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-                f"{datetime.now().strftime('%y%m%d')}_{x + 1}_{url.id}.png")
+                f"{datetime.now().strftime('%y%m%d')}_{url.id}_{target_iterations}_{directory_name}.png")
 
             screenshot.image_list.append(
                 f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-                f"{datetime.now().strftime('%y%m%d')}_{x + 1}_{url.id}.png")
+                f"{datetime.now().strftime('%y%m%d')}_{url.id}_{target_iterations}_{directory_name}.png")
 
     @staticmethod
     def scroll_and_take_screenshot_monitoreo(screenshot: Screenshot, url, driver, target_iterations=None, zoom=None):
@@ -115,8 +133,6 @@ class ScreenshotHelper:
 
         print(f"----------- screen height :{size.get('height')} ----------------")
         print(f"----------- scroll tag height : {target_height_value} ----------------")
-
-
         print(f"----------- scroll tag iterations : {target_iterations} ----------------")
 
         path_helper = PathHelper()
@@ -124,8 +140,8 @@ class ScreenshotHelper:
 
         driver.save_screenshot(
             f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-            f"{datetime.now().strftime('%y%m%d')}_0_{url.id}_{directory_name}.png")
+            f"{datetime.now().strftime('%y%m%d')}_{url.id}_0_{directory_name}.png")
 
         screenshot.image_list.append(
             f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-            f"{datetime.now().strftime('%y%m%d')}_0_{url.id}_{directory_name}.png")
+            f"{datetime.now().strftime('%y%m%d')}_{url.id}_0_{directory_name}.png")

@@ -9,3 +9,6 @@ class AliraController:
 
     def set_seo_parameters_per_page(self, alira: Alira):
         return self.alira_service.set_seo_parameters_per_page(alira)
+
+    def set_seo_redirection(self, alira: Alira):
+        return self.alira_service.set_seo_redirection(alira)

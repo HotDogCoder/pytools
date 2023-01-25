@@ -37,12 +37,23 @@ def main(page: ft.page):
         height=50
     )
 
+    btn_test_set_seo_redirection = ft.Container(
+        ft.FloatingActionButton(
+            text="REDIRECCIONES",
+            icon=ft.icons.ARROW_RIGHT,
+            on_click=alira_page.set_seo_redirection
+        ),
+        width=screen_width,
+        height=50
+    )
+
     page.add(
         ft.Column(
             [
                 text_field,
                 btn_test_alira_seo_setter,
-                btn_test_screenshot
+                btn_test_screenshot,
+                btn_test_set_seo_redirection
             ]
         )
     )

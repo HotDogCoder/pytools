@@ -15,6 +15,9 @@ class AliraRepository(AliraRepositoryInterface):
 
         return alira
 
+    def set_seo_redirection(self, alira: Alira):
+        return alira
+
     def get_layouts(self, alira: Alira):
         return alira
 

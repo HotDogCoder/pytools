@@ -26,6 +26,22 @@ class AliraPage():
         pass
 
     @staticmethod
+    def set_seo_redirection(e):
+        driver = 'Chrome'
+        image_name_prefix = 'alira_'
+
+        alira = Alira(
+            url="https://gms-internacional.pre.tecnalis.com/alira-server/login.jsp",
+            image_name_prefix=image_name_prefix,
+            driver=driver,
+            alira_helper=None
+        )
+
+        AC = AliraController()
+        AC.set_seo_redirection(alira=alira)
+        pass
+
+    @staticmethod
     def take_screenshot_of_servers_status_1(e):
 
         driver = 'Chrome'
