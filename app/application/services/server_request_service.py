@@ -1,8 +1,8 @@
 from app.application.services_interfaces.server_request_service_interface import ServerRequestServiceInterface
 from app.domain.models.server_request import ServerRequest
-from app.domain import ServerRequestFilter
+from app.domain.models.server_request_filter import ServerRequestFilter
 from app.domain.models.sftp_parameter import SftpParameter
-from app.infrastructure.repositories import ServerRequestRepository
+from app.infrastructure.repositories.server_request_repository import ServerRequestRepository
 
 
 class ServerRequestService(ServerRequestServiceInterface):
