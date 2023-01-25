@@ -10,4 +10,3 @@ class Alira:
         self.image_list = []
         self.data_list = []
         self.alira_helper = alira_helper
-

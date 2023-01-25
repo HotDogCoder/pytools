@@ -129,7 +129,7 @@ class HelloWorld(unittest.TestCase):
         time.sleep(8)
         driver.find_element(By.CSS_SELECTOR, ".acc-toggler-titulo > .flex-grow-1").click()
         time.sleep(8)
-        driver.find_element(By.CSS_SELECTOR, ".col-12 > .n-pedido").click()
+        driver.find_element(By.CSS_SELECTOR, ".casino_online-12 > .n-pedido").click()
         time.sleep(8)
         driver.find_element(By.CSS_SELECTOR, ".p-2").click()
         time.sleep(8)

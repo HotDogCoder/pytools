@@ -67,7 +67,7 @@ class TestCanjePuntos():
     self.driver.find_element(By.LINK_TEXT, "IR AL HISTORIAL DE PEDIDOS").click()
     self.driver.get("https://atlanticcity.pre.tecnalis.com/historial-detalle-de-pedidos-personalizado")
     self.driver.find_element(By.CSS_SELECTOR, ".acc-toggler-titulo > .flex-grow-1").click()
-    self.driver.find_element(By.CSS_SELECTOR, ".col-12 > .n-pedido").click()
+    self.driver.find_element(By.CSS_SELECTOR, ".casino_online-12 > .n-pedido").click()
     self.driver.find_element(By.CSS_SELECTOR, ".p-2").click()
     self.driver.find_element(By.CSS_SELECTOR, ".p-2").click()
     self.driver.find_element(By.LINK_TEXT, "Completados").click()

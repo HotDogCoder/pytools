@@ -3,10 +3,12 @@ import flet as ft
 import pyautogui
 
 from app.presentation.pages.alira_page import AliraPage
+from app.presentation.pages.apuestas_deportivas.apuestas_deportivas_page import ApuestasDeportivasPage
 
 
 def main(page: ft.page):
     alira_page = AliraPage()
+    apuestas_deportivas_page = ApuestasDeportivasPage()
 
     screen_width, screen_height = pyautogui.size()
 
@@ -47,13 +49,35 @@ def main(page: ft.page):
         height=50
     )
 
+    btn_test_login_happy_path_ad = ft.Container(
+        ft.FloatingActionButton(
+            text="LOGIN HAPPY PATH AD",
+            icon=ft.icons.ARROW_RIGHT,
+            on_click=apuestas_deportivas_page.login_happy_path
+        ),
+        width=screen_width,
+        height=50
+    )
+
+    btn_test_visualizar_torneos = ft.Container(
+        ft.FloatingActionButton(
+            text="VIZUALIZAR PROMOCIONES",
+            icon=ft.icons.ARROW_RIGHT,
+            on_click=apuestas_deportivas_page.visualizar_torneos
+        ),
+        width=screen_width,
+        height=50
+    )
+
     page.add(
         ft.Column(
             [
                 text_field,
                 btn_test_alira_seo_setter,
                 btn_test_screenshot,
-                btn_test_set_seo_redirection
+                btn_test_set_seo_redirection,
+                btn_test_login_happy_path_ad,
+                btn_test_visualizar_torneos
             ]
         )
     )

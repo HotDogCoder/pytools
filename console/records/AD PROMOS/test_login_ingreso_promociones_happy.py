@@ -25,19 +25,14 @@ class TestLoginingresoHappy():
     # Step # | name | target | value
     # 1 | open | https://atlanticcity.pre.tecnalis.com/ |
     self.driver.get("https://atlantic:viQ[3UJ*Rk*Q1zC@atlanticcity.pre.tecnalis.com/")
-    # wait = WebDriverWait(self.driver, 10)
-    # alert = wait.until(EC.alert_is_present())
 
-    # Enter the username and password
-    # alert.send_keys("atlantic")
-    # alert.send_keys("\t")  # Tab to the password field
-    # alert.send_keys("viQ[3UJ*Rk*Q1zC")
-
-    # Accept the alert
-    # alert.accept()
-    #time.sleep(1)
-    # 2 | setWindowSize | 1065x817 | 
     self.driver.maximize_window()
+    # 3 | click | css=.d-xl-block > .btn-casino |
+    # LOGIN
+    # Test name: Login ingreso Happy
+    # Step # | name | target | value
+    # 1 | open | https://atlanticcity.pre.tecnalis.com/ |
+
     # 3 | click | css=.d-xl-block > .btn-casino |
     header = self.driver.find_element(By.CSS_SELECTOR, "header")
     buttons = header.find_elements(By.CSS_SELECTOR, "a")
@@ -50,38 +45,45 @@ class TestLoginingresoHappy():
     wait = WebDriverWait(self.driver, 60)
     target_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".cardDondeVamosSports > button")))
     target_button.click()
-    #time.sleep(10)
+    # time.sleep(10)
     # 5 | type | id=username_aside | Testjordan01
     self.driver.find_element(By.ID, "username_aside").send_keys("Testjordan01")
     self.driver.find_element(By.ID, "password_aside").send_keys("Testjordan01")
     time.sleep(2)
     # 6| click | linkText=INGRESAR |
     self.driver.find_element(By.ID, "login_button_aside").click()
-    time.sleep(5)
+    time.sleep(10)
 
     #7 Menu
 
     sodesktop = self.driver.find_element(By.CSS_SELECTOR, ".show-only--desktop")
     menubutton = sodesktop.find_elements(By.CSS_SELECTOR, "a")
     for buttonmen in menubutton:
-      if  menubutton.text == "menu" :
-        menubutton.click()
+      if buttonmen.text == "menu":
 
-    time.sleep(10)
+        buttonmen.click()
+
     #8 Promociones
 
-    aside = self.driver.find_element(By.CSS_SELECTOR, ".o-aside fixed-left fixed-left--open")
-    prombutton = aside.find_elements(By.CSS_SELECTOR, ".content-option-icon-text")
-    for buttonpro in prombutton:
-      if prombutton.text == "PROMOCIONES":
-        prombutton.click()
-        time.sleep(5)
 
-    self.driver.find_element(By.ID, "contentModalPlayerOculto").click()
+    aside = self.driver.find_element(By.CSS_SELECTOR, ".o-aside.fixed-left")
+    prombuttons = aside.find_elements(By.CSS_SELECTOR, "a")
+
+    for prmobutton in prombuttons:
+      if prmobutton.accessible_name == "PROMOCIONES":
+        prmobutton.click()
+
+        # Bajar cursor
+    #self.driver.execute_script("window.scrollTo(0,600)")
+    #self.vars["window_handles"] = self.driver.window_handles
+    #Seleccioar  ID DE JUGADOR
+    #btn_container = self.driver.find_element(By.ID, "contentModalPlayerOculto")
+    #btn_oculto = btn_container.find_element(By.CSS_SELECTOR, "button")
+    #btn_oculto.click()
     # 7 | type | id=idAliraCampo | 850
-    self.driver.find_element(By.ID, "idAliraCampo").send_keys("850")
+    #self.driver.find_element(By.ID, "idAliraCampo").send_keys("850")
     # 8 | click | css=button:nth-child(4) |
-    self.driver.find_element(By.CSS_SELECTOR, "button:nth-child(4)").click()
+    #self.driver.find_element(By.CSS_SELECTOR, "button:nth-child(4)").click()
     # 9 | mouseOver | css=.item-prev > button |
 
   
