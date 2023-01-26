@@ -37,81 +37,79 @@ class AliraService(AliraServiceInterface):
             tz = pytz.timezone('America/Bogota')
             directory_name = datetime.now(tz).strftime('%Y%m%d%H%M%S')
 
-            alira_helper = AliraHelper(driver, page=0)
-            alira_helper.login(alira.url, "rterrones", "P@ssw0rd123.")
+            alira.alira_helper = AliraHelper(driver, page=0)
+            alira.alira_helper.login(alira.url, "rterrones", "P@ssw0rd123.")
             excel_path = os.getcwd() + f"/resources/templates/seo/2022/12/KWR.xlsx"
-            alira_helper.get_kwr(excel_path)
+            alira.alira_helper.get_kwr(excel_path)
 
             """ CASINO ONLINE """
             """first get our url base or references /casino-online /apuestas-deportivas"""
-            alira_helper.get_sheet_url_reference(1, 4, [
+            alira.alira_helper.get_sheet_url_reference(1, 4, [
                         f"https://www.casinoatlnaticcity.com",
                         f"https://www.casinoatlanticcity.com",
                     ])
 
-            references_1 = list(set(filter(lambda x: x != "/" and x != "", alira_helper.sheets[1].data)))
+            references_1 = list(set(filter(lambda x: x != "/" and x != "", alira.alira_helper.sheets[1].data)))
 
-            alira_helper.access_to_pages_tab()
+            alira.alira_helper.access_to_pages_tab()
+            alira.alira_helper.get_sheet_target_urls(
+                1, 4, 5,
+                [
+                    f"https://www.casinoatlnaticcity.com",
+                    f"https://www.casinoatlanticcity.com",
+                ])
+            alira.alira_helper.target_urls = []
+            for index, url in enumerate(alira.alira_helper.sheets[1].data):
+                url.title = alira.alira_helper.get_sheet_row_data(1, [26], url.id)
+                url.description = alira.alira_helper.get_sheet_row_data(1, [28], url.id)
+                url.keywords = alira.alira_helper.get_sheet_row_data(1, [
+                    7, 9, 11, 13, 15, 17, 19, 21, 23
+                ], url.id)
+
+                # url.flag = True
+                alira.alira_helper.target_urls.append(url)
 
             for reference in references_1:
-                alira_helper.get_sheet_target_urls(
-                    1, 4, 5,
-                    [
-                        f"https://www.casinoatlnaticcity.com",
-                        f"https://www.casinoatlanticcity.com",
-                    ])
-                alira_helper.url = reference
-                alira_helper.target_urls = []
-                for index, url in enumerate(alira_helper.sheets[1].data):
-                    url.title = alira_helper.get_sheet_row_data(1, [26], url.id)
-                    url.description = alira_helper.get_sheet_row_data(1, [28], url.id)
-                    url.keywords = alira_helper.get_sheet_row_data(1, [
-                        7, 9, 11, 13, 15, 17, 19, 21, 23
-                    ], url.id)
-
-                    # url.flag = True
-                    alira_helper.target_urls.append(url)
-                alira_helper.page = 1
-                alira_helper.iterate_main_datatable()
-                while alira_helper.page < alira_helper.table_page_total:
-                    alira_helper.iterate_main_datatable()
+                alira.alira_helper.url = reference
+                alira.alira_helper.page = 1
+                alira.alira_helper.iterate_main_datatable(save=True)
+                while alira.alira_helper.page < alira.alira_helper.table_page_total:
+                    alira.alira_helper.iterate_main_datatable(save=True)
             """ """
 
             """" APUESTAS DEPORTIVAS """
-            alira_helper.get_sheet_url_reference(2, 2, [
+            alira.alira_helper.get_sheet_url_reference(2, 2, [
                 f"https://www.casinoatlnaticcity.com",
                 f"https://www.casinoatlanticcity.com",
             ])
-            references_2 = list(set(filter(lambda x: x != "/" and x != "", alira_helper.sheets[2].data)))
+            references_2 = list(set(filter(lambda x: x != "/" and x != "", alira.alira_helper.sheets[2].data)))
 
-
-            # alira_helper.access_to_pages_tab()
+            alira.alira_helper.get_sheet_target_urls(
+                2,
+                2,
+                3,
+                [
+                    f"https://www.casinoatlnaticcity.com",
+                    f"https://www.casinoatlanticcity.com",
+                ])
+            alira.alira_helper.target_urls = []
+            for index, url in enumerate(alira.alira_helper.sheets[2].data):
+                url.title = alira.alira_helper.get_sheet_row_data(2, [28], url.id)
+                url.description = alira.alira_helper.get_sheet_row_data(2, [30], url.id)
+                url.keywords = alira.alira_helper.get_sheet_row_data(2, [
+                    9, 11, 13, 15, 17, 19, 21, 23, 25
+                ], url.id)
+                # url.flag = True
+                alira.alira_helper.target_urls.append(url)
 
             for reference in references_2:
-                alira_helper.get_sheet_target_urls(
-                    2,
-                    2,
-                    3,
-                    [
-                        f"https://www.casinoatlnaticcity.com",
-                        f"https://www.casinoatlanticcity.com",
-                    ])
-                alira_helper.url = reference
-                alira_helper.target_urls = []
-                for index, url in enumerate(alira_helper.sheets[2].data):
-                    url.title = alira_helper.get_sheet_row_data(2, [28], url.id)
-                    url.description = alira_helper.get_sheet_row_data(2, [30], url.id)
-                    url.keywords = alira_helper.get_sheet_row_data(2, [
-                        9, 11, 13, 15, 17, 19, 21, 23, 25
-                    ], url.id)
-                    # url.flag = True
-                    alira_helper.target_urls.append(url)
-                alira_helper.page = 1
-                alira_helper.iterate_main_datatable(save=False)
-                while alira_helper.page < alira_helper.table_page_total:
-                    alira_helper.iterate_main_datatable(save=False)
+                alira.alira_helper.url = reference
+                alira.alira_helper.page = 1
+                alira.alira_helper.iterate_main_datatable(save=True)
+                while alira.alira_helper.page < alira.alira_helper.table_page_total:
+                    alira.alira_helper.iterate_main_datatable(save=True)
 
-            alira.alira_helper = alira_helper
+            alira.alira_helper = alira.alira_helper
             driver.close()
             print('-------------------- finished -----------------------')
 
@@ -138,49 +136,49 @@ class AliraService(AliraServiceInterface):
             tz = pytz.timezone('America/Bogota')
             directory_name = datetime.now(tz).strftime('%Y%m%d%H%M%S')
 
-            alira_helper = AliraHelper(driver, page=0)
-            alira_helper.login(alira.url, "rterrones", "P@ssw0rd123.")
+            alira.alira_helper = AliraHelper(driver, page=0)
+            alira.alira_helper.login(alira.url, "rterrones", "P@ssw0rd123.")
             excel_path = os.getcwd() + f"/resources/templates/seo/2022/12/KWR.xlsx"
-            alira_helper.get_kwr(excel_path)
+            alira.alira_helper.get_kwr(excel_path)
 
-            alira_helper.access_to_redirections()
+            alira.alira_helper.access_to_redirections()
 
             """ CASINO ONLINE """
             """first get our url base or references /casino-online /apuestas-deportivas"""
-            alira_helper.get_sheet_url_reference(1, 4, [
+            alira.alira_helper.get_sheet_url_reference(1, 4, [
                 f"https://www.casinoatlnaticcity.com",
                 f"https://www.casinoatlanticcity.com",
             ])
 
-            references_1 = list(set(filter(lambda x: x != "/" and x != "", alira_helper.sheets[1].data)))
+            references_1 = list(set(filter(lambda x: x != "/" and x != "", alira.alira_helper.sheets[1].data)))
 
-            alira_helper.access_to_pages_tab()
+            alira.alira_helper.access_to_pages_tab()
+
+            alira.alira_helper.get_sheet_target_urls(
+                1, 4, 5,
+                [
+                    f"https://www.casinoatlnaticcity.com",
+                    f"https://www.casinoatlanticcity.com",
+                ])
+            alira.alira_helper.target_urls = []
+            for index, url in enumerate(alira.alira_helper.sheets[1].data):
+                url.title = alira.alira_helper.get_sheet_row_data(1, [26], url.id)
+                url.description = alira.alira_helper.get_sheet_row_data(1, [28], url.id)
+                url.keywords = alira.alira_helper.get_sheet_row_data(1, [
+                    7, 9, 11, 13, 15, 17, 19, 21, 23
+                ], url.id)
+
+                # url.flag = True
+                alira.alira_helper.target_urls.append(url)
 
             for reference in references_1:
-                alira_helper.get_sheet_target_urls(
-                    1, 4, 5,
-                    [
-                        f"https://www.casinoatlnaticcity.com",
-                        f"https://www.casinoatlanticcity.com",
-                    ])
-                alira_helper.url = reference
-                alira_helper.target_urls = []
-                for index, url in enumerate(alira_helper.sheets[1].data):
-                    url.title = alira_helper.get_sheet_row_data(1, [26], url.id)
-                    url.description = alira_helper.get_sheet_row_data(1, [28], url.id)
-                    url.keywords = alira_helper.get_sheet_row_data(1, [
-                        7, 9, 11, 13, 15, 17, 19, 21, 23
-                    ], url.id)
-
-                    # url.flag = True
-                    alira_helper.target_urls.append(url)
-                alira_helper.page = 1
-                alira_helper.iterate_redirections_datatable_edit()
-                while alira_helper.page < alira_helper.table_page_total:
-                    alira_helper.iterate_redirections_datatable_edit()
+                alira.alira_helper.url = reference
+                alira.alira_helper.page = 1
+                alira.alira_helper.iterate_redirections_datatable_edit()
+                while alira.alira_helper.page < alira.alira_helper.table_page_total:
+                    alira.alira_helper.iterate_redirections_datatable_edit()
             """ """
-
-            alira_helper.iterate_redirections_datatable_save()
+            alira.alira_helper.iterate_redirections_datatable_save()
 
             driver.close()
 

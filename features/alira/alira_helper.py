@@ -154,6 +154,8 @@ class AliraHelper:
             self.target_urls[target_url.id].flag = False
             # target_url.flag = False
             print(f"{target_url.url} was set it {self.target_urls[target_url.id].flag}")
+        else:
+            print("no new url data to save")
 
     def iterate_redirections_datatable_edit(self, save=False):
 
@@ -192,9 +194,7 @@ class AliraHelper:
 
                 table_target = Wait(self.driver, timeout=20).until(
                     ec.visibility_of_element_located((By.ID, "allRedirections_wrapper")))
-
                 # sleep(4)
-
                 table_target_tr_list = table_target.find_elements(By.CSS_SELECTOR, "tbody tr")
 
                 try:
@@ -209,24 +209,27 @@ class AliraHelper:
 
                         for target_url in target_urls:
                             target_url_str = target_url.url.strip()
+                            target_url_str_new = target_url.new_url.strip()
                             td_str = ""
+                            td_str_new = ""
                             try:
                                 td_str = tds[1].text
                                 td_str = td_str.strip()
+
+                                td_str_new = tds[2].text
+                                td_str_new = td_str_new.strip()
+
                             except Exception as e:
                                 print(f"Error : {self.trace_helper.get_trace_str(e)}")
+
                             if target_url_str == td_str and target_url.flag is True:
                                 print(f"there is a match with some url : {target_url.url}")
                                 flag = True
                                 sleep(1)
                                 print("searching for link")
+                                # dtr_control = tr.find_elements(By.CSS_SELECTOR, ".dtr-control")
                                 new_tab_links = tr.find_elements(By.CSS_SELECTOR, "a")
-                                if len(new_tab_links) > 0 and len(new_tab_links) != 3:
-                                    print(f"links founded : {len(new_tab_links)}")
-                                    new_tab_links[0].click()
-                                elif len(new_tab_links) == 3:
-                                    print(f"3 links founded : {len(new_tab_links)}")
-                                    new_tab_links[1].click()
+                                new_tab_links[0].click()
                                 print("loading page link")
                                 sleep(5)
                                 """
@@ -235,13 +238,9 @@ class AliraHelper:
                                 input_to_redirection = self.driver.find_element(By.ID, "to_redirection")
                                 input_type_redirection = self.driver.find_element(By.ID, "type_redirection")
                                 input_comment_redirection = self.driver.find_element(By.ID, "comment_redirection")
-                                """
-                                table_input.send_keys(self.url)
-                                table_input.send_keys(Keys.RETURN)
-                                """
                                 now = datetime.now()
 
-                                if target_url.new_url != "":
+                                if target_url.new_url != "" and target_url_str_new != td_str_new:
                                     input_comment_redirection.clear()
                                     input_comment_redirection\
                                         .send_keys(f'Modificado por el bot de alira, fecha :'
@@ -294,20 +293,15 @@ class AliraHelper:
     def iterate_redirections_datatable_save(self):
 
         try:
-            target_urls = filter(lambda x: x.flag is True and x.url.strip() != "" and x.url != "/", self.target_urls)
-            target_urls = filter(lambda x: x.new_url.strip() != "" and x.new_url != "/", target_urls)
-            target_urls = list(
-                target_urls
-            )
+            target_urls = list([x for x in self.target_urls if x.flag is True])
 
             if len(target_urls) == 0:
                 self.page = self.table_page_total
                 raise StopIteration
 
             for target_url in target_urls:
-                self.redirections_new(target_url=target_url)
+                self.redirections_new(target_url=target_url, save=True)
 
-            target_urls = list(filter(lambda x: x.flag is True, self.target_urls))
             print(target_urls)
 
         except (NoSuchElementException, StopIteration) as e:
@@ -331,7 +325,7 @@ class AliraHelper:
                 text = targets_menu_span.text.strip()
                 print(f'-------------------- text : {text} -----------------------')
 
-                if text == "SITIO WEB":
+                if text.upper() == "SITIO WEB":
                     if target_menu is None:
                         target_menu = target
                     targets_menu_a.click()
@@ -353,7 +347,7 @@ class AliraHelper:
                 text = targets_menu_a.text.strip()
                 print(f'-------------------- text : {text} -----------------------')
 
-                if text == "CMS":
+                if text.upper() == "CMS":
                     targets_menu_a.click()
                     sleep(15)
                     print("cms link clicked")
@@ -416,13 +410,15 @@ class AliraHelper:
 
                         for target_url in target_urls:
                             target_url_str = target_url.url.strip()
+                            target_new_url_str = target_url.new_url.strip()
                             td_str = ""
                             try:
                                 td_str = tds[3].text
                                 td_str = td_str.strip()
                             except Exception as e:
                                 print(f"Error : {self.trace_helper.get_trace_str(e)}")
-                            if target_url_str == td_str and target_url.flag is True:
+                            if (target_url_str == td_str and target_url.flag is True) or\
+                                    (target_new_url_str == td_str and target_url.flag is True):
                                 print(f"there is a match with some url : {target_url.url}")
                                 flag = True
                                 print("searching for popup menu button")
@@ -455,15 +451,22 @@ class AliraHelper:
                                 table_input.send_keys(Keys.RETURN)
                                 """
                                 if target_url.new_url != "":
-                                    #input_new_url.send_keys(target_url.new_url)
+                                    input_new_url.clear()
+                                    input_new_url.send_keys(target_url.new_url)
                                     sleep(1)
                                 if target_url.title != "":
+                                    input_title.clear()
+                                    target_url.title = target_url.title.replace("🥇 ","")
                                     input_title.send_keys(target_url.title)
                                     sleep(1)
                                 if target_url.description != "":
+                                    input_description.clear()
+                                    target_url.description = target_url.description.replace("🥇 ", "")
                                     input_description.send_keys(target_url.description)
                                     sleep(1)
                                 if target_url.keywords != "":
+                                    input_keywords.clear()
+                                    target_url.keywords = target_url.keywords.replace("🥇 ", "")
                                     input_keywords.send_keys(target_url.keywords)
                                     sleep(1)
                                 """
@@ -472,6 +475,8 @@ class AliraHelper:
                                 self.driver.implicitly_wait(5)
                                 #self.driver.execute_script("PageEditor.onGoToList(true)")
                                 if save is True:
+                                    self.driver.execute_script("window.scrollTo(0,0)")
+                                    sleep(2)
                                     self.driver.execute_script("PageEditor.onSave()")
                                     sleep(5)
                                     self.driver.execute_script("PageEditor.onGoToList(true)")
@@ -651,6 +656,8 @@ class AliraHelper:
                         if prefix != "":
                             data_raw = data_raw.replace(p, "")
                     result.append(data_raw)
+                elif type(data_raw) == str:
+                    result.append(data_raw)
                 elif type(data_raw) == float:
                     if math.isnan(self.sheets[index].rows[row_index][field_index]['value']) is False:
                         result.append(data_raw)
@@ -660,7 +667,7 @@ class AliraHelper:
             fr = []
             for r in result:
                 if type(r) != str:
-                    r = str(r)
+                    r = str(r.strip())
                 fr.append(r)
             return ",".join(fr)
         else:
