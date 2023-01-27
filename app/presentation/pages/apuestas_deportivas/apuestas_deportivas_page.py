@@ -32,7 +32,8 @@ class ApuestasDeportivasPage:
             url="https://atlantic:viQ[3UJ*Rk*Q1zC@atlanticcity.pre.tecnalis.com/",
             image_name_prefix=image_name_prefix,
             driver=driver,
-            apuestas_deportivas_helper=None
+            apuestas_deportivas_helper=None,
+            casino_helper=None
         )
 
         ADC = ApuestasDeportivasController()

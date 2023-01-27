@@ -38,10 +38,14 @@ class ApuestasDeportivasService(ApuestasDeportivasServiceInterface):
             tz = pytz.timezone('America/Bogota')
             directory_name = datetime.now(tz).strftime('%Y%m%d%H%M%S')
 
-            apuestas_deportivas.apuestas_deportivas_helper = ApuestasDeportivasHelper(driver, page=0)
-            apuestas_deportivas.apuestas_deportivas_helper.login()
+            apuestas_deportivas.apuestas_deportivas_helper = ApuestasDeportivasHelper(driver, page=0,
+                                                                                      url=apuestas_deportivas.url)
+            apuestas_deportivas.casino_helper = CasinoHelper(driver, page=0, url=apuestas_deportivas.url)
+            apuestas_deportivas.apuestas_deportivas_helper.login_ad()
 
-            apuestas_deportivas.apuestas_deportivas_helper.complete_id_alira()
+
+            apuestas_deportivas.casino_helper.usuario_password_nivel(1)
+
 
         except (Exception, StopIteration) as e:
 
@@ -66,29 +70,15 @@ class ApuestasDeportivasService(ApuestasDeportivasServiceInterface):
             tz = pytz.timezone('America/Bogota')
             directory_name = datetime.now(tz).strftime('%Y%m%d%H%M%S')
 
-            apuestas_deportivas.apuestas_deportivas_helper = ApuestasDeportivasHelper(driver, page=0)
-            apuestas_deportivas.apuestas_deportivas_helper.login()
-            apuestas_deportivas.apuestas_deportivas_helper.ingresar_promociones()
-            apuestas_deportivas.apuestas_deportivas_helper.id_nivel(1)
-            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor(x=0, y=500)
-            apuestas_deportivas.apuestas_deportivas_helper.id_nivel(2)
-            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor(x=0, y=500)
-            apuestas_deportivas.apuestas_deportivas_helper.id_nivel(3)
-            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor(x=0, y=500)
-            apuestas_deportivas.apuestas_deportivas_helper.id_nivel(4)
-            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor(x=0, y=500)
-            apuestas_deportivas.apuestas_deportivas_helper.id_nivel(5)
-            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor(x=0, y=500)
-            apuestas_deportivas.apuestas_deportivas_helper.id_nivel(6)
-            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor(x=0, y=500)
-            apuestas_deportivas.apuestas_deportivas_helper.id_nivel(7)
-            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor(x=0, y=500)
-            apuestas_deportivas.apuestas_deportivas_helper.id_nivel(8)
-            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor(x=0, y=500)
-            apuestas_deportivas.apuestas_deportivas_helper.id_nivel(9)
-            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor(x=0, y=500)
-            apuestas_deportivas.apuestas_deportivas_helper.id_nivel(0)
-            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.apuestas_deportivas_helper = ApuestasDeportivasHelper(driver, page=0,
+                                                                                      url=apuestas_deportivas.url)
+
+            apuestas_deportivas.casino_helper = CasinoHelper(driver, page=0, url=apuestas_deportivas.url)
+            apuestas_deportivas.casino_helper.login_col()
+
+            apuestas_deportivas.casino_helper.usuario_password_nivel(1)
+
+
 
         except (Exception, StopIteration) as e:
 

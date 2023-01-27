@@ -61,7 +61,7 @@ def main(page: ft.page):
 
     btn_test_visualizar_torneos = ft.Container(
         ft.FloatingActionButton
-        (    text="VIZUALIZAR PROMOCIONES PRE",
+        (    text="LOGIN HAPPY PATH COL",
             icon=ft.icons.ARROW_RIGHT,
             on_click=apuestas_deportivas_page.visualizar_torneos
         ),
