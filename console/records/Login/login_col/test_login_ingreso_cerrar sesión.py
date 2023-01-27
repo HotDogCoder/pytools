@@ -59,28 +59,17 @@ class TestLoginingresoHappy():
     self.driver.find_element(By.ID, "login_button_aside").click()
     time.sleep(10)
 
-    self.driver.find_element(By.ID, "contentModalPlayerOculto").click()
-    # 7 | type | id=idAliraCampo | 850
-    self.driver.find_element(By.ID, "idAliraCampo").send_keys("850")
-    # 8 | click | css=button:nth-child(4) |
-    self.driver.find_element(By.CSS_SELECTOR, "button:nth-child(4)").click()
-    # 9 | mouseOver | css=.item-prev > button |
-    #10 "Mi cuenta"
-    header = self.driver.find_element(By.CSS_SELECTOR, ".header")
-    listaboton = header.find_elements(By.CSS_SELECTOR, ".lista-botones")
-    buttons = listaboton.find_elements(By.CSS_SELECTOR, "a")
-    for button in buttons:
+    header = self.driver.find_element(By.CSS_SELECTOR, ".show-only--desktop")
+    micuenta = header.find_elements(By.CSS_SELECTOR, "a")
+    for button in micuenta:
       if button.text == "MI CUENTA":
         button.click()
-        time.sleep(5)
 
-    #11 Cerrar sesión
-    space = self.driver.find_elements(By.CSS_SELECTOR) , ".space-xl"
-    cs = space.find_elements(By.CSS_SELECTOR), "a"
-    for butt in cs:
-      if cs.text == "MI CUENTA":
-        cs.click()
-        time.sleep(5)
+
+
+
+
+
 
   
 test_login_ingreso_happy = TestLoginingresoHappy()

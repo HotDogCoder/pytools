@@ -25,3 +25,9 @@ class ApuestasDeportivasRepository(ApuestasDeportivasRepositoryInterface):
 
         return apuestas_deportivas
 
+    def visualizar_promociones_pro(self, apuestas_deportivas: ApuestasDeportivas):
+        return  apuestas_deportivas
+
+    def col_promociones(self, apuestas_deportivas: ApuestasDeportivas):
+        return  apuestas_deportivas
+

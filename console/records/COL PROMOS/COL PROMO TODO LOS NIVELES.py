@@ -29,7 +29,7 @@ class TestLoginingresoHappy():
     self.driver.maximize_window()
     # 3 | click | css=.d-xl-block > .btn-casino |
     # LOGIN
-    # Test name: Login ingreso Happy
+    # Test name: Login ingreso Happy43
     # Step # | name | target | value
     # 1 | open | https://atlanticcity.pre.tecnalis.com/ |
 
@@ -43,7 +43,7 @@ class TestLoginingresoHappy():
     # self.driver.find_element(By.CSS_SELECTOR, ".d-xl-block > .btn-casino").click()
     # 4 click to casino online
     wait = WebDriverWait(self.driver, 60)
-    target_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".cardDondeVamosSports > button")))
+    target_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".cardDondeVamosCasino > button")))
     target_button.click()
     # time.sleep(10)
     # 5 | type | id=username_aside | Testjordan01
@@ -66,20 +66,21 @@ class TestLoginingresoHappy():
 
     #8 Promociones
 
-    #self.driver.find_element(By.ID,"gtm--menu-aside-promociones")
-    aside = self.driver.find_element(By.CSS_SELECTOR, ".o-aside.fixed-left")
-    prombuttons = aside.find_elements(By.CSS_SELECTOR, "a")
-    for buttonmen  in prombuttons :
-      if buttonmen.text == "PROMOCIONES":
-        buttonmen.click()
-        time.sleep(5)
+    try:
+      #self.driver.find_element(By.ID,"gtm--menu-aside-promociones")
+      aside = self.driver.find_element(By.CSS_SELECTOR, ".o-aside.fixed-left")
+      prombuttons = aside.find_elements(By.CSS_SELECTOR, "a")
+      for buttonmen in prombuttons:
+        if buttonmen.text == "PROMOCIONES":
+          buttonmen.click()
+          time.sleep(10)
+    except (Exception, StopIteration) as e:
+      print(f"{e}")
 
 
     # SELECCIONAR NIVELES DE AD PROMOS 1(2143),2(1385),3(4120),6(1722),7(2275),8(14455),9(4026),0(3337)
-    # Bajar cursor
-    self.driver.execute_script("window.scrollTo(0,600)")
-    self.vars["window_handles"] = self.driver.window_handles
-    #Seleccioar  ID  NIVEL 1 DE JUGADOR
+
+    #Seleccioar  ID  DE JUGADOR NIVEL 1
     btn_container = self.driver.find_element(By.ID, "contentModalPlayerOculto")
     btn_oculto = btn_container.find_element(By.CSS_SELECTOR, "button")
     btn_oculto.click()
@@ -88,11 +89,11 @@ class TestLoginingresoHappy():
     # 8 | click | css=button:nth-child(4) |
     self.driver.find_element(By.CSS_SELECTOR, "button:nth-child(4)").click()
     # 9 | mouseOver | css=.item-prev > button |
-
     # Bajar cursor
     self.driver.execute_script("window.scrollTo(0,600)")
     self.vars["window_handles"] = self.driver.window_handles
-    # Seleccioar  ID  NIVEL 2 DE JUGADOR
+
+    # SELECCIONAR ID DE JUGADOR NIVEL 2
     btn_container = self.driver.find_element(By.ID, "contentModalPlayerOculto")
     btn_oculto = btn_container.find_element(By.CSS_SELECTOR, "button")
     btn_oculto.click()
@@ -101,11 +102,12 @@ class TestLoginingresoHappy():
     # 8 | click | css=button:nth-child(4) |
     self.driver.find_element(By.CSS_SELECTOR, "button:nth-child(4)").click()
     # 9 | mouseOver | css=.item-prev > button |
-
     # Bajar cursor
     self.driver.execute_script("window.scrollTo(0,600)")
     self.vars["window_handles"] = self.driver.window_handles
-    # Seleccioar  ID  NIVEL 3 DE JUGADOR
+
+
+    # Seleccioar  ID  DE JUGADOR NIVEL 3
     btn_container = self.driver.find_element(By.ID, "contentModalPlayerOculto")
     btn_oculto = btn_container.find_element(By.CSS_SELECTOR, "button")
     btn_oculto.click()
@@ -114,6 +116,8 @@ class TestLoginingresoHappy():
     # 8 | click | css=button:nth-child(4) |
     self.driver.find_element(By.CSS_SELECTOR, "button:nth-child(4)").click()
     # 9 | mouseOver | css=.item-prev > button |
-
+    # Bajar cursor
+    self.driver.execute_script("window.scrollTo(0,600)")
+    self.vars["window_handles"] = self.driver.window_handles
   
 test_login_ingreso_happy = TestLoginingresoHappy()

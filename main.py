@@ -60,10 +60,32 @@ def main(page: ft.page):
     )
 
     btn_test_visualizar_torneos = ft.Container(
-        ft.FloatingActionButton(
-            text="VIZUALIZAR PROMOCIONES",
+        ft.FloatingActionButton
+        (    text="VIZUALIZAR PROMOCIONES PRE",
             icon=ft.icons.ARROW_RIGHT,
             on_click=apuestas_deportivas_page.visualizar_torneos
+        ),
+        width=screen_width,
+        height=50
+
+    )
+
+
+    btn_test_visualizar_promociones_pro = ft.Container(
+        ft.FloatingActionButton(
+            text="AD PROMOCIONES 1-0",
+            icon=ft.icons.ARROW_RIGHT,
+            on_click=apuestas_deportivas_page.visualizar_promociones_pro
+        ),
+        width=screen_width,
+        height=50
+    )
+
+    btn_test_col_promociones = ft.Container(
+        ft.FloatingActionButton(
+            text="COL PROMOCIONES 1-0",
+            icon=ft.icons.ARROW_RIGHT,
+            on_click=apuestas_deportivas_page.col_promociones
         ),
         width=screen_width,
         height=50
@@ -77,7 +99,9 @@ def main(page: ft.page):
                 btn_test_screenshot,
                 btn_test_set_seo_redirection,
                 btn_test_login_happy_path_ad,
-                btn_test_visualizar_torneos
+                btn_test_visualizar_torneos,
+                btn_test_visualizar_promociones_pro,
+                btn_test_col_promociones,
             ]
         )
     )

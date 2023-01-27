@@ -12,6 +12,7 @@ from app.infrastructure.repositories.apuestas_deportivas_repository import Apues
 from core.domain.models.url import Url
 from core.util.debug.trace_helper import TraceHelper
 from features.apuestas_deportivas.apuestas_deportivas_helper import ApuestasDeportivasHelper
+from features.casino.casino_helper import CasinoHelper
 
 
 class ApuestasDeportivasService(ApuestasDeportivasServiceInterface):
@@ -42,8 +43,6 @@ class ApuestasDeportivasService(ApuestasDeportivasServiceInterface):
 
             apuestas_deportivas.apuestas_deportivas_helper.complete_id_alira()
 
-
-
         except (Exception, StopIteration) as e:
 
             print(f"Error : {apuestas_deportivas.apuestas_deportivas_helper.trace_helper.get_trace_str(e)}")
@@ -70,11 +69,243 @@ class ApuestasDeportivasService(ApuestasDeportivasServiceInterface):
             apuestas_deportivas.apuestas_deportivas_helper = ApuestasDeportivasHelper(driver, page=0)
             apuestas_deportivas.apuestas_deportivas_helper.login()
             apuestas_deportivas.apuestas_deportivas_helper.ingresar_promociones()
-            apuestas_deportivas.apuestas_deportivas_helper.complete_id_alira()
-            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor()
+            apuestas_deportivas.apuestas_deportivas_helper.id_nivel(1)
+            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor(x=0, y=500)
+            apuestas_deportivas.apuestas_deportivas_helper.id_nivel(2)
+            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor(x=0, y=500)
+            apuestas_deportivas.apuestas_deportivas_helper.id_nivel(3)
+            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor(x=0, y=500)
+            apuestas_deportivas.apuestas_deportivas_helper.id_nivel(4)
+            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor(x=0, y=500)
+            apuestas_deportivas.apuestas_deportivas_helper.id_nivel(5)
+            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor(x=0, y=500)
+            apuestas_deportivas.apuestas_deportivas_helper.id_nivel(6)
+            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor(x=0, y=500)
+            apuestas_deportivas.apuestas_deportivas_helper.id_nivel(7)
+            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor(x=0, y=500)
+            apuestas_deportivas.apuestas_deportivas_helper.id_nivel(8)
+            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor(x=0, y=500)
+            apuestas_deportivas.apuestas_deportivas_helper.id_nivel(9)
+            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor(x=0, y=500)
+            apuestas_deportivas.apuestas_deportivas_helper.id_nivel(0)
+            apuestas_deportivas.apuestas_deportivas_helper.bajar_cursor(x=0,y=500)
 
         except (Exception, StopIteration) as e:
 
             print(f"Error : {apuestas_deportivas.apuestas_deportivas_helper.trace_helper.get_trace_str(e)}")
 
         return self.apuestas_deportivas_repository.visualizar_torneos(apuestas_deportivas)
+
+    def visualizar_promociones_pro(self, apuestas_deportivas: ApuestasDeportivas):
+        """AQUI FUNCIONA EL SELENIUM"""
+        try:
+            driver = None
+
+            if apuestas_deportivas.driver == 'Chrome':
+                driver = webdriver.Chrome()
+            elif apuestas_deportivas.driver == 'Firefox':
+                driver = webdriver.Firefox()
+            elif apuestas_deportivas.driver == 'Safari':
+                driver = webdriver.Safari()
+            elif apuestas_deportivas.driver == 'Edge':
+                driver = webdriver.Edge()
+
+            tz = pytz.timezone('America/Bogota')
+            directory_name = datetime.now(tz).strftime('%Y%m%d%H%M%S')
+
+            apuestas_deportivas.apuestas_deportivas_helper = ApuestasDeportivasHelper(driver, page=0,
+                                                                                      url=apuestas_deportivas.url)
+            apuestas_deportivas.casino_helper = CasinoHelper(driver, page=0, url=apuestas_deportivas.url)
+
+            apuestas_deportivas.apuestas_deportivas_helper.login_ad()
+            apuestas_deportivas.casino_helper.usuario_password_nivel(1)
+            apuestas_deportivas.casino_helper.saltar_promoción_verano()
+            apuestas_deportivas.casino_helper.ingresar_menu()
+            apuestas_deportivas.casino_helper.ingresar_promociones()
+            apuestas_deportivas.casino_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.apuestas_deportivas_helper.cerrar_sesión_ad()
+
+            apuestas_deportivas.casino_helper.iniciar_sesion()
+            apuestas_deportivas.casino_helper.usuario_password_nivel(2)
+            apuestas_deportivas.casino_helper.saltar_promoción_verano()
+            apuestas_deportivas.casino_helper.ingresar_menu()
+            apuestas_deportivas.casino_helper.ingresar_promociones()
+            apuestas_deportivas.casino_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.apuestas_deportivas_helper.cerrar_sesión_ad()
+
+            apuestas_deportivas.casino_helper.iniciar_sesion()
+            apuestas_deportivas.casino_helper.usuario_password_nivel(3)
+            apuestas_deportivas.casino_helper.saltar_promoción_verano()
+            apuestas_deportivas.casino_helper.ingresar_menu()
+            apuestas_deportivas.casino_helper.ingresar_promociones()
+            apuestas_deportivas.casino_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.apuestas_deportivas_helper.cerrar_sesión_ad()
+
+            apuestas_deportivas.casino_helper.iniciar_sesion()
+            apuestas_deportivas.casino_helper.usuario_password_nivel(4)
+            apuestas_deportivas.casino_helper.saltar_promoción_verano()
+            apuestas_deportivas.casino_helper.ingresar_menu()
+            apuestas_deportivas.casino_helper.ingresar_promociones()
+            apuestas_deportivas.casino_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.apuestas_deportivas_helper.cerrar_sesión_ad()
+
+            apuestas_deportivas.casino_helper.iniciar_sesion()
+            apuestas_deportivas.casino_helper.usuario_password_nivel(5)
+            apuestas_deportivas.casino_helper.saltar_promoción_verano()
+            apuestas_deportivas.casino_helper.ingresar_menu()
+            apuestas_deportivas.casino_helper.ingresar_promociones()
+            apuestas_deportivas.casino_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.apuestas_deportivas_helper.cerrar_sesión_ad()
+
+            apuestas_deportivas.casino_helper.iniciar_sesion()
+            apuestas_deportivas.casino_helper.usuario_password_nivel(6)
+            apuestas_deportivas.casino_helper.saltar_promoción_verano()
+            apuestas_deportivas.casino_helper.ingresar_menu()
+            apuestas_deportivas.casino_helper.ingresar_promociones()
+            apuestas_deportivas.casino_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.apuestas_deportivas_helper.cerrar_sesión_ad()
+
+            apuestas_deportivas.casino_helper.iniciar_sesion()
+            apuestas_deportivas.casino_helper.usuario_password_nivel(7)
+            apuestas_deportivas.casino_helper.saltar_promoción_verano()
+            apuestas_deportivas.casino_helper.ingresar_menu()
+            apuestas_deportivas.casino_helper.ingresar_promociones()
+            apuestas_deportivas.casino_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.apuestas_deportivas_helper.cerrar_sesión_ad()
+
+            apuestas_deportivas.casino_helper.iniciar_sesion()
+            apuestas_deportivas.casino_helper.usuario_password_nivel(8)
+            apuestas_deportivas.casino_helper.saltar_promoción_verano()
+            apuestas_deportivas.casino_helper.ingresar_menu()
+            apuestas_deportivas.casino_helper.ingresar_promociones()
+            apuestas_deportivas.casino_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.apuestas_deportivas_helper.cerrar_sesión_ad()
+
+            apuestas_deportivas.casino_helper.iniciar_sesion()
+            apuestas_deportivas.casino_helper.usuario_password_nivel(9)
+            apuestas_deportivas.casino_helper.saltar_promoción_verano()
+            apuestas_deportivas.casino_helper.ingresar_menu()
+            apuestas_deportivas.casino_helper.ingresar_promociones()
+            apuestas_deportivas.casino_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.apuestas_deportivas_helper.cerrar_sesión_ad()
+
+            apuestas_deportivas.casino_helper.iniciar_sesion()
+            apuestas_deportivas.casino_helper.usuario_password_nivel(0)
+            apuestas_deportivas.casino_helper.saltar_promoción_verano()
+            apuestas_deportivas.casino_helper.ingresar_menu()
+            apuestas_deportivas.casino_helper.ingresar_promociones()
+            apuestas_deportivas.casino_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.apuestas_deportivas_helper.cerrar_sesión_ad()
+
+        except (Exception, StopIteration) as e:
+
+            print(f"Error : {apuestas_deportivas.apuestas_deportivas_helper.trace_helper.get_trace_str(e)}")
+
+        return self.apuestas_deportivas_repository.login_happy_path(apuestas_deportivas)
+
+    def col_promociones(self, apuestas_deportivas: ApuestasDeportivas):
+        """AQUI FUNCIONA EL SELENIUM"""
+        try:
+            driver = None
+
+            if apuestas_deportivas.driver == 'Chrome':
+                driver = webdriver.Chrome()
+            elif apuestas_deportivas.driver == 'Firefox':
+                driver = webdriver.Firefox()
+            elif apuestas_deportivas.driver == 'Safari':
+                driver = webdriver.Safari()
+            elif apuestas_deportivas.driver == 'Edge':
+                driver = webdriver.Edge()
+
+            tz = pytz.timezone('America/Bogota')
+            directory_name = datetime.now(tz).strftime('%Y%m%d%H%M%S')
+
+            apuestas_deportivas.apuestas_deportivas_helper = ApuestasDeportivasHelper(driver, page=0,
+                                                                                      url=apuestas_deportivas.url)
+            apuestas_deportivas.casino_helper = CasinoHelper(driver, page=0, url=apuestas_deportivas.url)
+
+            apuestas_deportivas.casino_helper.login_col()
+            apuestas_deportivas.casino_helper.usuario_password_nivel(1)
+            apuestas_deportivas.casino_helper.saltar_promoción_verano()
+            apuestas_deportivas.casino_helper.ingresar_menu()
+            apuestas_deportivas.casino_helper.ingresar_promociones()
+            apuestas_deportivas.casino_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.casino_helper.cerrar_sesión_col()
+
+            apuestas_deportivas.casino_helper.iniciar_sesion()
+            apuestas_deportivas.casino_helper.usuario_password_nivel(2)
+            apuestas_deportivas.casino_helper.saltar_promoción_verano()
+            apuestas_deportivas.casino_helper.ingresar_menu()
+            apuestas_deportivas.casino_helper.ingresar_promociones()
+            apuestas_deportivas.casino_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.casino_helper.cerrar_sesión_col()
+
+            apuestas_deportivas.casino_helper.iniciar_sesion()
+            apuestas_deportivas.casino_helper.usuario_password_nivel(3)
+            apuestas_deportivas.casino_helper.saltar_promoción_verano()
+            apuestas_deportivas.casino_helper.ingresar_menu()
+            apuestas_deportivas.casino_helper.ingresar_promociones()
+            apuestas_deportivas.casino_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.casino_helper.cerrar_sesión_col()
+
+            apuestas_deportivas.casino_helper.iniciar_sesion()
+            apuestas_deportivas.casino_helper.usuario_password_nivel(4)
+            apuestas_deportivas.casino_helper.saltar_promoción_verano()
+            apuestas_deportivas.casino_helper.ingresar_menu()
+            apuestas_deportivas.casino_helper.ingresar_promociones()
+            apuestas_deportivas.casino_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.casino_helper.cerrar_sesión_col()
+
+            apuestas_deportivas.casino_helper.iniciar_sesion()
+            apuestas_deportivas.casino_helper.usuario_password_nivel(5)
+            apuestas_deportivas.casino_helper.saltar_promoción_verano()
+            apuestas_deportivas.casino_helper.ingresar_menu()
+            apuestas_deportivas.casino_helper.ingresar_promociones()
+            apuestas_deportivas.casino_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.casino_helper.cerrar_sesión_col()
+
+            apuestas_deportivas.casino_helper.iniciar_sesion()
+            apuestas_deportivas.casino_helper.usuario_password_nivel(6)
+            apuestas_deportivas.casino_helper.saltar_promoción_verano()
+            apuestas_deportivas.casino_helper.ingresar_menu()
+            apuestas_deportivas.casino_helper.ingresar_promociones()
+            apuestas_deportivas.casino_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.casino_helper.cerrar_sesión_col()
+
+            apuestas_deportivas.casino_helper.iniciar_sesion()
+            apuestas_deportivas.casino_helper.usuario_password_nivel(7)
+            apuestas_deportivas.casino_helper.saltar_promoción_verano()
+            apuestas_deportivas.casino_helper.ingresar_menu()
+            apuestas_deportivas.casino_helper.ingresar_promociones()
+            apuestas_deportivas.casino_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.casino_helper.cerrar_sesión_col()
+
+            apuestas_deportivas.casino_helper.iniciar_sesion()
+            apuestas_deportivas.casino_helper.usuario_password_nivel(8)
+            apuestas_deportivas.casino_helper.saltar_promoción_verano()
+            apuestas_deportivas.casino_helper.ingresar_menu()
+            apuestas_deportivas.casino_helper.ingresar_promociones()
+            apuestas_deportivas.casino_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.casino_helper.cerrar_sesión_col()
+
+            apuestas_deportivas.casino_helper.iniciar_sesion()
+            apuestas_deportivas.casino_helper.usuario_password_nivel(9)
+            apuestas_deportivas.casino_helper.saltar_promoción_verano()
+            apuestas_deportivas.casino_helper.ingresar_menu()
+            apuestas_deportivas.casino_helper.ingresar_promociones()
+            apuestas_deportivas.casino_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.casino_helper.cerrar_sesión_col()
+
+            apuestas_deportivas.casino_helper.iniciar_sesion()
+            apuestas_deportivas.casino_helper.usuario_password_nivel(0)
+            apuestas_deportivas.casino_helper.saltar_promoción_verano()
+            apuestas_deportivas.casino_helper.ingresar_menu()
+            apuestas_deportivas.casino_helper.ingresar_promociones()
+            apuestas_deportivas.casino_helper.bajar_cursor(x=0,y=500)
+            apuestas_deportivas.casino_helper.cerrar_sesión_col()
+
+        except (Exception, StopIteration) as e:
+
+            print(f"Error : {apuestas_deportivas.apuestas_deportivas_helper.trace_helper.get_trace_str(e)}")
+
+        return self.apuestas_deportivas_repository.login_happy_path(apuestas_deportivas)

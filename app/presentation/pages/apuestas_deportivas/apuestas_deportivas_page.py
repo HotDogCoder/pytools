@@ -38,4 +38,36 @@ class ApuestasDeportivasPage:
         ADC = ApuestasDeportivasController()
         ADC.visualizar_torneos(apuestas_deportivas=apuestas_deportivas)
         pass
-    
+
+    @staticmethod
+    def visualizar_promociones_pro(e):
+        driver = 'Chrome'
+        image_name_prefix = 'apuestas_deportivas_'
+
+        apuestas_deportivas = ApuestasDeportivas(
+            url="https://www.casinoatlanticcity.com/",
+            image_name_prefix=image_name_prefix,
+            driver=driver,
+            apuestas_deportivas_helper=None
+        )
+
+        ADC = ApuestasDeportivasController()
+        ADC.visualizar_promociones_pro(apuestas_deportivas=apuestas_deportivas)
+        pass
+
+    @staticmethod
+    def col_promociones(e):
+        driver = 'Chrome'
+        image_name_prefix = 'apuestas_deportivas_'
+
+        apuestas_deportivas = ApuestasDeportivas(
+            url="https://www.casinoatlanticcity.com/",
+            image_name_prefix=image_name_prefix,
+            driver=driver,
+            apuestas_deportivas_helper=None,
+            casino_helper=None
+        )
+
+        ADC = ApuestasDeportivasController()
+        ADC.col_promociones(apuestas_deportivas=apuestas_deportivas)
+        pass

@@ -48,7 +48,7 @@ class TestLoginingresoHappy():
     # self.driver.find_element(By.CSS_SELECTOR, ".d-xl-block > .btn-casino").click()
     # 4 click to casino online
     wait = WebDriverWait(self.driver, 60)
-    target_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".cardDondeVamosCasino > button")))
+    target_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".cardDondeVamosSports > button")))
     target_button.click()
     #time.sleep(10)
     # 5 | type | id=username_aside | Testjordan01
@@ -59,28 +59,36 @@ class TestLoginingresoHappy():
     self.driver.find_element(By.ID, "login_button_aside").click()
     time.sleep(10)
 
-    self.driver.find_element(By.ID, "contentModalPlayerOculto").click()
-    # 7 | type | id=idAliraCampo | 850
-    self.driver.find_element(By.ID, "idAliraCampo").send_keys("850")
-    # 8 | click | css=button:nth-child(4) |
-    self.driver.find_element(By.CSS_SELECTOR, "button:nth-child(4)").click()
-    # 9 | mouseOver | css=.item-prev > button |
-    #10 "Mi cuenta"
-    header = self.driver.find_element(By.CSS_SELECTOR, ".header")
-    listaboton = header.find_elements(By.CSS_SELECTOR, ".lista-botones")
-    buttons = listaboton.find_elements(By.CSS_SELECTOR, "a")
-    for button in buttons:
-      if button.text == "MI CUENTA":
+
+
+
+    #11 Cerrar sesión
+    header = self.driver.find_element(By.CSS_SELECTOR, "header.o-header")
+    micuenta = header.find_elements(By.CSS_SELECTOR, "a")
+    for button in micuenta:
+      if button.text == "person":
         button.click()
         time.sleep(5)
 
-    #11 Cerrar sesión
-    space = self.driver.find_elements(By.CSS_SELECTOR) , ".space-xl"
-    cs = space.find_elements(By.CSS_SELECTOR), "a"
-    for butt in cs:
-      if cs.text == "MI CUENTA":
-        cs.click()
+    aside = self.driver.find_element(By.CSS_SELECTOR, "aside.o-aside.fixed-right")
+    cerrar_sesion = aside.find_elements(By.CSS_SELECTOR, "a")
+    for button in cerrar_sesion:
+      if button.text == "CERRAR SESIÓN":
+        button.click()
+        time.sleep(6)
+
+    header = self.driver.find_element(By.CSS_SELECTOR, "header.o-header")
+    buttons = header.find_element(By.CSS_SELECTOR, "button")
+    for button in buttons:
+      if "INICIAR SESIÓN" == button.text:
+        button.click()
         time.sleep(5)
 
+    self.driver.find_element(By.ID, "username_aside").send_keys("Testjordan01")
+    self.driver.find_element(By.ID, "password_aside").send_keys("Testjordan01")
+    time.sleep(2)
+    # 6| click | linkText=INGRESAR |
+    self.driver.find_element(By.ID, "login_button_aside").click()
+    time.sleep(10)
   
 test_login_ingreso_happy = TestLoginingresoHappy()
