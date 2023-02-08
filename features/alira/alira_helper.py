@@ -456,24 +456,27 @@ class AliraHelper:
                                     sleep(1)
                                 if target_url.title != "":
                                     input_title.clear()
-                                    target_url.title = target_url.title.replace("🥇 ","")
+                                    target_url.title = target_url.title.replace("🥇 ", "")
+                                    target_url.title = target_url.title.replace("🤑 ", "")
                                     input_title.send_keys(target_url.title)
                                     sleep(1)
                                 if target_url.description != "":
                                     input_description.clear()
                                     target_url.description = target_url.description.replace("🥇 ", "")
+                                    target_url.description = target_url.description.replace("🤑 ", "")
                                     input_description.send_keys(target_url.description)
                                     sleep(1)
                                 if target_url.keywords != "":
                                     input_keywords.clear()
                                     target_url.keywords = target_url.keywords.replace("🥇 ", "")
+                                    target_url.keywords = target_url.keywords.replace("🤑 ", "")
                                     input_keywords.send_keys(target_url.keywords)
                                     sleep(1)
                                 """
                                 ------------------------
                                 """
                                 self.driver.implicitly_wait(5)
-                                #self.driver.execute_script("PageEditor.onGoToList(true)")
+                                # self.driver.execute_script("PageEditor.onGoToList(true)")
                                 if save is True:
                                     self.driver.execute_script("window.scrollTo(0,0)")
                                     sleep(2)

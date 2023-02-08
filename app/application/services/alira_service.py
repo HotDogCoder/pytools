@@ -51,6 +51,13 @@ class AliraService(AliraServiceInterface):
 
             references_1 = list(set(filter(lambda x: x != "/" and x != "", alira.alira_helper.sheets[1].data)))
 
+            alira.alira_helper.get_sheet_url_reference(1, 5, [
+                f"https://www.casinoatlnaticcity.com",
+                f"https://www.casinoatlanticcity.com",
+            ])
+            references_extra = list(set(filter(lambda x: x != "/" and x != "", alira.alira_helper.sheets[1].data)))
+            references_1 = references_extra + references_1
+
             alira.alira_helper.access_to_pages_tab()
             alira.alira_helper.get_sheet_target_urls(
                 1, 4, 5,
