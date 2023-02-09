@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta
 from time import sleep
 
 import json
@@ -40,9 +41,26 @@ class ScreenshotRepository(ScreenshotRepositoryInterface):
             print(f'send whatsapp: {r.content}')
             sleep(5)
 
+        current_time = datetime.now()
+        night_time = datetime(current_time.year, current_time.month, current_time.day, 18, 30, 0)
+        good_time = datetime(current_time.year, current_time.month, current_time.day, 16, 20, 0)
+        afternoon_time = datetime(current_time.year, current_time.month, current_time.day, 12, 0, 0)
+        morning_time = datetime(current_time.year, current_time.month, current_time.day, 6, 0, 0)
+
+        # time_diff = current_time - specific_time
+
+        if morning_time <= current_time < afternoon_time:
+            hello = "Estimados buenos dias"
+        if afternoon_time <= current_time < good_time:
+            hello = "Estimados buenas tardes"
+        if good_time <= current_time < night_time:
+            hello = "Estimados tengan muy buenas tardes"
+        if current_time > night_time or current_time < morning_time:
+            hello = "Estimados buenas noches"
+
         url = constants.API_WHATSAPP_WEB
         body = {
-            'message': '🤖 Buenas noches estimados, se envia print de monitoreo 🤖',
+            'message': f'🤖 {hello}, se envia print de monitoreo. 🤖',
             'number': f'{constants.API_WHATSAPP_WEB_BOT_TARGET_NUMBER_1}',
             'photo': f''
         }
@@ -54,5 +72,4 @@ class ScreenshotRepository(ScreenshotRepositoryInterface):
 
     def test_atlantic_city_casino_and_sports(self, screenshot: Screenshot):
         pass
-
 

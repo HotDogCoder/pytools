@@ -74,13 +74,13 @@ class ScreenshotHelper:
 
         sleep(5)
 
-        if target_iterations > 1:
-            for x in range(target_iterations):
+        if trash == 0 and target_iterations > 1:
+            for x in range(target_iterations - 1):
                 driver.execute_script(f"var scroll_targets = document.querySelectorAll('.scrollbar-view');"
                                       f"var scroll_target = scroll_targets[1];"
                                       f"scroll_target.scrollTo(0, {target_height_clear * (x + 1)});")
 
-                sleep(5)
+                sleep(10)
 
                 driver.implicitly_wait(100)
 
@@ -93,21 +93,40 @@ class ScreenshotHelper:
                     f"{datetime.now().strftime('%y%m%d')}_{url.id}_{x + 1}_{directory_name}.png")
 
         if trash > 0 and target_iterations > 1:
-            driver.execute_script(f"var scroll_targets = document.querySelectorAll('.scrollbar-view');"
-                                  f"var scroll_target = scroll_targets[1];"
-                                  f"scroll_target.scrollTo(0, {target_height_clear * (target_iterations + trash)});")
 
-            sleep(5)
+            for x in range(target_iterations - 1):
+                driver.execute_script(f"var scroll_targets = document.querySelectorAll('.scrollbar-view');"
+                                      f"var scroll_target = scroll_targets[1];"
+                                      f"scroll_target.scrollTo(0, {target_height_clear * (x + 1)});")
 
-            driver.implicitly_wait(100)
+                sleep(10)
 
-            driver.save_screenshot(
-                f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-                f"{datetime.now().strftime('%y%m%d')}_{url.id}_{target_iterations}_{directory_name}.png")
+                driver.implicitly_wait(100)
 
-            screenshot.image_list.append(
-                f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-                f"{datetime.now().strftime('%y%m%d')}_{url.id}_{target_iterations}_{directory_name}.png")
+                driver.save_screenshot(
+                    f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
+                    f"{datetime.now().strftime('%y%m%d')}_{url.id}_{x + 1}_{directory_name}.png")
+
+                screenshot.image_list.append(
+                    f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
+                    f"{datetime.now().strftime('%y%m%d')}_{url.id}_{x + 1}_{directory_name}.png")
+
+            if trash > 0.15:
+                driver.execute_script(f"var scroll_targets = document.querySelectorAll('.scrollbar-view');"
+                                      f"var scroll_target = scroll_targets[1];"
+                                      f"scroll_target.scrollTo(0, {target_height_clear * (target_iterations + trash)});")
+
+                sleep(10)
+
+                driver.implicitly_wait(100)
+
+                driver.save_screenshot(
+                    f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
+                    f"{datetime.now().strftime('%y%m%d')}_{url.id}_{target_iterations}_{directory_name}.png")
+
+                screenshot.image_list.append(
+                    f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
+                    f"{datetime.now().strftime('%y%m%d')}_{url.id}_{target_iterations}_{directory_name}.png")
 
     @staticmethod
     def scroll_and_take_screenshot_monitoreo(screenshot: Screenshot, url, driver, target_iterations=None, zoom=None):

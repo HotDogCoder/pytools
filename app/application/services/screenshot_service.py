@@ -8,6 +8,7 @@ from app.application.services_interfaces.screenshot_service_interface import Scr
 from app.domain.models.screenshot import Screenshot
 from core.domain.models.url import Url as UrlModel
 from app.infrastructure.repositories.screenshot_repository import ScreenshotRepository
+from core.util.path.path_helper import PathHelper
 from features.screenshot.screenshot_helper import ScreenshotHelper
 
 
@@ -18,15 +19,28 @@ class ScreenshotService(ScreenshotServiceInterface):
         self.screenshot_repository = ScreenshotRepository()
 
     def take_screenshot_of_servers_status_1(self, screenshot: Screenshot):
+        import datetime
+
+        now = datetime.datetime.now()
+        if now.hour >= 7 and now.minute >= 55:
+            today = now.strftime("%Y-%m-%d")
+        else:
+            yesterday = (now - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
+            today = yesterday
+        print(today)
 
         urls = [
             UrlModel(0, 'https://monitoreo.acity.com.pe/apps/platform/dashboard/3'),
-            UrlModel(1, 'https://grafana.acity.com.pe/d/hT18KZz4z/monitoreo-url-internas?orgId=1&refresh=5s'),
-            UrlModel(2, 'https://grafana.acity.com.pe/d/LLSTg4zVz/estado-replica?orgId=1&refresh=5s'),
-            UrlModel(3, 'https://grafana.acity.com.pe/d/DjMVuiMVk/dashboard-casino-online?orgId=1&refresh=5s'),
-            UrlModel(4, 'https://grafana.acity.com.pe/d/-JFbnTn4z/estado-aplicaciones-web?orgId=1&refresh=5s'),
-            UrlModel(5, 'https://grafana.acity.com.pe/d/ac0OemdVk/total-competencias?orgId=1&refresh=5s'),
-            UrlModel(6, 'https://grafana.acity.com.pe/d/XYVkz7V4k/views-nzgp?orgId=1&refresh=5s')
+            UrlModel(1, 'https://grafana.acity.com.pe/d/hT18KZz4z/monitoreo-url-internas?orgId=1&refresh=5s&from=now-1h&to=now'),
+            UrlModel(2, 'https://grafana.acity.com.pe/d/LLSTg4zVz/estado-replica?orgId=1&refresh=5s&from=now-15m&to=now'),
+            UrlModel(3, 'https://grafana.acity.com.pe/d/DjMVuiMVk/dashboard-casino-online?orgId=1&refresh=5s&from=now-15m&to=now'),
+            UrlModel(4, 'https://grafana.acity.com.pe/d/-JFbnTn99/atlantic-express?orgId=1&refresh=5s&from=now-30m&to=now'),
+            UrlModel(5, 'https://grafana.acity.com.pe/d/-JFbn66n4z/crmcloud?orgId=1&refresh=5s&from=now-30m&to=now'),
+            UrlModel(6, 'https://grafana.acity.com.pe/d/-JFbnTn411/websol?orgId=1&refresh=5s&from=now-30m&to=now'),
+            UrlModel(7, 'https://grafana.acity.com.pe/d/-JFbnT664z/genesys-y-crmcloud?orgId=1&refresh=5s&from=now-30m&to=now'),
+            UrlModel(8, 'https://grafana.acity.com.pe/d/ac0OemdVk/total-competencias?orgId=1&refresh=5s&from=now-15m&to=now'),
+            UrlModel(9, 'https://grafana.acity.com.pe/d/XYVkz7V4k/views-nzgp?orgId=1&refresh=5s'),
+            UrlModel(10, 'https://grafana.acity.com.pe/d/k6RHcLo4k/atlantic-express-diario?orgId=1&refresh=5s&var-Fecha='+today+'&from=now-15m&to=now'),
         ]
 
         try:
@@ -43,10 +57,21 @@ class ScreenshotService(ScreenshotServiceInterface):
 
             screenshot_helper = ScreenshotHelper()
 
+            path_helper = PathHelper()
+            current_directory = path_helper.get_project_root_path()
+            folder = f"{current_directory}/storage/screenshots"
+            for the_file in os.listdir(folder):
+                file_path = os.path.join(folder, the_file)
+                try:
+                    if os.path.isfile(file_path):
+                        os.unlink(file_path)
+                except Exception as e:
+                    print(e)
+
             for url in urls:
 
                 if url.id == 0:
-                    screenshot_helper.scroll_and_take_screenshot_monitoreo(screenshot, url, driver, zoom=50)
+                    screenshot_helper.scroll_and_take_screenshot_monitoreo(screenshot, url, driver, zoom=70)
 
                 elif url.id == 1:
                     print("1")
@@ -54,23 +79,39 @@ class ScreenshotService(ScreenshotServiceInterface):
 
                 elif url.id == 2:
                     print("2")
-                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=30)
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=45)
 
                 elif url.id == 3:
                     print("3")
-                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=35)
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=50)
 
                 elif url.id == 4:
                     print("4")
-                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, zoom=40)
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, zoom=50)
 
                 elif url.id == 5:
                     print("5")
-                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=20)
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, zoom=50)
 
                 elif url.id == 6:
                     print("6")
-                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, zoom=38)
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, zoom=50)
+
+                elif url.id == 7:
+                    print("7")
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, zoom=50)
+
+                elif url.id == 8:
+                    print("8")
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=30)
+
+                elif url.id == 9:
+                    print("9")
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, zoom=50)
+
+                elif url.id == 10:
+                    print("10")
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=39)
 
                 else:
                     screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver)
@@ -132,8 +173,4 @@ class ScreenshotService(ScreenshotServiceInterface):
 
             # raise StopIteration
 
-        except (UnicodeDecodeError, StopIteration) as e:
-
-            print('error: ', e)
-
-        return self.screenshot_repository.test_atlantic_city_casino_and_sports(screenshot)
+        except (UnicodeDecodeError, StopIteration) as e:import os
