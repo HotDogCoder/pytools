@@ -1,27 +1,31 @@
-import pyodbc
-
 from core.config import constants
+from sqlalchemy import create_engine
 
 
 class MssqlConnection:
 
-    def __init__(self, server=constants.DB_HOST,
-                 database=constants.DB_NAME, username=constants.DB_USER,
+    def __init__(self,
+                 driver=constants.DB_DRIVER,
+                 host=constants.DB_HOST,
+                 port=constants.DB_PORT,
+                 database=constants.DB_NAME,
+                 username=constants.DB_USER,
                  password=constants.DB_PASSWORD):
-        self.server = server
+        self.driver = driver
+        self.host = host
+        # self.port = port
         self.database = database
         self.username = username
         self.password = password
         self.conn = None
         self.cursor = None
+        self.connection_string = f"mssql+pyodbc://{username}:{password}@{host}" \
+                                 f"/{database}?driver=ODBC+Driver+18+for+SQL+Server"
+        self.engine = create_engine(self.connection_string)
 
-    def __enter__(self):
-        self.conn = pyodbc.connect(
-            f'DRIVER={constants.DB_DRIVER};SERVER=' + self.server + ';DATABASE=' + self.database + ';UID=' +
-            self.username + ';PWD=' + self.password)
-        self.cursor = self.conn.cursor()
-        return self.cursor
+    def connect(self):
+        connection = self.engine.connect()
+        return connection
 
-    def __exit__(self, type, value, traceback):
-        self.cursor.close()
-        self.conn.close()
+    def close(self, connection):
+        connection.close()

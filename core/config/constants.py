@@ -10,8 +10,8 @@ API_WHATSAPP_WEB_BOT_TARGET_NUMBER_1 = '51966153268@c.us'
 API_WHATSAPP_WEB_BOT_TARGET_NUMBER_2 = '51945633041-1464183842@g.us'
 
 DB_DRIVER = 'ODBC Driver 18 for SQL Server'
-DB_HOST = 'tcp:basicacid.database.windows.net'
-DB_PORT = '1433'
+DB_HOST = 'basicacid.database.windows.net'
+DB_PORT = 1433
 DB_NAME = 'node-ts-whatsapp-bot'
 DB_USER = 'acidsecurity'
 DB_PASSWORD = 'sql$$123'
