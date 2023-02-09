@@ -6,7 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait as Wait
 from datetime import datetime
 from app.application.services_interfaces.screenshot_service_interface import ScreenshotServiceInterface
 from app.domain.models.screenshot import Screenshot
-from core.domain.models.url import Url as UrlModel
+from core.domain.models.url import Url as ReportType
 from app.infrastructure.repositories.screenshot_repository import ScreenshotRepository
 from core.util.path.path_helper import PathHelper
 from features.screenshot.screenshot_helper import ScreenshotHelper
@@ -28,7 +28,7 @@ class ScreenshotService(ScreenshotServiceInterface):
             yesterday = (now - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
             today = yesterday
         print(today)
-
+        """"
         urls = [
             UrlModel(0, 'https://monitoreo.acity.com.pe/apps/platform/dashboard/3'),
             UrlModel(1, 'https://grafana.acity.com.pe/d/hT18KZz4z/monitoreo-url-internas?orgId=1&refresh=5s&from=now-1h&to=now'),
@@ -42,6 +42,9 @@ class ScreenshotService(ScreenshotServiceInterface):
             UrlModel(9, 'https://grafana.acity.com.pe/d/XYVkz7V4k/views-nzgp?orgId=1&refresh=5s'),
             UrlModel(10, 'https://grafana.acity.com.pe/d/k6RHcLo4k/atlantic-express-diario?orgId=1&refresh=5s&var-Fecha='+today+'&from=now-15m&to=now'),
         ]
+        """
+        report_types = self.screenshot_repository.get_all_report_types()
+
 
         try:
             driver = None
@@ -68,53 +71,55 @@ class ScreenshotService(ScreenshotServiceInterface):
                 except Exception as e:
                     print(e)
 
-            for url in urls:
+            for report_type in report_types:
 
-                if url.id == 0:
-                    screenshot_helper.scroll_and_take_screenshot_monitoreo(screenshot, url, driver, zoom=70)
-
-                elif url.id == 1:
+                if report_type.id == 1:
                     print("1")
-                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, zoom=50)
+                    screenshot_helper.scroll_and_take_screenshot_monitoreo(screenshot, report_type, driver, zoom=50)
 
-                elif url.id == 2:
+                elif report_type.id == 2:
                     print("2")
-                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=45)
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver, zoom=50)
 
-                elif url.id == 3:
+                elif report_type.id == 3:
                     print("3")
-                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=50)
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver, target_iterations=0, zoom=45)
 
-                elif url.id == 4:
+                elif report_type.id == 4:
                     print("4")
-                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, zoom=50)
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver, target_iterations=0, zoom=50)
 
-                elif url.id == 5:
+
+                elif report_type.id == 5:
                     print("5")
-                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, zoom=50)
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver, zoom=50)
 
-                elif url.id == 6:
+                elif report_type.id == 6:
                     print("6")
-                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, zoom=50)
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver, zoom=50)
 
-                elif url.id == 7:
+                elif report_type.id == 7:
                     print("7")
-                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, zoom=50)
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver, zoom=50)
 
-                elif url.id == 8:
+                elif report_type.id == 8:
                     print("8")
-                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=30)
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver, zoom=50)
 
-                elif url.id == 9:
+                elif report_type.id == 9:
                     print("9")
-                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, zoom=50)
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver, target_iterations=0, zoom=30)
 
-                elif url.id == 10:
+                elif report_type.id == 10:
                     print("10")
-                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver, target_iterations=0, zoom=39)
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver, zoom=50)
+
+                elif report_type.id == 11:
+                    print("11")
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver, target_iterations=0, zoom=39)
 
                 else:
-                    screenshot_helper.scroll_and_take_screenshot(screenshot, url, driver)
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver)
                     pass
 
             driver.close()
@@ -150,24 +155,24 @@ class ScreenshotService(ScreenshotServiceInterface):
                 print(f'-------------------- {target.text} -----------------------')
 
                 if target.text == 'INGRESAR':
-                        target.click()
-                        new_target = Wait(driver, timeout=10).until(
-                            ec.visibility_of_element_located((By.CSS_SELECTOR, ".btn-sports")))
-                        new_target.click()
-                        driver.implicitly_wait(10)
-                        driver.save_screenshot(
-                            f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-                            f"{datetime.now().strftime('%y%m%d')}.png")
+                    target.click()
+                    new_target = Wait(driver, timeout=10).until(
+                        ec.visibility_of_element_located((By.CSS_SELECTOR, ".btn-sports")))
+                    new_target.click()
+                    driver.implicitly_wait(10)
+                    driver.save_screenshot(
+                        f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
+                        f"{datetime.now().strftime('%y%m%d')}.png")
 
-                        screenshot.image_list.append(
-                            f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-                            f"{datetime.now().strftime('%y%m%d')}.png")
+                    screenshot.image_list.append(
+                        f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
+                        f"{datetime.now().strftime('%y%m%d')}.png")
 
-                        break
+                    break
                 elif target.text == 'REGISTRATE':
-                        # target.send_keys(Keys.ENTER)
-                        # target.click()
-                        break
+                    # target.send_keys(Keys.ENTER)
+                    # target.click()
+                    break
 
             driver.close()
 

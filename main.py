@@ -15,4 +15,3 @@ SS = SC.take_screenshot_of_servers_status_1(screenshot=screenshot)
 
 print('------------- termino -----------------')
 print(SS.image_list)
-

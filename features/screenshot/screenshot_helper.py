@@ -6,6 +6,7 @@ from time import sleep
 import pytz
 from selenium.webdriver.common.by import By
 from app.domain.models.screenshot import Screenshot
+from core.domain.models.report_type import ReportType
 from core.util.path.path_helper import PathHelper
 
 
@@ -15,12 +16,12 @@ class ScreenshotHelper:
         pass
 
     @staticmethod
-    def scroll_and_take_screenshot(screenshot: Screenshot, url, driver, target_iterations=None, zoom=None):
+    def scroll_and_take_screenshot(screenshot: Screenshot, report_type, driver, target_iterations=None, zoom=None):
 
         tz = pytz.timezone('America/Bogota')
         directory_name = datetime.now(tz).strftime('%Y%m%d%H%M%S')
         driver.maximize_window()
-        driver.get(url.url)
+        driver.get(report_type.url)
 
         targets = driver.find_elements(By.CSS_SELECTOR, ".react-grid-item")
 
@@ -66,11 +67,11 @@ class ScreenshotHelper:
 
         driver.save_screenshot(
             f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-            f"{datetime.now().strftime('%y%m%d')}_{url.id}_0_{directory_name}.png")
+            f"{datetime.now().strftime('%y%m%d')}_{report_type.id}_0_{directory_name}.png")
 
         screenshot.image_list.append(
             f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-            f"{datetime.now().strftime('%y%m%d')}_{url.id}_0_{directory_name}.png")
+            f"{datetime.now().strftime('%y%m%d')}_{report_type.id}_0_{directory_name}.png")
 
         sleep(5)
 
@@ -86,11 +87,11 @@ class ScreenshotHelper:
 
                 driver.save_screenshot(
                     f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-                    f"{datetime.now().strftime('%y%m%d')}_{url.id}_{x + 1}_{directory_name}.png")
+                    f"{datetime.now().strftime('%y%m%d')}_{report_type.id}_{x + 1}_{directory_name}.png")
 
                 screenshot.image_list.append(
                     f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-                    f"{datetime.now().strftime('%y%m%d')}_{url.id}_{x + 1}_{directory_name}.png")
+                    f"{datetime.now().strftime('%y%m%d')}_{report_type.id}_{x + 1}_{directory_name}.png")
 
         if trash > 0 and target_iterations > 1:
 
@@ -100,6 +101,7 @@ class ScreenshotHelper:
                                       f"scroll_target.scrollTo(0, {target_height_clear * (x + 1)});")
 
                 sleep(10)
+
 
                 driver.implicitly_wait(100)
 
@@ -122,20 +124,20 @@ class ScreenshotHelper:
 
                 driver.save_screenshot(
                     f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-                    f"{datetime.now().strftime('%y%m%d')}_{url.id}_{target_iterations}_{directory_name}.png")
+                    f"{datetime.now().strftime('%y%m%d')}_{report_type.id}_{target_iterations}_{directory_name}.png")
 
                 screenshot.image_list.append(
                     f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-                    f"{datetime.now().strftime('%y%m%d')}_{url.id}_{target_iterations}_{directory_name}.png")
+                    f"{datetime.now().strftime('%y%m%d')}_{report_type.id}_{target_iterations}_{directory_name}.png")
 
     @staticmethod
-    def scroll_and_take_screenshot_monitoreo(screenshot: Screenshot, url, driver, target_iterations=None, zoom=None):
+    def scroll_and_take_screenshot_monitoreo(screenshot: Screenshot, report_type: ReportType, driver, target_iterations=None, zoom=None):
 
         tz = pytz.timezone('America/Bogota')
         directory_name = datetime.now(tz).strftime('%Y%m%d%H%M%S')
 
         driver.maximize_window()
-        driver.get(url.url)
+        driver.get(report_type.url)
         sleep(10)
         if zoom is not None:
             driver.execute_script(f"document.body.style.zoom='{zoom}%'")
@@ -159,8 +161,8 @@ class ScreenshotHelper:
 
         driver.save_screenshot(
             f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-            f"{datetime.now().strftime('%y%m%d')}_{url.id}_0_{directory_name}.png")
+            f"{datetime.now().strftime('%y%m%d')}_{report_type.id}_0_{directory_name}.png")
 
         screenshot.image_list.append(
             f"{current_directory}/storage/screenshots/{screenshot.image_name_prefix}"
-            f"{datetime.now().strftime('%y%m%d')}_{url.id}_0_{directory_name}.png")
+            f"{datetime.now().strftime('%y%m%d')}_{report_type.id}_0_{directory_name}.png")

@@ -13,6 +13,10 @@ class AliraRepositoryInterface(ABC):
         return alira
 
     @abstractmethod
+    def set_seo_redirection(self, alira: Alira):
+        return alira
+
+    @abstractmethod
     def get_layouts(self, alira: Alira):
         return alira
 
