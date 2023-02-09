@@ -6,6 +6,7 @@ import requests
 from core.config import constants
 from app.application.repositories_interfaces.screenshot_repository_interface import ScreenshotRepositoryInterface
 from app.domain.models.screenshot import Screenshot
+from core.database.mssql_connection import MssqlConnection
 
 
 class ScreenshotRepository(ScreenshotRepositoryInterface):
@@ -28,6 +29,16 @@ class ScreenshotRepository(ScreenshotRepositoryInterface):
         output = json.loads(r.content)
 
         paths = output['paths']
+
+        with MssqlConnection() as cursor:
+            cursor.execute("""
+                SELECT *
+                FROM mytable
+            """)
+
+            rows = cursor.fetchall()
+            for row in rows:
+                print(row)
 
         for file in paths:
             url = constants.API_WHATSAPP_WEB
@@ -55,4 +66,11 @@ class ScreenshotRepository(ScreenshotRepositoryInterface):
     def test_atlantic_city_casino_and_sports(self, screenshot: Screenshot):
         pass
 
+    with MssqlConnection() as cursor:
+        cursor.execute("""
+            select * from auth_user
+        """)
 
+        rows = cursor.fetchall()
+        for row in rows:
+            print(row)
