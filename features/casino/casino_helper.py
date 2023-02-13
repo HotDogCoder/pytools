@@ -187,13 +187,9 @@ class CasinoHelper:
     def seleccionar_promocion(self, nivel=1):
         pass
 
-    def depositar(self):
-
-
+    def depositar_col(self):
         sleep(5)
         self.driver.execute_script(f"javascript:mpu('/members/deposit-popup.html');void(0);")
-        wait = WebDriverWait(self.driver, 60)
-        wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".lista-botones.a-buton-primary")))
 
         #self.driver.execute_script(f"javascript:mpu('/members/deposit-popup.html');void(0);")
         #wait = WebDriverWait(self.driver, 60)
@@ -205,101 +201,112 @@ class CasinoHelper:
         if (forma_pago == "KASHIO"):
             sleep(10)
             self.driver.find_element(By.ID, "752").click()
-            sleep(10)
+            sleep(15)
             self.driver.execute_script(f"javascript:close();void(0);")
-            wait = WebDriverWait(self.driver, 60)
-            target_buttoncerrar = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".ico--cierre")))
         elif (forma_pago == "INTERBANK"):
             sleep(10)
             self.driver.execute_script(f"javascript:mpu('/members/deposit-popup.html');void(0);")
-            wait = WebDriverWait(self.driver, 60)
-            wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".lista-botones.a-buton-primary")))
             sleep(10)
             self.driver.find_element(By.ID, "33").click()
-            sleep(10)
+            sleep(15)
             self.driver.execute_script(f"javascript:close();void(0);")
-            wait= WebDriverWait(self.driver,60)
-            target_buttoncerrar=wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".ico--cierre")))
+
 
         elif (forma_pago == "SAFETYPAY"):
-            time.sleep(10)
+            sleep(10)
             self.driver.execute_script(f"javascript:mpu('/members/deposit-popup.html');void(0);")
-            wait = WebDriverWait(self.driver, 60)
-            wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".lista-botones.a-buton-primary")))
+
             sleep(10)
             self.driver.find_element(By.ID, "34").click()
-            sleep(10)
+            sleep(15)
             self.driver.execute_script(f"javascript:close();void(0);")
-            wait = WebDriverWait(self.driver, 60)
-            target_buttoncerrar = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".ico--cierre")))
+
 
         elif (forma_pago == "VISA"):
             sleep(10)
             self.driver.execute_script(f"javascript:mpu('/members/deposit-popup.html');void(0);")
-            wait = WebDriverWait(self.driver, 60)
-            wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".lista-botones.a-buton-primary")))
             sleep(10)
             self.driver.find_element(By.ID, "470").click()
-            sleep(10)
+            sleep(15)
             self.driver.execute_script(f"javascript:close();void(0);")
-            wait = WebDriverWait(self.driver, 60)
-            target_buttoncerrar = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".ico--cierre")))
 
         elif (forma_pago == "PAGOEFECTIVO"):
-            time.sleep(10)
+            sleep(10)
             self.driver.execute_script(f"javascript:mpu('/members/deposit-popup.html');void(0);")
-            wait = WebDriverWait(self.driver, 60)
-            wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".lista-botones.a-buton-primary")))
             sleep(10)
             self.driver.find_element(By.ID, "69").click()
-            sleep(10)
+            sleep(15)
             self.driver.execute_script(f"javascript:close();void(0);")
-            wait = WebDriverWait(self.driver, 60)
-            target_buttoncerrar = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".ico--cierre")))
+
 
         elif (forma_pago == "PAGOQR"):
-            time.sleep(5)
+            sleep(10)
             self.driver.execute_script(f"javascript:mpu('/members/deposit-popup.html');void(0);")
-            wait = WebDriverWait(self.driver, 60)
-            wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".lista-botones.a-buton-primary")))
             sleep(10)
             self.driver.find_element(By.ID, "72").click()
-            sleep(10)
+            sleep(20)
             self.driver.execute_script(f"javascript:close();void(0);")
-            wait = WebDriverWait(self.driver, 60)
-            target_buttoncerrar = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".ico--cierre")))
+            sleep(10)
 
 
     def visualizar_todo_los_depositos_presencial(self, forma_pago=""):
         "AQUI MOSTRARA EN PATNALLA LAS DIFERENTES FORMAS DE PAGO PRESENCIAL"
-        self.driver.find_element(By.ID, "porEfectivo").click()
-        time.sleep(3)
         if (forma_pago == "KASHIO"):
+            sleep(10)
+            self.driver.execute_script(f"changeTab(2)")
+            sleep(5)
             self.driver.find_element(By.ID, "752").click()
-            time.sleep(3)
-            self.driver.execute_script(f"javascript:close();void(0);")
+            time.sleep(10)
+            self.driver.execute_script(f"javascript:backMPU();void(0);")
+            self.driver.execute_script(f"changeTab(2)")
         elif (forma_pago == "INTERBANK"):
+
+            sleep(10)
             self.driver.find_element(By.ID, "33").click()
             time.sleep(3)
-            self.driver.execute_script(f"javascript:close();void(0);")
+            self.driver.execute_script(f"javascript:backMPU();void(0);")
+            self.driver.execute_script(f"changeTab(2)")
         elif (forma_pago == "SAFETYPAY"):
+            sleep(10)
             self.driver.find_element(By.ID, "34").click()
-            time.sleep(3)
-            self.driver.execute_script(f"javascript:close();void(0);")
+            time.sleep(10)
+            self.driver.execute_script(f"javascript:backMPU();void(0);")
+            self.driver.execute_script(f"changeTab(2)")
         elif (forma_pago == "PAGOEFECTIVO"):
+            sleep(10)
             self.driver.find_element(By.ID, "69").click()
-            time.sleep(3)
-            self.driver.execute_script(f"javascript:close();void(0);")
+            time.sleep(10)
+            self.driver.execute_script(f"javascript:backMPU();void(0);")
+            self.driver.execute_script(f"changeTab(2)")
         elif (forma_pago == "CAJEROATLANTIC"):
+            sleep(10)
             self.driver.find_element(By.ID, "60").click()
-            time.sleep(3)
-            self.driver.execute_script(f"javascript:close();void(0);")
-
+            time.sleep(10)
+            self.driver.execute_script(f"javascript:backMPU();void(0);")
+            self.driver.execute_script(f"changeTab(2)")
+            time.sleep(15)
         # btn.click()
 
         # HACES LO TUYO
 
         # CIERRAS EL MODAL
-        self.driver.execute_script(f"javascript:()close;void(0);")
-    def comparar_textos(self):
+
+
+
+    def ingresar_promociones(self):
+
+        urls = [
+            "https://www.casinoatlanticcity.com/torneo/torneo-verano",
+            "https://www.casinoatlanticcity.com/torneo/torneo-ruleta-online",
+            "https://www.casinoatlanticcity.com/sorteo/estelar#/",
+            "https://www.casinoatlanticcity.com/torneo/top_100#/",
+            "https://www.casinoatlanticcity.com/sorteo/vip_royal#/",
+            "https://www.casinoatlanticcity.com/sorteo/tus_suenos#/",
+            "https://www.casinoatlanticcity.com/torneo/se-un-winner-de-winner",
+            "https://www.casinoatlanticcity.com/torneo/cuota-apuesta-deportiva#/",
+            "https://www.casinoatlanticcity.com/apuesta-deportiva/pago-anticipado",
+                ]
+
+        for url in urls:
+            self.driver.get(url)
 

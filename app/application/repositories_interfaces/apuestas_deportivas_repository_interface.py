@@ -31,3 +31,7 @@ class ApuestasDeportivasRepositoryInterface(ABC):
     @abstractmethod
     def visualizar_depositos_col(self, apuestas_deportivas: ApuestasDeportivas):
         return apuestas_deportivas
+
+    @abstractmethod
+    def visualizar_depositos_ad(self, apuestas_deportivas: ApuestasDeportivas):
+        return apuestas_deportivas

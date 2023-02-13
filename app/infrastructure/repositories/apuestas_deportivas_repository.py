@@ -37,3 +37,6 @@ class ApuestasDeportivasRepository(ApuestasDeportivasRepositoryInterface):
     def visualizar_promocion_winner_de_winners(self, apuestas_deportivas: ApuestasDeportivas):
         return apuestas_deportivas
 
+    def visualizar_depositos_ad(self, apuestas_deportivas: ApuestasDeportivas):
+        return apuestas_deportivas
+

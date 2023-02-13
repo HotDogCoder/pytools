@@ -22,21 +22,17 @@ class ApuestasDeportivasHelper:
         self.trace_helper = TraceHelper()
 
     def login_ad(self):
-        # Test name: Login ingreso Happy
-        # Step # | name | target | value
-        # 1 | open | https://atlanticcity.pre.tecnalis.com/ |
+
         self.driver.get(self.url)
-        # 2 | setWindowSize | 1065x817 |
         self.driver.maximize_window()
-        # 3 | click | css=.d-xl-block > .btn-casino |
+        """INGRESA A EL BOTON INGRESAR"""
         header = self.driver.find_element(By.CSS_SELECTOR, "header")
         buttons = header.find_elements(By.CSS_SELECTOR, "a")
         for button in buttons:
             if button.text == "INGRESAR":
                 button.click()
                 sleep(5)
-        # self.driver.find_element(By.CSS_SELECTOR, ".d-xl-block > .btn-casino").click()
-        # 4 click to casino online
+        """A DONDE VAMOS  IR A SPORTS"""
         wait = WebDriverWait(self.driver, 60)
         target_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, ".cardDondeVamosSports > button")))
         target_button.click()
@@ -44,17 +40,18 @@ class ApuestasDeportivasHelper:
         # 5 | type | id=username_aside | Testjordan01
 
     def cerrar_sesión_ad(self):
-        # Mi menu
+        """INGRESA AL MENÚ"""
         header = self.driver.find_element(By.CSS_SELECTOR, "header.o-header")
         micuenta = header.find_elements(By.CSS_SELECTOR, "a")
         for button in micuenta:
             if button.text == "person":
                 button.click()
                 sleep(5)
-        # Cerrar sesión
+        """CLICK EN CERRAR SESIÓN"""
         aside = self.driver.find_element(By.CSS_SELECTOR, "aside.o-aside.fixed-right")
         cerrarsesión = aside.find_elements(By.CSS_SELECTOR, "a")
         for buttond in cerrarsesión:
             if buttond.text == "CERRAR SESIÓN":
                 buttond.click()
                 sleep(6)
+

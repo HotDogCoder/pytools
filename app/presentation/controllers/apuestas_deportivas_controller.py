@@ -21,3 +21,6 @@ class ApuestasDeportivasController:
 
     def visualizar_depositos_col(self, apuestas_deportivas: ApuestasDeportivas):
         return self.apuestas_deportivas_service.visualizar_depositos_col(apuestas_deportivas)
+
+    def visualizar_depositos_ad(self, apuestas_deportivas: ApuestasDeportivas):
+        return self.apuestas_deportivas_service.visualizar_depositos_ad(apuestas_deportivas)

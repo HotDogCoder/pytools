@@ -111,6 +111,15 @@ def main(page: ft.page):
         height=50
     )
 
+    btn_test_visualizar_depositos_ad = ft.Container(
+        ft.FloatingActionButton(
+            text="VISUALIZAR DEPOSITOS AD",
+            icon=ft.icons.ARROW_RIGHT,
+            on_click=apuestas_deportivas_page.visualizar_depositos_ad
+        ),
+        width=screen_width,
+        height=50
+    )
 
 
 
@@ -127,7 +136,8 @@ def main(page: ft.page):
                 btn_test_visualizar_promociones_pro,
                 btn_test_col_promociones,
                 btn_test_col_promocion_winner_de_winners,
-                btn_test_visualizar_depositos_col
+                btn_test_visualizar_depositos_col,
+                btn_test_visualizar_depositos_ad,
             ]
         )
     )

@@ -107,3 +107,20 @@ class ApuestasDeportivasPage:
         ADC = ApuestasDeportivasController()
         ADC.visualizar_depositos_col(apuestas_deportivas=apuestas_deportivas)
         pass
+
+    @staticmethod
+    def visualizar_depositos_ad(e):
+        driver = 'Chrome'
+        image_name_prefix = 'apuestas_deportivas_'
+
+        apuestas_deportivas = ApuestasDeportivas(
+            url="https://www.casinoatlanticcity.com/",
+            image_name_prefix=image_name_prefix,
+            driver=driver,
+            apuestas_deportivas_helper=None,
+            casino_helper=None
+        )
+
+        ADC = ApuestasDeportivasController()
+        ADC.visualizar_depositos_ad(apuestas_deportivas=apuestas_deportivas)
+        pass
