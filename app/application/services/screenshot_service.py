@@ -89,7 +89,6 @@ class ScreenshotService(ScreenshotServiceInterface):
                     print("4")
                     screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver, target_iterations=0, zoom=50)
 
-
                 elif report_type.id == 5:
                     print("5")
                     screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver, zoom=50)
