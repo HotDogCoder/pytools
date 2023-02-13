@@ -23,3 +23,4 @@ class AliraServiceInterface(ABC):
     def set_page_url(self, alira: Alira):
         return alira
 
+

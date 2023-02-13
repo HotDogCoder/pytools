@@ -12,8 +12,8 @@ def main(page: ft.page):
 
     screen_width, screen_height = pyautogui.size()
 
-    page.window_width = 300
-    page.window_height = 500
+    page.window_width = 800
+    page.window_height = 1000
     text_field = ft.Container(
         ft.Text("QA TESTS :", size=30, text_align=flet.TextAlign("center")),
         width=screen_width,
@@ -91,6 +91,30 @@ def main(page: ft.page):
         height=50
     )
 
+    btn_test_col_promocion_winner_de_winners = ft.Container(
+        ft.FloatingActionButton(
+            text="VISUALIZAR PROMOCION WINNER DE WINNERS",
+            icon=ft.icons.ARROW_RIGHT,
+            on_click=apuestas_deportivas_page.visualizar_promocion_winner_de_winners
+        ),
+        width=screen_width,
+        height=50
+    )
+
+    btn_test_visualizar_depositos_col = ft.Container(
+        ft.FloatingActionButton(
+            text="VISUALIZAR DEPOSITOS COL",
+            icon=ft.icons.ARROW_RIGHT,
+            on_click=apuestas_deportivas_page.visualizar_depositos_col
+        ),
+        width=screen_width,
+        height=50
+    )
+
+
+
+
+
     page.add(
         ft.Column(
             [
@@ -102,6 +126,8 @@ def main(page: ft.page):
                 btn_test_visualizar_torneos,
                 btn_test_visualizar_promociones_pro,
                 btn_test_col_promociones,
+                btn_test_col_promocion_winner_de_winners,
+                btn_test_visualizar_depositos_col
             ]
         )
     )

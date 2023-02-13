@@ -23,3 +23,11 @@ class ApuestasDeportivasRepositoryInterface(ABC):
     @abstractmethod
     def col_promociones(self, apuestas_deportivas: ApuestasDeportivas):
         return apuestas_deportivas
+
+    @abstractmethod
+    def visualizar_promocion_winner_de_winners(self, apuestas_deportivas: ApuestasDeportivas):
+        return apuestas_deportivas
+
+    @abstractmethod
+    def visualizar_depositos_col(self, apuestas_deportivas: ApuestasDeportivas):
+        return apuestas_deportivas

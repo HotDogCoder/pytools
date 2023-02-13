@@ -16,3 +16,8 @@ class ApuestasDeportivasController:
         return self.apuestas_deportivas_service.visualizar_promociones_pro(apuestas_deportivas)
     def col_promociones(self, apuestas_deportivas: ApuestasDeportivas):
         return self.apuestas_deportivas_service.col_promociones(apuestas_deportivas)
+    def visualizar_promocion_winner_de_winners(self, apuestas_deportivas: ApuestasDeportivas):
+        return self.apuestas_deportivas_service.visualizar_promocion_winner_de_winners(apuestas_deportivas)
+
+    def visualizar_depositos_col(self, apuestas_deportivas: ApuestasDeportivas):
+        return self.apuestas_deportivas_service.visualizar_depositos_col(apuestas_deportivas)

@@ -127,11 +127,7 @@ class TestLoginingresoHappy():
     """
     Jordan
     """
-    pagoanticipado = self.driver.find_element(By.CSS_SELECTOR, ".bee-row-content")
-    for button in pagoanticipado:
-      if button.text == "PAGO ANTICIPADO":
-        button.click()
-        button.sleep(10)
+
 
 
 

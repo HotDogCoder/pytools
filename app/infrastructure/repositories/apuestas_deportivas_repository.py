@@ -5,6 +5,9 @@ from app.domain.models.apuestas_deportivas import ApuestasDeportivas
 
 class ApuestasDeportivasRepository(ApuestasDeportivasRepositoryInterface):
 
+    def visualizar_depositos_col(self, apuestas_deportivas: ApuestasDeportivas):
+        pass
+
     def __init__(self):
         super().__init__()
 
@@ -29,5 +32,8 @@ class ApuestasDeportivasRepository(ApuestasDeportivasRepositoryInterface):
         return  apuestas_deportivas
 
     def col_promociones(self, apuestas_deportivas: ApuestasDeportivas):
-        return  apuestas_deportivas
+        return apuestas_deportivas
+
+    def visualizar_promocion_winner_de_winners(self, apuestas_deportivas: ApuestasDeportivas):
+        return apuestas_deportivas
 
