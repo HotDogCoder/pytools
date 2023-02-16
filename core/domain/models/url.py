@@ -1,6 +1,7 @@
 class Url:
 
-    def __init__(self, id=0, url="", new_url="", title="", description="", keywords="", flag=True, redirection_type=301):
+    def __init__(self, id=0, url="", new_url="", title="",
+                 description="", keywords="", flag=True, redirection_type=301, h1=""):
         self.id = id
         self.url = url
         self.new_url = new_url
@@ -9,3 +10,4 @@ class Url:
         self.keywords = keywords
         self.flag = flag
         self.redirection_type = redirection_type
+        self.h1 = h1

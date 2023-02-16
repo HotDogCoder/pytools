@@ -102,8 +102,8 @@ class AliraHelper:
 
     def redirections_new(self, target_url: Url, save=False):
         if target_url.url != "/" \
-                and target_url.url.strip() != ""\
-                and target_url.new_url != "/"\
+                and target_url.url.strip() != "" \
+                and target_url.new_url != "/" \
                 and target_url.new_url.strip() != "":
             btn_new = self.driver.find_element(By.ID, "newRedirection")
             btn_new.click()
@@ -242,7 +242,7 @@ class AliraHelper:
 
                                 if target_url.new_url != "" and target_url_str_new != td_str_new:
                                     input_comment_redirection.clear()
-                                    input_comment_redirection\
+                                    input_comment_redirection \
                                         .send_keys(f'Modificado por el bot de alira, fecha :'
                                                    f' {now.strftime("%d/%m/%Y %H:%M")},'
                                                    f' Anterior valor: '
@@ -280,7 +280,6 @@ class AliraHelper:
                     print(f"Error : {self.trace_helper.get_trace_str(e)}")
 
                 if self.page == self.table_page_total:
-
                     raise StopIteration
 
             except (NoSuchElementException, StopIteration) as e:
@@ -402,13 +401,13 @@ class AliraHelper:
                     flag = False
                     for tr in table_target_tr_list:
                         tds = tr.find_elements(By.CSS_SELECTOR, "td")
-                        target_urls = list(filter(lambda x: x.flag is True, self.target_urls))
+                        self.target_urls = list(filter(lambda x: x.flag is True, self.target_urls))
 
-                        if len(target_urls) == 0:
+                        if len(self.target_urls) == 0:
                             self.page = self.table_page_total
                             raise StopIteration
 
-                        for target_url in target_urls:
+                        for index, target_url in enumerate(self.target_urls):
                             target_url_str = target_url.url.strip()
                             target_new_url_str = target_url.new_url.strip()
                             td_str = ""
@@ -417,7 +416,7 @@ class AliraHelper:
                                 td_str = td_str.strip()
                             except Exception as e:
                                 print(f"Error : {self.trace_helper.get_trace_str(e)}")
-                            if (target_url_str == td_str and target_url.flag is True) or\
+                            if (target_url_str == td_str and target_url.flag is True) or \
                                     (target_new_url_str == td_str and target_url.flag is True):
                                 print(f"there is a match with some url : {target_url.url}")
                                 flag = True
@@ -456,24 +455,82 @@ class AliraHelper:
                                     sleep(1)
                                 if target_url.title != "":
                                     input_title.clear()
-                                    target_url.title = target_url.title.replace("🥇 ","")
+                                    target_url.title = target_url.title
                                     input_title.send_keys(target_url.title)
                                     sleep(1)
                                 if target_url.description != "":
                                     input_description.clear()
-                                    target_url.description = target_url.description.replace("🥇 ", "")
+                                    target_url.description = target_url.description
                                     input_description.send_keys(target_url.description)
                                     sleep(1)
                                 if target_url.keywords != "":
                                     input_keywords.clear()
-                                    target_url.keywords = target_url.keywords.replace("🥇 ", "")
+                                    target_url.keywords = target_url.keywords
                                     input_keywords.send_keys(target_url.keywords)
                                     sleep(1)
-                                """
-                                ------------------------
-                                """
+
+                                self.driver.execute_script(
+
+                                    'let data = document.querySelector("#pageBody_es-ES").value;'
+                                    'let re = "";'
+                                    'var outputString = "";'
+                                    'if (data.includes("seo-content"))'
+                                    '{'
+                                        'const inputString = data;'
+                                    # enerated with chatgpt 2023'
+                                    # find the index of the first closing tag < / h1 >
+                                        "const firstClosingTagIndex = inputString.indexOf('seo-content');"
+                                    # replace all h1 tags after the first one by h2
+                                        "outputString_1 = inputString.slice(0, firstClosingTagIndex)"
+                                    # get the substring before the first < / h1 >
+                                        "outputString_2 = inputString.slice(firstClosingTagIndex)"
+                                        'outputString = outputString_2.replace(/<h1.*?>(.*?)<\/h1>/, function(match, content) {'
+                                        'let classes = match.match(/class=".*?"/);'
+                                        'let styles = match.match(/style=".*?"/);'
+                                        'if (classes !== null) {'
+                                        'classes = ' ' + classes[0];'
+                                        '} else {'
+                                        "classes = '';"
+                                        '}'
+                                        
+                                        "if (styles !== null) {"
+                                        "styles = ' ' + styles[0];"
+                                        "} else {"
+                                        "styles = '';"
+                                        "}"
+                                        f"return '<h1' + classes + styles + '>' + {target_url.h1} + '</h1>';"
+                                        "});"
+                                        "outputString = outputString_1 + outputString"
+                                    '} else {'
+                                        'const inputString = data;'
+                                    # generated with chatgpt 2023'
+                                    # find the index of the first closing tag < / h1 >
+                                        "const firstClosingTagIndex = inputString.indexOf('</h1>') + 5;"
+                                    # replace all h1 tags after the first one by h2
+                                        "outputString_1 = inputString.slice(0, firstClosingTagIndex)"
+                                    # get the substring before the first < / h1 >
+                                        "outputString_2 = inputString.slice(firstClosingTagIndex)"
+                                        "console.log(outputString_1)"
+                                        "console.log(outputString_2)"
+                                        "outputString_2 = outputString_2"
+                                    # get the substring starting from the first < / h1 >
+                                        ".replace( / < h1 / g, '<h2')"
+                                    #  replace all < h1 > tags with < h2 > tags
+                                        ".replace( / < \ / h1 > / g, '</h2>')"
+                                    #  get the substring before the first < / h1 >
+                                        "outputString = outputString_1"
+                                    # get the substring before the first < / h1 >
+                                        '+ "</h1>"'
+                                        '+ outputString_2'
+                                    # replace all < / h1 > tags with < / h2 > tags
+                                    "}"
+
+                                    'console.log(outputString)'
+                                    'document.querySelector("#pageBody_es-ES").value = outputString;'
+                                )
+
                                 self.driver.implicitly_wait(5)
-                                #self.driver.execute_script("PageEditor.onGoToList(true)")
+                                # self.driver.execute_script("PageEditor.onGoToList(true)")
                                 if save is True:
                                     self.driver.execute_script("window.scrollTo(0,0)")
                                     sleep(2)
@@ -485,9 +542,11 @@ class AliraHelper:
                                 # cancel_page_button = self.driver.find_element(By.ID, "cancelPage")
                                 # cancel_page_button.click()
                                 sleep(5)
-                                self.target_urls[target_url.id].flag = True
-                                print(f"{target_url.url} was set it {self.target_urls[target_url.id].flag}")
-                                print(target_urls)
+                                self.target_urls[target_url.id].flag = False
+                                self.target_urls = list(filter(lambda x: x.flag is True, self.target_urls))
+                                print(
+                                    f"{self.target_urls[target_url.id].url} was set it {self.target_urls[target_url.id].flag}")
+                                print(self.target_urls)
 
                     if flag is False:
                         self.page = self.page + 1
@@ -688,7 +747,7 @@ class AliraHelper:
                     else:
                         data_raw = data_raw.split("/")
                         print(f"url : {data_raw}")
-                        data_raw = data_raw\
+                        data_raw = data_raw \
                             .replace(f'{data_raw[0]} + "/" + {data_raw[1]} + "/" + {data_raw[2]}', "")
                 else:
                     data_raw = "/"
@@ -711,7 +770,7 @@ class AliraHelper:
                             else:
                                 data_raw = data_raw.split("/")
                                 print(f"url : {data_raw}")
-                                data_raw = data_raw\
+                                data_raw = data_raw \
                                     .replace(f'{data_raw[0]} + "/" + {data_raw[1]} + "/" + {data_raw[2]}', "")
                 else:
                     data_raw = "/"
@@ -729,7 +788,8 @@ class AliraHelper:
                                 new_data_raw = new_data_raw.split("/")
                                 print(f"url : {new_data_raw}")
                                 new_data_raw = new_data_raw \
-                                    .replace(f'{new_data_raw[0]} + "/" + {new_data_raw[1]} + "/" + {new_data_raw[2]}', "")
+                                    .replace(f'{new_data_raw[0]} + "/" + {new_data_raw[1]} + "/" + {new_data_raw[2]}',
+                                             "")
                 else:
                     new_data_raw = "/"
 

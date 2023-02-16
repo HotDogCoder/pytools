@@ -51,6 +51,16 @@ class AliraService(AliraServiceInterface):
 
             references_1 = list(set(filter(lambda x: x != "/" and x != "", alira.alira_helper.sheets[1].data)))
 
+            alira.alira_helper.get_sheet_url_reference(1, 5, [
+                f"https://www.casinoatlnaticcity.com",
+                f"https://www.casinoatlanticcity.com",
+            ])
+
+            references_1_1 = list(set(filter(lambda x: x != "/" and x != "", alira.alira_helper.sheets[1].data)))
+
+            references_1 = references_1 + references_1_1
+            #references_1 = ['/casino-online']
+
             alira.alira_helper.access_to_pages_tab()
             alira.alira_helper.get_sheet_target_urls(
                 1, 4, 5,
@@ -60,21 +70,26 @@ class AliraService(AliraServiceInterface):
                 ])
             alira.alira_helper.target_urls = []
             for index, url in enumerate(alira.alira_helper.sheets[1].data):
+                url.h1 = alira.alira_helper.get_sheet_row_data(1, [28], url.id)
                 url.title = alira.alira_helper.get_sheet_row_data(1, [26], url.id)
                 url.description = alira.alira_helper.get_sheet_row_data(1, [28], url.id)
                 url.keywords = alira.alira_helper.get_sheet_row_data(1, [
                     7, 9, 11, 13, 15, 17, 19, 21, 23
                 ], url.id)
 
+                url.h1 = alira.alira_helper.trace_helper.contains_emoji(url.h1)
+                url.title = alira.alira_helper.trace_helper.contains_emoji(url.title)
+                url.description = alira.alira_helper.trace_helper.contains_emoji(url.description)
+                url.keywords = alira.alira_helper.trace_helper.contains_emoji(url.keywords)
                 # url.flag = True
                 alira.alira_helper.target_urls.append(url)
 
             for reference in references_1:
                 alira.alira_helper.url = reference
                 alira.alira_helper.page = 1
-                alira.alira_helper.iterate_main_datatable(save=True)
+                alira.alira_helper.iterate_main_datatable(save=False)
                 while alira.alira_helper.page < alira.alira_helper.table_page_total:
-                    alira.alira_helper.iterate_main_datatable(save=True)
+                    alira.alira_helper.iterate_main_datatable(save=False)
             """ """
 
             """" APUESTAS DEPORTIVAS """
@@ -94,11 +109,17 @@ class AliraService(AliraServiceInterface):
                 ])
             alira.alira_helper.target_urls = []
             for index, url in enumerate(alira.alira_helper.sheets[2].data):
+                url.h1 = alira.alira_helper.get_sheet_row_data(2, [28], url.id)
                 url.title = alira.alira_helper.get_sheet_row_data(2, [28], url.id)
                 url.description = alira.alira_helper.get_sheet_row_data(2, [30], url.id)
                 url.keywords = alira.alira_helper.get_sheet_row_data(2, [
                     9, 11, 13, 15, 17, 19, 21, 23, 25
                 ], url.id)
+                """-------------------------------------------------------------------"""
+                url.h1 = alira.alira_helper.trace_helper.contains_emoji(url.h1)
+                url.title = alira.alira_helper.trace_helper.contains_emoji(url.title)
+                url.description = alira.alira_helper.trace_helper.contains_emoji(url.description)
+                url.keywords = alira.alira_helper.trace_helper.contains_emoji(url.keywords)
                 # url.flag = True
                 alira.alira_helper.target_urls.append(url)
 

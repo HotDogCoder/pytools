@@ -11,7 +11,7 @@ class AliraPage():
 
     @staticmethod
     def set_seo_parameters_per_page(e):
-        driver = 'Safari'
+        driver = 'Chrome'
         image_name_prefix = 'alira_'
 
         alira = Alira(
