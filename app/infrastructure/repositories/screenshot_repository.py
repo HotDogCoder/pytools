@@ -1,19 +1,23 @@
-
 from datetime import datetime
 from time import sleep
 
 import json
 import requests
+from sqlalchemy.exc import SQLAlchemyError, IntegrityError
 from sqlalchemy.orm import sessionmaker
 
 from core.config import constants
 from app.application.repositories_interfaces.screenshot_repository_interface import ScreenshotRepositoryInterface
 from app.domain.models.screenshot import Screenshot
-from core.database.models import ReportTypeTable
-from core.database.models import ReportTable
+from core.database.models import ReportTypesTable, ReportScreenshotsTable
+from core.database.models import ReportsTable
 from core.database.mssql_connection import MssqlConnection
+from core.domain.models.report_screenshot import ReportScreenshot
 from core.domain.models.report_type import ReportType
+from core.util.debug.trace_helper import TraceHelper
 
+engine = MssqlConnection().engine
+session_class = sessionmaker(bind=engine)
 
 class ScreenshotRepository(ScreenshotRepositoryInterface):
 
@@ -22,54 +26,98 @@ class ScreenshotRepository(ScreenshotRepositoryInterface):
 
     @staticmethod
     def get_all_report_types():
-        engine = MssqlConnection().engine
-        session_class = sessionmaker(bind=engine)
         session = session_class()
-
-        report_types = session.query(ReportTypeTable).all()
-
+        report_types = session.query(ReportTypesTable).all()
         session.close()
 
         return report_types
 
     @staticmethod
     def add_report(name, code, description):
-        engine = MssqlConnection().engine
-        session_class = sessionmaker(bind=engine)
         session = session_class()
-        report_table = ReportTable
+        report_table = ReportsTable()
         report_table.name = name
         report_table.code = code
         report_table.description = description
+        report_table.created_at = datetime.now()
         session.add(report_table)
+
+        session.commit()
+
+        report_table_response = ReportType()
+        report_table_response.id = report_table.id
+        report_table_response.name = report_table.name
+        report_table_response.code = report_table.code
+        report_table_response.description = report_table.description
+        report_table_response.created_at = report_table.created_at
+
         session.close()
-        return report_table
+
+        return report_table_response
+
+    @staticmethod
+    def add_report_screenshot(name, path, report_id, report_type_id):
+        session = session_class()
+        report_screenshot_table = ReportScreenshotsTable()
+        try:
+            report_screenshot_table.name = name
+            report_screenshot_table.path = path
+            report_screenshot_table.report_id = report_id
+            report_screenshot_table.report_type_id = report_type_id
+            report_screenshot_table.created_at = datetime.now()
+            session.add(report_screenshot_table)
+
+            session.commit()
+        except (SQLAlchemyError, IntegrityError) as e:
+
+            print(TraceHelper().get_trace_str(e))
+
+        report_screenshot_table_response = ReportScreenshot()
+        report_screenshot_table_response.id = report_screenshot_table.id
+        report_screenshot_table_response.path = report_screenshot_table.path
+        report_screenshot_table_response.report_id = report_screenshot_table.report_id
+        report_screenshot_table_response.report_type_id = report_screenshot_table.report_type_id
+        report_screenshot_table_response.created_at = report_screenshot_table.created_at
+
+        session.close()
+
+        return report_screenshot_table_response
+
+    def upload_screeshots(self, report_screenshot: ReportScreenshot):
+        url = constants.API_UPLOAD_SCREENSHOT
+        multiple_files = []
+
+        filename = report_screenshot.path.split('/').pop()
+        multiple_files.append(
+            ('multi-files', (filename, open(report_screenshot.path, 'rb'), 'image/png'))
+        )
+        r = requests.post(url, files=multiple_files)
+        output = json.loads(r.content)
+        paths = output['paths']
+        report_screenshot.path = paths[0]
+
+        report_screenshot = self.add_report_screenshot(
+            name=f"screenshot_{report_screenshot.report_id}_{report_screenshot.report_type_id}",
+            path=report_screenshot.path,
+            report_id=report_screenshot.report_id,
+            report_type_id=report_screenshot.report_type_id
+        )
+
+        return report_screenshot
 
     def take_screenshot_of_servers_status_1(self, screenshot: Screenshot):
         # report_type = ReportType(base=self.base.declarative_base)
+        paths = []
+        for index, report_type in enumerate(screenshot.trash):
+            for report_screenshot in report_type.screenshots:
+                new_report_screenshot = self.upload_screeshots(report_screenshot)
+                paths.append(new_report_screenshot.path)
 
-        url = constants.API_UPLOAD_SCREENSHOT
-        multiple_files = []
-        for image in screenshot.image_list:
-            filename = image.split('/').pop()
-            multiple_files.append(
-                ('multi-files', (filename, open(image, 'rb'), 'image/png'))
-            )
-
-        r = requests.post(url, files=multiple_files)
-
-        output = json.loads(r.content)
-
-        paths = output['paths']
+        # paths = []
 
         current_datetime = datetime.now()
-        datetime_str = current_datetime.strftime("%d-%m-%Y-%H-%M")
-
-        report = self.add_report(name=f"monitoreo-report-{datetime_str}", code=f"{datetime_str}", description="")
 
         for file in paths:
-
-        # self.add_report_screenshots()
 
             url = constants.API_WHATSAPP_WEB
             body = {
@@ -107,7 +155,7 @@ class ScreenshotRepository(ScreenshotRepositoryInterface):
         r = requests.post(url, json=body)
         print(f'send whatsapp: {r.content}')
         sleep(5)
-
+        # session.close()
         return screenshot
 
     def test_atlantic_city_casino_and_sports(self, screenshot: Screenshot):

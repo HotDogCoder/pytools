@@ -28,7 +28,7 @@ class ScreenshotService(ScreenshotServiceInterface):
             yesterday = (now - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
             today = yesterday
         print(today)
-        """"
+        """
         urls = [
             UrlModel(0, 'https://monitoreo.acity.com.pe/apps/platform/dashboard/3'),
             UrlModel(1, 'https://grafana.acity.com.pe/d/hT18KZz4z/monitoreo-url-internas?orgId=1&refresh=5s&from=now-1h&to=now'),
@@ -40,7 +40,7 @@ class ScreenshotService(ScreenshotServiceInterface):
             UrlModel(7, 'https://grafana.acity.com.pe/d/-JFbnT664z/genesys-y-crmcloud?orgId=1&refresh=5s&from=now-30m&to=now'),
             UrlModel(8, 'https://grafana.acity.com.pe/d/ac0OemdVk/total-competencias?orgId=1&refresh=5s&from=now-15m&to=now'),
             UrlModel(9, 'https://grafana.acity.com.pe/d/XYVkz7V4k/views-nzgp?orgId=1&refresh=5s'),
-            UrlModel(10, 'https://grafana.acity.com.pe/d/k6RHcLo4k/atlantic-express-diario?orgId=1&refresh=5s&var-Fecha='+today+'&from=now-15m&to=now'),
+            UrlModel(10, 'https://grafana.acity.com.pe/d/k6RHcLo4k/atlantic-express-diario?orgId=1&refresh=5s&var-Fecha=2023-02-10'),
         ]
         """
         report_types = self.screenshot_repository.get_all_report_types()
@@ -71,6 +71,11 @@ class ScreenshotService(ScreenshotServiceInterface):
                 except Exception as e:
                     print(e)
 
+            current_datetime = datetime.datetime.now()
+            datetime_str = current_datetime.strftime("%d-%m-%Y-%H-%M")
+            screenshot.report = self.screenshot_repository.add_report(name=f"monitoreo-report-{datetime_str}",
+                                                                      code=f"{datetime_str}", description="")
+
             for report_type in report_types:
 
                 if report_type.id == 1:
@@ -88,7 +93,6 @@ class ScreenshotService(ScreenshotServiceInterface):
                 elif report_type.id == 4:
                     print("4")
                     screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver, target_iterations=0, zoom=50)
-
 
                 elif report_type.id == 5:
                     print("5")
@@ -116,6 +120,7 @@ class ScreenshotService(ScreenshotServiceInterface):
 
                 elif report_type.id == 11:
                     print("11")
+                    report_type.url = report_type.url.replace("[GETDATE]",f"{today}")
                     screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver, target_iterations=0, zoom=39)
 
                 else:
@@ -131,7 +136,7 @@ class ScreenshotService(ScreenshotServiceInterface):
 
         return self.screenshot_repository.take_screenshot_of_servers_status_1(screenshot)
 
-    def test_atlantic_city_casino_and_sports(self, screenshot: Screenshot):
+    def test_atlantic_city_casino_and_sports(self, screenshot: Screenshot, os=None):
 
         try:
             driver = None

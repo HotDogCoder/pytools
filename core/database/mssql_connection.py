@@ -1,3 +1,5 @@
+import urllib.parse
+
 from core.config import constants
 from sqlalchemy import create_engine
 
@@ -19,8 +21,9 @@ class MssqlConnection:
         self.password = password
         self.conn = None
         self.cursor = None
+        password = urllib.parse.quote_plus(password)
         self.connection_string = f"mssql+pyodbc://{username}:{password}@{host}" \
-                                 f"/{database}?driver=ODBC+Driver+18+for+SQL+Server"
+                                 f"/{database}?driver=SQL+Server"
         self.engine = create_engine(self.connection_string)
 
     def connect(self):

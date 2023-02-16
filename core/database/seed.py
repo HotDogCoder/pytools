@@ -1,16 +1,14 @@
-from sqlalchemy.orm import sessionmaker
+import datetime
+
+from sqlalchemy.orm import sessionmaker, declarative_base
 
 from core.database.mssql_connection import MssqlConnection
-from core.domain.models.base import Base
-from core.database.models.report_type_table import ReportTypeTable
+from core.database.models import ReportTypesTable
 from core.util.debug.trace_helper import TraceHelper
 
+Base = declarative_base()
+
 engine = MssqlConnection().engine
-try:
-    Base.metadata.create_all(engine)
-except (Exception, BaseException) as e:
-    trace_helper = TraceHelper
-    print(trace_helper.get_trace_str(e))
 
 session_class = sessionmaker(bind=engine)
 
@@ -55,6 +53,6 @@ class ReportTypesSeed:
     def insert_data(cls, data):
         session = session_class()
         for report in data:
-            session.add(ReportTypeTable(description=report[0], url=report[1]))
+            session.add(ReportTypesTable(description=report[0], url=report[1], created_at=datetime.datetime.now()))
         session.commit()
         session.close()
