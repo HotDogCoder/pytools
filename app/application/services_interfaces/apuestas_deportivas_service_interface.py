@@ -8,19 +8,19 @@ class ApuestasDeportivasServiceInterface(ABC):
         super().__init__()
 
     @abstractmethod
-    def login_happy_path(self, apuestas_deportivas: ApuestasDeportivas):
+    def login_happy_ad(self, apuestas_deportivas: ApuestasDeportivas):
         return apuestas_deportivas
 
     @abstractmethod
-    def visualizar_torneos(self, apuestas_deportivas: ApuestasDeportivas):
+    def login_happy_col(self, apuestas_deportivas: ApuestasDeportivas):
         return apuestas_deportivas
 
     @abstractmethod
-    def visualizar_promociones_pro(self, apuestas_deportivas: ApuestasDeportivas):
+    def ad_promociones_1_0(self, apuestas_deportivas: ApuestasDeportivas):
         return apuestas_deportivas
 
     @abstractmethod
-    def col_promociones(self, apuestas_deportivas: ApuestasDeportivas):
+    def col_promociones_1_0(self, apuestas_deportivas: ApuestasDeportivas):
         return apuestas_deportivas
 
     @abstractmethod

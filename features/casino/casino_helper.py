@@ -7,6 +7,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
 
+from app.domain.models.promocion import Promocion
 from core.util.debug.trace_helper import TraceHelper
 
 
@@ -118,11 +119,14 @@ class CasinoHelper:
 
     def ingresar_menu(self):
         """AQUI DA CLICK AL MENU"""
+        sleep(10)
+
         sodesktop = self.driver.find_element(By.CSS_SELECTOR, ".show-only--desktop")
-        menubutton = sodesktop.find_element(By.CSS_SELECTOR, "a")
-        for buttonmen in menubutton:
-            if buttonmen.text == "menu":
-                buttonmen.click()
+        buttonmenu = sodesktop.find_element(By.ID, "iconMenuHeader").click()
+        #menubutton = sodesktop.find_element(By.CSS_SELECTOR, "a")
+        #for buttonmen in menubutton:
+            #if buttonmen.text == "menu":
+                #buttonmen.click()
 
     # SELECCIONAR NIVELES DE AD PROMOS 1(2143),2(1385),3(4120),4(9333),5(2322),6(1722),7(2275),8(14455),9(4026),0(3337)
     def id_nivel(self, nivel=1):
@@ -309,4 +313,73 @@ class CasinoHelper:
 
         for url in urls:
             self.driver.get(url)
+
+    def visualizar_orden_de_promociones(self, orden_promo: Promocion, index=0):
+
+        self.trace_helper.log(
+            text="AQUI VALIDARA EL ORDEN DE PROMOCIONES POR CADA NIVEL",
+            message=""
+        )
+        promociones = self.driver.find_element(By.CSS_SELECTOR, "._promociones")
+        mispromociones = promociones.find_elements(By.CSS_SELECTOR, "a")
+        for promo_index, promocion in enumerate(mispromociones):
+            if index == promo_index:
+                self.trace_helper.log(
+                    text=f"{index+1}|{orden_promo}",
+                    message=f"orden correcto"
+                )
+            else:
+                self.trace_helper.log(
+                    text=f"{index+1}|{orden_promo}",
+                    message=f"orden incorrecto esta en el orden {promo_index+1} y deberia estar"
+                            f"en el {index+1}"
+                )
+            title = promocion.find_element(By.CSS_SELECTOR, "p").text
+            
+            if title == orden_promo.name:
+                text = " TORNEO DE VERANO CON EXITO "
+                text = text.strip()
+                print(text)
+
+                self.trace_helper.log(
+                    text="TORNEO DE VERANO CON EXITO",
+                    message="loradslkdnkjasdnasjdjakdakja"
+                )
+            if title == "TORNEO DE CUOTAS Más de S/50,000 en premios semanales Sports":
+                self.trace_helper.log(
+                    text="TORNEO DE VERANO CON EXITO",
+                    message="loradslkdnkjasdnasjdjakdakja")
+                """TORNEO  DE CUOTAS VALIDADO CON EXITO """
+
+            if title == "TOP 100 Más de S/45,000 en premios Casino":
+                self.trace_helper.log(
+                    text="TORNEO DE VERANO CON EXITO",
+                    message="loradslkdnkjasdnasjdjakdakja")
+                """TORNE DE TOP 100 VALIDADO CON EXITO"""
+            if title == "SORTEO DE TUS SUEÑOS S/100,000 en premios Casino":
+                self.trace_helper.log(
+                    text="TORNEO DE VERANO CON EXITO",
+                    message="loradslkdnkjasdnasjdjakdakja")
+                """SORTEO DE TUS SUEÑOS VALIDADO CON EXITO """
+            if title == "ATLANTIC VIP ROYAL $36,000 en premios Casino":
+                self.trace_helper.log(
+                    text="TORNEO DE VERANO CON EXITO",
+                    message="loradslkdnkjasdnasjdjakdakja")
+                """ATLANTIC VIP ROYAL VALIDADO CON EXITO"""
+            if title == "WINNER DE WINNERS Más de S/75,000 en premios Sports":
+                self.trace_helper.log(
+                    text="TORNEO DE VERANO CON EXITO",
+                    message="loradslkdnkjasdnasjdjakdakja")
+                """WINNER DE WINNERS  VALIDADO CON EXITO """
+            if title == "PAGO ANTICIPADO 2 goles de diferencia y ya ganaste Sports":
+                self.trace_helper.log(
+                    text="TORNEO DE VERANO CON EXITO",
+                    message="loradslkdnkjasdnasjdjakdakja")
+                """PAGO ANTICIPADO VALIDADO CON EXITO """
+            if title == "SORTEO ESTELAR S/120,000 en premios Casino":
+                self.trace_helper.log(
+                    text="TORNEO DE VERANO CON EXITO",
+                    message="loradslkdnkjasdnasjdjakdakja")
+                """SORTEO ESTELAR VALIDADO CON EXITO """
+
 

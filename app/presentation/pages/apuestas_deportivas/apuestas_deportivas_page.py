@@ -8,28 +8,30 @@ class ApuestasDeportivasPage:
         pass
 
     @staticmethod
-    def login_happy_path(e):
+    def login_happy_ad(e):
         driver = 'Chrome'
         image_name_prefix = 'apuestas_deportivas_'
 
         apuestas_deportivas = ApuestasDeportivas(
-            url="https://atlantic:viQ[3UJ*Rk*Q1zC@atlanticcity.pre.tecnalis.com/",
+            url="https://www.casinoatlanticcity.com/",
             image_name_prefix=image_name_prefix,
             driver=driver,
-            apuestas_deportivas_helper=None
+            apuestas_deportivas_helper=None,
+            casino_helper             =None,
+
         )
 
         ADC = ApuestasDeportivasController()
-        ADC.login_happy_path(apuestas_deportivas=apuestas_deportivas)
+        ADC.login_happy_ad(apuestas_deportivas=apuestas_deportivas)
         pass
 
     @staticmethod
-    def visualizar_torneos(e):
+    def login_happy_col(e):
         driver = 'Chrome'
         image_name_prefix = 'apuestas_deportivas_'
 
         apuestas_deportivas = ApuestasDeportivas(
-            url="https://atlantic:viQ[3UJ*Rk*Q1zC@atlanticcity.pre.tecnalis.com/",
+            url="https://www.casinoatlanticcity.com/",
             image_name_prefix=image_name_prefix,
             driver=driver,
             apuestas_deportivas_helper=None,
@@ -37,11 +39,11 @@ class ApuestasDeportivasPage:
         )
 
         ADC = ApuestasDeportivasController()
-        ADC.visualizar_torneos(apuestas_deportivas=apuestas_deportivas)
+        ADC.login_happy_col(apuestas_deportivas=apuestas_deportivas)
         pass
 
     @staticmethod
-    def visualizar_promociones_pro(e):
+    def ad_promociones_1_0(e):
         driver = 'Chrome'
         image_name_prefix = 'apuestas_deportivas_'
 
@@ -54,11 +56,11 @@ class ApuestasDeportivasPage:
         )
 
         ADC = ApuestasDeportivasController()
-        ADC.visualizar_promociones_pro(apuestas_deportivas=apuestas_deportivas)
+        ADC.ad_promociones_1_0(apuestas_deportivas=apuestas_deportivas)
         pass
 
     @staticmethod
-    def col_promociones(e):
+    def col_promociones_1_0(e):
         driver = 'Chrome'
         image_name_prefix = 'apuestas_deportivas_'
 
@@ -71,7 +73,7 @@ class ApuestasDeportivasPage:
         )
 
         ADC = ApuestasDeportivasController()
-        ADC.col_promociones(apuestas_deportivas=apuestas_deportivas)
+        ADC.col_promociones_1_0(apuestas_deportivas=apuestas_deportivas)
         pass
 
     @staticmethod

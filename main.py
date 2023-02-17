@@ -53,17 +53,17 @@ def main(page: ft.page):
         ft.FloatingActionButton(
             text="LOGIN HAPPY PATH AD",
             icon=ft.icons.ARROW_RIGHT,
-            on_click=apuestas_deportivas_page.login_happy_path
+            on_click=apuestas_deportivas_page.login_happy_ad
         ),
         width=screen_width,
         height=50
     )
 
-    btn_test_visualizar_torneos = ft.Container(
+    btn_test_login_happy_path_col = ft.Container(
         ft.FloatingActionButton
         (    text="LOGIN HAPPY PATH COL",
             icon=ft.icons.ARROW_RIGHT,
-            on_click=apuestas_deportivas_page.visualizar_torneos
+            on_click=apuestas_deportivas_page.login_happy_col()
         ),
         width=screen_width,
         height=50
@@ -71,21 +71,21 @@ def main(page: ft.page):
     )
 
 
-    btn_test_visualizar_promociones_pro = ft.Container(
+    btn_test_ad_promociones_1_0 = ft.Container(
         ft.FloatingActionButton(
             text="AD PROMOCIONES 1-0",
             icon=ft.icons.ARROW_RIGHT,
-            on_click=apuestas_deportivas_page.visualizar_promociones_pro
+            on_click=apuestas_deportivas_page.ad_promociones_1_0
         ),
         width=screen_width,
         height=50
     )
 
-    btn_test_col_promociones = ft.Container(
+    btn_test_col_promociones_1_0 = ft.Container(
         ft.FloatingActionButton(
             text="COL PROMOCIONES 1-0",
             icon=ft.icons.ARROW_RIGHT,
-            on_click=apuestas_deportivas_page.col_promociones
+            on_click=apuestas_deportivas_page.col_promociones_1_0
         ),
         width=screen_width,
         height=50
@@ -132,9 +132,9 @@ def main(page: ft.page):
                 btn_test_screenshot,
                 btn_test_set_seo_redirection,
                 btn_test_login_happy_path_ad,
-                btn_test_visualizar_torneos,
-                btn_test_visualizar_promociones_pro,
-                btn_test_col_promociones,
+                btn_test_login_happy_path_col,
+                btn_test_ad_promociones_1_0,
+                btn_test_col_promociones_1_0,
                 btn_test_col_promocion_winner_de_winners,
                 btn_test_visualizar_depositos_col,
                 btn_test_visualizar_depositos_ad,
