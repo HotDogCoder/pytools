@@ -127,6 +127,16 @@ class ApuestasDeportivasService(ApuestasDeportivasServiceInterface):
                 Promocion(2, "SORTEO ESTELAR", level=3),
                 Promocion(2, "SORTEO ESTELAR", 5),
 
+                Promocion(4, "TORNEO_DE_VERANO", 1),
+                Promocion(2, "TORNEO_DE_VERANO", 2),
+                Promocion(1, "TORNEO_DE_VERANO", 3),
+                Promocion(1, "TORNEO_DE_VERANO", 5),
+                Promocion(1, "TORNEO_DE_VERANO", 6),
+                Promocion(1, "TORNEO_DE_VERANO", 7),
+                Promocion(1, "TORNEO_DE_VERANO", 8),
+                Promocion(1, "TORNEO_DE_VERANO", 9),
+                Promocion(1, "TORNEO_DE_VERANO", 0),
+
             ]
             for index, orden_promo in enumerate(orden_promos):
                 apuestas_deportivas.casino_helper.visualizar_orden_de_promociones(orden_promo, index)

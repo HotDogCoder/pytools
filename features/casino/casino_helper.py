@@ -343,43 +343,48 @@ class CasinoHelper:
 
                 self.trace_helper.log(
                     text="TORNEO DE VERANO CON EXITO",
-                    message="loradslkdnkjasdnasjdjakdakja"
+                    message="EXITO"
                 )
             if title == "TORNEO DE CUOTAS Más de S/50,000 en premios semanales Sports":
                 self.trace_helper.log(
                     text="TORNEO DE VERANO CON EXITO",
-                    message="loradslkdnkjasdnasjdjakdakja")
+                    message="EXITO")
                 """TORNEO  DE CUOTAS VALIDADO CON EXITO """
 
             if title == "TOP 100 Más de S/45,000 en premios Casino":
                 self.trace_helper.log(
                     text="TORNEO DE VERANO CON EXITO",
-                    message="loradslkdnkjasdnasjdjakdakja")
+                    message="EXITO")
                 """TORNE DE TOP 100 VALIDADO CON EXITO"""
+
             if title == "SORTEO DE TUS SUEÑOS S/100,000 en premios Casino":
                 self.trace_helper.log(
                     text="TORNEO DE VERANO CON EXITO",
-                    message="loradslkdnkjasdnasjdjakdakja")
+                    message="EXITO")
                 """SORTEO DE TUS SUEÑOS VALIDADO CON EXITO """
+
             if title == "ATLANTIC VIP ROYAL $36,000 en premios Casino":
                 self.trace_helper.log(
                     text="TORNEO DE VERANO CON EXITO",
-                    message="loradslkdnkjasdnasjdjakdakja")
+                    message="EXITO")
                 """ATLANTIC VIP ROYAL VALIDADO CON EXITO"""
+
             if title == "WINNER DE WINNERS Más de S/75,000 en premios Sports":
                 self.trace_helper.log(
                     text="TORNEO DE VERANO CON EXITO",
-                    message="loradslkdnkjasdnasjdjakdakja")
+                    message="EXITO")
                 """WINNER DE WINNERS  VALIDADO CON EXITO """
+
             if title == "PAGO ANTICIPADO 2 goles de diferencia y ya ganaste Sports":
                 self.trace_helper.log(
                     text="TORNEO DE VERANO CON EXITO",
-                    message="loradslkdnkjasdnasjdjakdakja")
+                    message="EXITO")
                 """PAGO ANTICIPADO VALIDADO CON EXITO """
+
             if title == "SORTEO ESTELAR S/120,000 en premios Casino":
                 self.trace_helper.log(
                     text="TORNEO DE VERANO CON EXITO",
-                    message="loradslkdnkjasdnasjdjakdakja")
+                    message="EXITO")
                 """SORTEO ESTELAR VALIDADO CON EXITO """
 
 
