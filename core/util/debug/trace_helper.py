@@ -1,6 +1,11 @@
 import traceback
 import emoji
-import unicodedata
+import datetime
+
+import pytz
+
+from core.util.path.path_helper import PathHelper
+from core.util.pdf.pdf_helper import PdfHelper
 
 
 class TraceHelper:
@@ -8,6 +13,9 @@ class TraceHelper:
         self.message = ""
         self.trace = ""
         self.image = ""
+        self.log_lines = []
+        tz = pytz.timezone('America/Bogota')
+        self.now = datetime.datetime.now(tz).strftime('%Y%m%d%H%M%S')
 
     @staticmethod
     def get_trace_str(e):
@@ -28,5 +36,23 @@ class TraceHelper:
         print(text)
         return text
 
+    def log(self, text="", message=""):
+        # Get current date and time
+        path_helper = PathHelper()
+        with open(f'{path_helper.get_project_root_path()}/storage/exportations/qa_report_log/qa_report_log_{self.now}.txt',
+                  'a', encoding='utf-8') as file:
+            self.log_lines.append(text)
+            self.log_lines.append(message)
+            file.write(f'{text}\n')
+            file.write(f'{message}\n')
 
-TraceHelper().contains_emoji("Juega toda clase de tragamonedas online en Casino Atlantic City  ✅ los mejores premios y bonus los encontrarás aquí 🥇 No te quedes sin jugar.")
+    # Define the maximum number of lines per page
+    MAX_LINES_PER_PAGE = 20
+
+    def write_to_qa_report_pdf_log(self):
+        # Get current date and time
+        path_helper = PathHelper()
+        path = f'{path_helper.get_project_root_path()}/storage/exportations/qa_report_pdf/qa_report_pdf_{self.now}.pdf'
+        pdf_helper = PdfHelper(path=path)
+        pdf_helper.write_pdf(lines=self.log_lines)
+        return path

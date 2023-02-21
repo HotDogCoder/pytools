@@ -390,34 +390,36 @@ class AliraHelper:
 
                 print(f"--------- page : {self.page} ----------")
 
-                table_target = Wait(self.driver, timeout=20).until(
-                    ec.visibility_of_element_located((By.ID, "allPagesEditor")))
-
-                sleep(4)
-
-                table_target_tr_list = table_target.find_elements(By.CSS_SELECTOR, "tbody tr")
-
                 try:
+                    table_target = Wait(self.driver, timeout=20).until(
+                        ec.visibility_of_element_located((By.ID, "allPagesEditor")))
+
+                    sleep(4)
+
+                    table_target_tr_list = table_target.find_elements(By.CSS_SELECTOR, "tbody tr")
                     flag = False
-                    for tr in table_target_tr_list:
-                        tds = tr.find_elements(By.CSS_SELECTOR, "td")
-                        self.target_urls = list(filter(lambda x: x.flag is True, self.target_urls))
+                    target_urls = list(filter(lambda x: x.flag is True, self.target_urls))
+                    for index, target_url in enumerate(target_urls):
+                        table_target_tr_list = table_target.find_elements(By.CSS_SELECTOR, "tbody tr")
+                        for index_tr, tr in enumerate(table_target_tr_list):
+                            tds = tr.find_elements(By.CSS_SELECTOR, "td")
 
-                        if len(self.target_urls) == 0:
-                            self.page = self.table_page_total
-                            raise StopIteration
-
-                        for index, target_url in enumerate(self.target_urls):
                             target_url_str = target_url.url.strip()
                             target_new_url_str = target_url.new_url.strip()
                             td_str = ""
                             try:
                                 td_str = tds[3].text
                                 td_str = td_str.strip()
+                                if "/casino-online/tragamonedas" == td_str:
+                                    print("LET ME DO IT FOR YOU")
                             except Exception as e:
                                 print(f"Error : {self.trace_helper.get_trace_str(e)}")
-                            if (target_url_str == td_str and target_url.flag is True) or \
-                                    (target_new_url_str == td_str and target_url.flag is True):
+                            if (target_url_str != "" and target_url_str == td_str and target_url.flag is True) or \
+                                    (target_new_url_str != "" and target_new_url_str == td_str
+                                     and target_url.flag is True):
+                                self.trace_helper.log(text=f"------------------------------------------")
+                                self.trace_helper.log(text=f"SE ENCONTRO {td_str}")
+                                self.trace_helper.log(text=f"------------------------------------------")
                                 print(f"there is a match with some url : {target_url.url}")
                                 flag = True
                                 print("searching for popup menu button")
@@ -454,80 +456,214 @@ class AliraHelper:
                                     input_new_url.send_keys(target_url.new_url)
                                     sleep(1)
                                 if target_url.title != "":
+                                    self.trace_helper.log(text=f"------------------------------------------")
+                                    self.trace_helper.log(text=f"SE CAMBIARA EL TITULO")
+                                    self.trace_helper.log(text=f"ACTUAL : {input_title.get_attribute('value')}")
+                                    self.trace_helper.log(text=f"NUEVO : {target_url.title}")
+                                    self.trace_helper.log(text=f"------------------------------------------")
                                     input_title.clear()
-                                    target_url.title = target_url.title
                                     input_title.send_keys(target_url.title)
                                     sleep(1)
                                 if target_url.description != "":
+                                    self.trace_helper.log(text=f"------------------------------------------")
+                                    self.trace_helper.log(text=f"SE CAMBIARA LA DESCRIPCION")
+                                    self.trace_helper.log(text=f"ACTUAL : {input_description.get_attribute('value')}")
+                                    self.trace_helper.log(text=f"NUEVO : {target_url.description}")
+                                    self.trace_helper.log(text=f"------------------------------------------")
                                     input_description.clear()
-                                    target_url.description = target_url.description
                                     input_description.send_keys(target_url.description)
                                     sleep(1)
                                 if target_url.keywords != "":
+                                    self.trace_helper.log(text=f"------------------------------------------")
+                                    self.trace_helper.log(text=f"SE CAMBIARA LAS KEYWORDS")
+                                    self.trace_helper.log(text=f"ACTUAL : {input_keywords.get_attribute('value')}")
+                                    self.trace_helper.log(text=f"NUEVO : {target_url.keywords}")
+                                    self.trace_helper.log(text=f"------------------------------------------")
                                     input_keywords.clear()
-                                    target_url.keywords = target_url.keywords
                                     input_keywords.send_keys(target_url.keywords)
                                     sleep(1)
 
-                                self.driver.execute_script(
+                                if target_url.h1 != "":
+                                    print('h1' + target_url.h1)
+                                    data_raw = self.driver.execute_script(
+                                        'return document.querySelector("#pageBody_es-ES").value;'
+                                    )
+                                    print(data_raw)
 
-                                    'let data = document.querySelector("#pageBody_es-ES").value;'
-                                    'let re = "";'
-                                    'var outputString = "";'
-                                    'if (data.includes("seo-content"))'
-                                    '{'
-                                        'const inputString = data;'
-                                    # enerated with chatgpt 2023'
-                                    # find the index of the first closing tag < / h1 >
-                                        "const firstClosingTagIndex = inputString.indexOf('seo-content');"
-                                    # replace all h1 tags after the first one by h2
-                                        "outputString_1 = inputString.slice(0, firstClosingTagIndex)"
-                                    # get the substring before the first < / h1 >
-                                        "outputString_2 = inputString.slice(firstClosingTagIndex)"
-                                        'outputString = outputString_2.replace(/<h1.*?>(.*?)<\/h1>/, function(match, content) {'
-                                        'let classes = match.match(/class=".*?"/);'
-                                        'let styles = match.match(/style=".*?"/);'
-                                        'if (classes !== null) {'
-                                        'classes = ' ' + classes[0];'
-                                        '} else {'
-                                        "classes = '';"
-                                        '}'
-                                        
-                                        "if (styles !== null) {"
-                                        "styles = ' ' + styles[0];"
-                                        "} else {"
-                                        "styles = '';"
-                                        "}"
-                                        f"return '<h1' + classes + styles + '>' + {target_url.h1} + '</h1>';"
-                                        "});"
-                                        "outputString = outputString_1 + outputString"
-                                    '} else {'
-                                        'const inputString = data;'
-                                    # generated with chatgpt 2023'
-                                    # find the index of the first closing tag < / h1 >
-                                        "const firstClosingTagIndex = inputString.indexOf('</h1>') + 5;"
-                                    # replace all h1 tags after the first one by h2
-                                        "outputString_1 = inputString.slice(0, firstClosingTagIndex)"
-                                    # get the substring before the first < / h1 >
-                                        "outputString_2 = inputString.slice(firstClosingTagIndex)"
-                                        "console.log(outputString_1)"
-                                        "console.log(outputString_2)"
-                                        "outputString_2 = outputString_2"
-                                    # get the substring starting from the first < / h1 >
-                                        ".replace( / < h1 / g, '<h2')"
-                                    #  replace all < h1 > tags with < h2 > tags
-                                        ".replace( / < \ / h1 > / g, '</h2>')"
-                                    #  get the substring before the first < / h1 >
-                                        "outputString = outputString_1"
-                                    # get the substring before the first < / h1 >
-                                        '+ "</h1>"'
-                                        '+ outputString_2'
-                                    # replace all < / h1 > tags with < / h2 > tags
-                                    "}"
+                                    self.trace_helper.log(text=f"------------------------------------------")
+                                    self.trace_helper.log(text=f"REPORTE DE CAMBIO DE <h1> | {target_url.new_url}")
+                                    self.trace_helper.log(text=f"------------------------------------------")
+                                    self.trace_helper.log(text=data_raw)
 
-                                    'console.log(outputString)'
-                                    'document.querySelector("#pageBody_es-ES").value = outputString;'
-                                )
+                                    if "anclaSeo" in data_raw or "seo-content" in data_raw:
+                                        self.trace_helper.log(text=f"------------------------------------------")
+                                        self.trace_helper.log(text=f"LOS ASUNTOS RELACIONADOS CON EL h1 AQUI LOS VE LA VISTA DE SEO")
+                                        self.trace_helper.log(text=f"------------------------------------------")
+
+                                    if "h1" in data_raw:
+                                        self.trace_helper.log(text=f"------------------------------------------")
+                                        self.trace_helper.log(text=f"SE CAMBIARA EL H1 QUE SE ENCONTRO")
+                                        self.trace_helper.log(text=f"------------------------------------------")
+                                        self.driver.execute_script(
+                                            'let data = document.querySelector("#pageBody_es-ES").value;'
+                                            'let re = "";'
+                                            'var outputString = "";'
+                                            'if ((data.includes("anclaSeo")) || (data.includes("seo-content"))){'
+                                            'const inputString = data;'
+                                            'let text_flag_index_1 = 0;'
+                                            'let text_flag_index_2 = 0;'
+                                            'let text_flag = "anclaSeo";'
+                                            'if (data.includes("anclaSeo")){'
+                                            'text_flag = "anclaSeo";'
+                                            'text_flag_index_1 = inputString.indexOf(text_flag);'
+                                            '}'
+                                            'if(data.includes("seo-content")) {'
+                                            'text_flag = "seo-content";'
+                                            'text_flag_index_2 = inputString.indexOf(text_flag);'
+                                            '}'
+                                            'if(text_flag_index_1 < text_flag_index_2){'
+                                            'text_flag = "anclaSeo";'
+                                            '} else {'
+                                            'text_flag = "seo-content";'
+                                            '}'
+                                            "const firstClosingTagIndex = inputString.indexOf(text_flag) + 11;"
+                                            'let outputString_1 = inputString.slice(0, firstClosingTagIndex);'
+                                            'outputString_1 = outputString_1'
+                                            ".replace( /<h1/g, '<h2')"
+                                            ".replace( /<\/h1>/g, '</h2>');"
+                                            'let outputString_2 = inputString.slice(firstClosingTagIndex);'
+                                            "if(!outputString_2.includes('h1')){"
+                                            'outputString_2 = outputString_2'
+                                            ".replace( /<h2/, '<h1')"
+                                            ".replace( /<\/h2>/, '</h1>');"
+                                            "}"
+                                            'outputString_2 = outputString_2.replace(/<h1.*?>(.*?)<\/h1>/, '
+                                            '(match, content) => {'
+                                            'let classes = match.match(/class=".*?"/);'
+                                            'let styles = match.match(/style=".*?"/);'
+                                            "if (classes !== null) {classes =  ' ' + classes[0];}"
+                                            "else {classes = '';}"
+                                            "if (styles !== null) {styles = ' ' + styles[0];}"
+                                            "else {styles = '';}"
+                                            f'return "<h1" + classes + styles + ">" + "{target_url.h1}" + "</h1>";'
+                                            '});'
+                                            "const firstClosingTagIndex2 = outputString_2.indexOf('</h1>') + 5;"
+                                            'let outputString_3 = outputString_2.slice(0, firstClosingTagIndex2);'
+                                            'let outputString_4 = outputString_2.slice(firstClosingTagIndex2);'
+                                            'outputString_4 = outputString_4'
+                                            ".replace( /<h1/g, '<h2')"
+                                            ".replace( /<\/h1>/g, '</h2>');"
+                                            'outputString_2 = outputString_3 + outputString_4;'
+                                            'outputString = outputString_1 + outputString_2;'
+                                            '} else {'
+                                            'const inputString = data;'
+                                            "const firstClosingTagIndex = inputString.indexOf('</h1>') + 5;"
+                                            'let outputString_1 = inputString.slice(0, firstClosingTagIndex);'
+                                            'outputString_1 = outputString_1.replace(/<h1.*?>(.*?)<\/h1>/, '
+                                            '(match, content) => {'
+                                            'let classes = match.match(/class=".*?"/);'
+                                            'let styles = match.match(/style=".*?"/);'
+                                            "if (classes !== null) {classes =  ' ' + classes[0];}"
+                                            "else {classes = '';}"
+                                            "if (styles !== null) {styles = ' ' + styles[0];}"
+                                            "else {styles = '';}"
+                                            f'return "<h1" + classes + styles + ">" + "{target_url.h1}" + "</h1>";'
+                                            '});'
+                                            'let outputString_2 = inputString.slice(firstClosingTagIndex);'
+                                            'outputString_2 = outputString_2'
+                                            ".replace( /<h1/g, '<h2')"
+                                            ".replace( /<\/h1>/g, '</h2>');"
+                                            'outputString = outputString_1 + outputString_2;'
+                                            '}'
+                                            'document.querySelector("#pageBody_es-ES").value = outputString;'
+                                        )
+                                    elif "h2" in data_raw:
+                                        self.trace_helper.log(text=f"------------------------------------------")
+                                        self.trace_helper.log(text=f"SE COONVERTIRA EL PRIMER h2 EN H1")
+                                        self.trace_helper.log(text=f"------------------------------------------")
+                                        self.driver.execute_script(
+                                            'let data = document.querySelector("#pageBody_es-ES").value;'
+                                            'let re = "";'
+                                            'var outputString = "";'
+                                            'if (data.includes("anclaSeo") == false && data.includes("seo-content") == false){'
+                                            'const inputString = data;'
+                                            "const firstClosingTagIndex = inputString.indexOf('</h2>') + 5;"
+                                            'let outputString_1 = inputString.slice(0, firstClosingTagIndex);'
+                                            'let outputString_2 = inputString.slice(firstClosingTagIndex);'
+                                            'outputString_1 = outputString_1.replace(/h2/g, "h1");'
+                                            'outputString_1 = outputString_1.replace(/<h1.*?>(.*?)<\/h1>/, '
+                                            '(match, content) => {'
+                                            'let classes = match.match(/class=".*?"/);'
+                                            'let styles = match.match(/style=".*?"/);'
+                                            "if (classes !== null) {classes =  ' ' + classes[0];}"
+                                            "else {classes = '';}"
+                                            "if (styles !== null) {styles = ' ' + styles[0];}"
+                                            "else {styles = '';}"
+                                            f'return "<h1"+ classes + styles + ">" + "{target_url.h1}" + "</h1>";'
+                                            '});'
+                                            'outputString = outputString_1 + outputString_2;'
+                                            '} else {'
+                                            'const inputString = data;'
+                                            'let text_flag_index_1 = 0;'
+                                            'let text_flag_index_2 = 0;'
+                                            'let text_flag = "anclaSeo";'
+                                            'if (inputString.includes("anclaSeo")){'
+                                            'text_flag = "anclaSeo";'
+                                            'text_flag_index_1 = inputString.indexOf(text_flag);'
+                                            '}'
+                                            'if(inputString.includes("seo-content")) {'
+                                            'text_flag = "seo-content";'
+                                            'text_flag_index_2 = inputString.indexOf(text_flag);'
+                                            '}'
+                                            'if(text_flag_index_1 < text_flag_index_2){'
+                                            'text_flag = "anclaSeo";'
+                                            '} else {'
+                                            'text_flag = "seo-content"'
+                                            '}'
+                                            "const firstClosingTagIndex = inputString.indexOf(text_flag) + 11;"
+                                            'let outputString_1 = inputString.slice(0, firstClosingTagIndex);'
+                                            'outputString_1 = outputString_1'
+                                            ".replace( /<h1/g, '<h2')"
+                                            ".replace( /<\/h1>/g, '</h2>');"
+                                            'let outputString_2 = inputString.slice(firstClosingTagIndex);'
+                                            "if(outputString_2.includes('h1') == false){"
+                                            'outputString_2 = outputString_2'
+                                            ".replace( /<h2/, '<h1')"
+                                            ".replace( /<\/h2>/, '</h1>');"
+                                            "}"
+                                            'outputString_2 = outputString_2.replace(/<h1.*?>(.*?)<\/h1>/, '
+                                            '(match, content) => {'
+                                            'let classes = match.match(/class=".*?"/);'
+                                            'let styles = match.match(/style=".*?"/);'
+                                            "if (classes !== null) {classes =  ' ' + classes[0];}"
+                                            "else {classes = '';}"
+                                            "if (styles !== null) {styles = ' ' + styles[0];}"
+                                            "else {styles = '';}"
+                                            f'return "<h1" + classes + styles + ">" + "{target_url.h1}" + "</h1>";'
+                                            '});'
+                                            "const firstClosingTagIndex2 = outputString_2.indexOf('</h1>') + 5;"
+                                            'let outputString_3 = outputString_2.slice(0, firstClosingTagIndex2);'
+                                            'let outputString_4 = outputString_2.slice(firstClosingTagIndex2);'
+                                            'outputString_4 = outputString_4'
+                                            ".replace( /<h1/g, '<h2')"
+                                            ".replace( /<\/h1>/g, '</h2>');"
+                                            'outputString_2 = outputString_3 + outputString_4;'
+                                            'outputString = outputString_1 + outputString_2;'
+                                            '}'
+                                            'document.querySelector("#pageBody_es-ES").value = outputString;'
+                                        )
+                                    else:
+                                        self.trace_helper.log(text=f"------------------------------------------")
+                                        self.trace_helper.log(text=f"NO SE ENCONTRO NI h1 NI h2 NO SE HARA NADA")
+                                        self.trace_helper.log(text=f"------------------------------------------")
+
+                                    self.trace_helper.log(text=f"------------------------------------------")
+                                    self.trace_helper.log(text=f"RESULTADO DEL CAMBIO")
+                                    self.trace_helper.log(text=f"------------------------------------------")
+                                    data_raw = self.driver.execute_script(
+                                        'return document.querySelector("#pageBody_es-ES").value;'
+                                    )
+                                    self.trace_helper.log(text=data_raw)
 
                                 self.driver.implicitly_wait(5)
                                 # self.driver.execute_script("PageEditor.onGoToList(true)")
@@ -537,21 +673,34 @@ class AliraHelper:
                                     self.driver.execute_script("PageEditor.onSave()")
                                     sleep(5)
                                     self.driver.execute_script("PageEditor.onGoToList(true)")
+
                                 else:
                                     self.driver.execute_script("PageEditor.onGoToList(true)")
-                                # cancel_page_button = self.driver.find_element(By.ID, "cancelPage")
-                                # cancel_page_button.click()
+
                                 sleep(5)
+
+                                table_target = Wait(self.driver, timeout=30).until(
+                                    ec.visibility_of_element_located((By.ID, "allPagesEditor")))
+                                # table_target.click()
+                                table_input = table_target.find_elements(By.CSS_SELECTOR, "input")[2]
+                                table_input.clear()
+                                table_input.send_keys(self.url)
+                                table_input.send_keys(Keys.RETURN)
+
+                                sleep(2)
+
                                 self.target_urls[target_url.id].flag = False
-                                self.target_urls = list(filter(lambda x: x.flag is True, self.target_urls))
+                                target_url.flag = False
+                                # self.target_urls = list(filter(lambda x: x.flag is True, self.target_urls))
                                 print(
-                                    f"{self.target_urls[target_url.id].url} was set it {self.target_urls[target_url.id].flag}")
-                                print(self.target_urls)
+                                    f"{self.target_urls[target_url.id].url} "
+                                    f"was set it {self.target_urls[target_url.id].flag}")
+                                # print(self.target_urls)
 
                     if flag is False:
                         self.page = self.page + 1
 
-                except (Exception, NoSuchElementException, StopIteration) as e:
+                except (Exception, NoSuchElementException) as e:
                     print(f"Error : {self.trace_helper.get_trace_str(e)}")
 
                 if self.page == self.table_page_total:
@@ -562,6 +711,10 @@ class AliraHelper:
         else:
             table_input.clear()
             self.page = self.table_page_total
+            self.trace_helper.log(text=f"------------------------------------------")
+            self.trace_helper.log(text=f"SIN RESULTADOS PARA ESTA URL")
+            self.trace_helper.log(text=f"{self.url}")
+            self.trace_helper.log(text=f"------------------------------------------")
             print("--------- no results -------------")
 
     def get_kwr(self, excel_path):

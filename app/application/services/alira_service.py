@@ -70,7 +70,7 @@ class AliraService(AliraServiceInterface):
                 ])
             alira.alira_helper.target_urls = []
             for index, url in enumerate(alira.alira_helper.sheets[1].data):
-                url.h1 = alira.alira_helper.get_sheet_row_data(1, [28], url.id)
+                url.h1 = alira.alira_helper.get_sheet_row_data(1, [25], url.id)
                 url.title = alira.alira_helper.get_sheet_row_data(1, [26], url.id)
                 url.description = alira.alira_helper.get_sheet_row_data(1, [28], url.id)
                 url.keywords = alira.alira_helper.get_sheet_row_data(1, [
@@ -84,12 +84,24 @@ class AliraService(AliraServiceInterface):
                 # url.flag = True
                 alira.alira_helper.target_urls.append(url)
 
-            for reference in references_1:
+            alira.alira_helper.trace_helper.log(text=f"------------------------------------------")
+            alira.alira_helper.trace_helper.log(text=f"BUSCANDO LA SIGUIENTE DATA")
+            alira.alira_helper.trace_helper.log(text=f"------------------------------------------")
+            alira.alira_helper.trace_helper.log(text=f"{references_1_1}")
+            for index, reference in enumerate(references_1):
+
+                alira.alira_helper.trace_helper.log(text=f"------------------------------------------")
+                alira.alira_helper.trace_helper.log(text=f"{index}. {reference}")
+                alira.alira_helper.trace_helper.log(text=f"------------------------------------------")
                 alira.alira_helper.url = reference
                 alira.alira_helper.page = 1
-                alira.alira_helper.iterate_main_datatable(save=False)
+                alira.alira_helper.iterate_main_datatable(save=True)
                 while alira.alira_helper.page < alira.alira_helper.table_page_total:
-                    alira.alira_helper.iterate_main_datatable(save=False)
+                    alira.alira_helper.trace_helper.log(text=f"------------------------------------------")
+                    alira.alira_helper.trace_helper.log(text=f"Pagina : {alira.alira_helper.page} |"
+                                                             f" {alira.alira_helper.table_page_total}")
+                    alira.alira_helper.trace_helper.log(text=f"------------------------------------------")
+                    alira.alira_helper.iterate_main_datatable(save=True)
             """ """
 
             """" APUESTAS DEPORTIVAS """
@@ -109,7 +121,7 @@ class AliraService(AliraServiceInterface):
                 ])
             alira.alira_helper.target_urls = []
             for index, url in enumerate(alira.alira_helper.sheets[2].data):
-                url.h1 = alira.alira_helper.get_sheet_row_data(2, [28], url.id)
+                url.h1 = alira.alira_helper.get_sheet_row_data(2, [26], url.id)
                 url.title = alira.alira_helper.get_sheet_row_data(2, [28], url.id)
                 url.description = alira.alira_helper.get_sheet_row_data(2, [30], url.id)
                 url.keywords = alira.alira_helper.get_sheet_row_data(2, [

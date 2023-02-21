@@ -1,0 +1,380 @@
+------------------------------------------
+
+BUSCANDO LA SIGUIENTE DATA
+
+------------------------------------------
+
+['/casino-online/tragamonedas', '/casino-online/tragamonedas-nuevas', '/casino-online/tragamonedas-frutas', '/casino-online/tragamonedas-clasicas', '/casino-online/slots-power', '/live-casino/ruleta-en-vivo', '/casino-online/megaways', '/casino-online/blackjack-online', '/live-casino/baccarat-online', '/bono-casino-online', '/casino-online/tragamonedas-progresivas', '/casino-online/tragamonedas-jackpot', '/live-casino/blackjack-en-vivo', '/live-casino/poker-online', '/ruleta-online', '/casino-en-vivo', '/casino-online/tragamonedas-populares']
+
+------------------------------------------
+
+0. /maquinas-juegos-sala
+
+------------------------------------------
+
+------------------------------------------
+
+SE ENCONTRO /maquinas-juegos-sala
+
+------------------------------------------
+
+------------------------------------------
+
+1. /zona-masjugados
+
+------------------------------------------
+
+------------------------------------------
+
+SIN RESULTADOS PARA ESTA URL
+
+/zona-masjugados
+
+------------------------------------------
+
+------------------------------------------
+
+2. /maquinas-egt
+
+------------------------------------------
+
+------------------------------------------
+
+SIN RESULTADOS PARA ESTA URL
+
+/maquinas-egt
+
+------------------------------------------
+
+------------------------------------------
+
+3. /juegos-mesas
+
+------------------------------------------
+
+------------------------------------------
+
+4. /zona-clasicas
+
+------------------------------------------
+
+------------------------------------------
+
+SIN RESULTADOS PARA ESTA URL
+
+/zona-clasicas
+
+------------------------------------------
+
+------------------------------------------
+
+5. /mesas-ezugi
+
+------------------------------------------
+
+------------------------------------------
+
+6. /megaways-agrupamiento
+
+------------------------------------------
+
+------------------------------------------
+
+SIN RESULTADOS PARA ESTA URL
+
+/megaways-agrupamiento
+
+------------------------------------------
+
+------------------------------------------
+
+7. /zona-frutas
+
+------------------------------------------
+
+------------------------------------------
+
+SIN RESULTADOS PARA ESTA URL
+
+/zona-frutas
+
+------------------------------------------
+
+------------------------------------------
+
+8. /rouletteEzugiEvolution.html
+
+------------------------------------------
+
+------------------------------------------
+
+SE ENCONTRO /rouletteEzugiEvolution.html
+
+------------------------------------------
+
+------------------------------------------
+
+9. /zona-power
+
+------------------------------------------
+
+------------------------------------------
+
+SIN RESULTADOS PARA ESTA URL
+
+/zona-power
+
+------------------------------------------
+
+------------------------------------------
+
+10. /zona-progresivos
+
+------------------------------------------
+
+------------------------------------------
+
+SIN RESULTADOS PARA ESTA URL
+
+/zona-progresivos
+
+------------------------------------------
+
+------------------------------------------
+
+11. /zona-nuevos-juegos
+
+------------------------------------------
+
+------------------------------------------
+
+SIN RESULTADOS PARA ESTA URL
+
+/zona-nuevos-juegos
+
+------------------------------------------
+
+------------------------------------------
+
+12. /juegos-maquinas
+
+------------------------------------------
+
+------------------------------------------
+
+13. /casino-online/tragamonedas
+
+------------------------------------------
+
+------------------------------------------
+
+SE ENCONTRO /casino-online/tragamonedas
+
+------------------------------------------
+
+------------------------------------------
+
+SE CAMBIARA EL TITULO
+
+ACTUAL : Tragamonedas Online | Casino Atlantic City
+
+NUEVO : Tragamonedas Online | Casino Atlantic City
+
+------------------------------------------
+
+------------------------------------------
+
+SE CAMBIARA LA DESCRIPCION
+
+ACTUAL : Juega toda clase de tragamonedas online en Casino Atlantic City  &#9989; los mejores premios y bonus los encontrarás aquí &#129351; No te quedes sin jugar.
+
+NUEVO : Juega toda clase de tragamonedas online en Casino Atlantic City  &#9989; los mejores premios y bonus los encontrarás aquí &#129351; No te quedes sin jugar.
+
+------------------------------------------
+
+------------------------------------------
+
+SE CAMBIARA LAS KEYWORDS
+
+ACTUAL : tragamonedas ,maquinas tragamonedas,tragamonedas online,slots,tragaperras online,juegos de tragamonedas casino ,maquinas casino
+
+NUEVO : tragamonedas ,maquinas tragamonedas,tragamonedas online,slots,tragaperras online,juegos de tragamonedas casino ,maquinas casino
+
+------------------------------------------
+
+------------------------------------------
+
+REPORTE DE CAMBIO DE <h1> | /casino-online/tragamonedas
+
+------------------------------------------
+
+
+
+------------------------------------------
+
+NO SE ENCONTRO NI h1 NI h2 NO SE HARA NADA
+
+------------------------------------------
+
+------------------------------------------
+
+RESULTADO DEL CAMBIO
+
+------------------------------------------
+
+
+
+------------------------------------------
+
+14. /casino-online/tragamonedas-nuevas
+
+------------------------------------------
+
+------------------------------------------
+
+SE ENCONTRO /casino-online/tragamonedas-nuevas
+
+------------------------------------------
+
+------------------------------------------
+
+SE CAMBIARA EL TITULO
+
+ACTUAL : Tragamonedas Nuevos | Casino Atlantic City
+
+NUEVO : Tragamonedas Nuevos | Casino Atlantic City
+
+------------------------------------------
+
+------------------------------------------
+
+SE CAMBIARA LA DESCRIPCION
+
+ACTUAL : Prueba las mejores tragamonedas nuevas y slots más modernas con Casino Atlantic City &#129297; No esperes más y comienza a jugar para ganar 
+
+NUEVO : Prueba las mejores tragamonedas nuevas y slots más modernas con Casino Atlantic City &#129297; No esperes más y comienza a jugar para ganar 
+
+------------------------------------------
+
+------------------------------------------
+
+SE CAMBIARA LAS KEYWORDS
+
+ACTUAL : juegos tragamonedas nuevos ,juegos de tragamonedas más nuevas,juegos de casino nuevos,juegos de tragamonedas más nuevas,tragamonedas nuevas ,tragaperras mas nuevas,slots nuevos 
+
+NUEVO : juegos tragamonedas nuevos ,juegos de tragamonedas más nuevas,juegos de casino nuevos,juegos de tragamonedas más nuevas,tragamonedas nuevas ,tragaperras mas nuevas,slots nuevos 
+
+------------------------------------------
+
+------------------------------------------
+
+REPORTE DE CAMBIO DE <h1> | /casino-online/tragamonedas-nuevas
+
+------------------------------------------
+
+<link rel="stylesheet" type="text/css" href="/css/SEO/seo-style.css">
+<section class="pt20">
+    <div class="titulobarra">
+    <h2>Nuevos Juegos</h2>
+    </div>
+    #if(!$player.isGroupMember(2)) 
+        {module(2698)}
+    #else
+        {module(2699)}
+    #end
+</section>   
+
+<script>
+    $(function(){
+		new Filtro();
+        
+		$("a.filtro-buscar").click(function(){
+	        $('#filtro-slots').slideToggle();
+		});
+		
+		$('#filtrador-texto').keypress( function () {
+		    if (event.keyCode == 13) {
+		        $("#btn-busqueda").click();
+		        document.activeElement.blur();
+		    }
+		});
+    });
+</script>
+<div id="SEO" class="py-3"></div>
+    <section class="seo-content">
+        <div class="seo-content-section">
+            <input type="checkbox" class="read-more-state" id="post-1" />
+            <div class="read-more-wrap">
+                <h2 class="title">Tragamonedas nuevas</h2>
+                <div id="alternate-seo" class="read-more-target">
+                    <p>Todos queremos probar nuevas cosas y sentir esa emoción de jugar algo por primera vez, ¡por eso los amantes de las <a href="https://www.casinoatlanticcity.com/juegos-maquinas" title="casinoatlanticcity" target="_blank" rel="noopener">máquinas tragamonedas</a> podrán encontrar en Casino Atlantic City una gran colección de nuevos juegos!</p>
+                    <h2>¡Nuevo vs popular! ¿Cómo elegir qué máquina jugar?</h2>
+                    <p>Sabemos que es difícil elegir entre la gran variedad de juegos que existen en la actualidad. Si eres de las personas innovadoras y que está en búsqueda de nuevas cosas para probar, esta categoría es perfecta para ti.</p>
+                    <p>Es por esto que aquí te dejamos algunas de las principales razones para elegir la categoría de <a href="https://www.casinoatlanticcity.com/zona-nuevos-juegos" title="casinoatlanticcity" target="_blank" rel="noopener">nuevas tragamonedas</a>.</p>
+                    <ul>
+                        <li>
+                                Los nuevos slots por lo general tienen muy buenas bonificaciones para motivar a los nuevos usuarios a jugarlos. Estas ofrecen algunas características especiales, como giros gratis, juegos de clic o funciones de apuesta. 
+                        </li>
+                        <li>Tienen temáticas novedosas y el nivel tecnológico es mucho mayor que en los <a href="https://www.casinoatlanticcity.com/zona-masjugados" title="casinoatlanticcity" target="_blank" rel="noopener">juegos populares</a>. 
+                        </li>
+                        <li>El audio y visualización sin duda es mucho mejor, que las versiones antiguas, lo que te motivará a seguir jugando. 
+                        </li>
+                    </ul>
+                    <p>Es por esto que en Casino Atlantic City constantemente agregamos las últimas novedades en máquinas tragamonedas. Sea cual sea el título que elijas, ¡sabemos que te vas a divertir al máximo!</p>
+                    <h2>¿Cuáles son las temáticas de los juegos de tragamonedas nuevos?</h2>
+                    <p>Las máquinas tragamonedas online se han convertido en uno de los juegos más populares hoy en día y existe una amplia gama de ellos. Aquí te contamos algunas de las temáticas de las máquinas tragamonedas más nuevas.
+                    </p>
+                    <p>Tenemos tragamonedas con temática egipcia, con símbolos de desiertos, oasis, dioses, faraones, tesoros, esfinges, sarcófagos o escarabajos.</p>
+                    <p>Las tragamonedas de fantasía, tienen historias emocionantes que te llevarán al mundo de los magos, unicornios, señor oscuro o vampiros.</p>
+                    <p>En cuanto a las <a href="https://www.casinoatlanticcity.com/zona-frutas" title="casinoatlanticcity" target="_blank" rel="noopener">tragamonedas de frutas</a> online, son la versión mejorada de las tragaperras clásicas. Sus diseños coloridos, sonidos de campanas y carretes con símbolos de frutas, lo convierten en los favoritos de las personas.</p>
+                    <p>Como viste, existen diferentes temáticas en las tragamonedas. En <a href="https://www.casinoatlanticcity.com/casino-online" title="casinoatlanticcity" target="_blank" rel="noopener">Casino Atlantic City</a> podrás encontrar la máquina tragamonedas que más te guste.</p>
+                    <h2>Tendencias de los slots nuevos</h2>
+                    <p>Sabemos que la tecnología está avanzando de manera rápida en los últimos tiempos y que cada vez nos sorprenden más con las innovaciones que se han hecho en los últimos tiempos.</p>
+                    <p>Conoce algunas de las tendencias actuales en máquinas tragamonedas.</p>
+                    <h3>Visualización</h3>
+                    <p>Cada vez se han desarrollado juegos con mayor efectos visuales, increíbles gráficos, sonido de la máxima calidad y mayores rondas de bonificaciones, que harán de tu juego una gran experiencia.</p>
+                    <h3>Realidad virtual</h3>
+                    <p>Con equipos de alta tecnología puedes jugar con máquinas tragamonedas como nunca antes. Los gráficos en 3D y los sonidos de casino, le dan un toque de realismo al juego. ¡Incluso puedes ver y comunicarse virtualmente con otros jugadores!</p>
+                    <h2>Ventajas de jugar a las máquinas tragamonedas online</h2>
+                    <p>¿Estás buscando los slots más nuevos donde puedas divertirte y ganar? Aquí puedes encontrar las tragamonedas más nuevas en Perú.</p>
+                    <p>Las tragamonedas modernas también son muy populares por sus funciones de bonificación, conoce aquí algunas de las ventajas que tienen.</p>
+                    <h3>Comodines</h3>
+                    <p>Los comodines son símbolos especiales más comunes en los tragamonedas online y estos símbolos sustituyen cualquier otro, para crear combinaciones que te ayuden a ganar.</p>
+                    <h3>Sticky Wild</h3>
+                    <p>Los Sticky Wild, comodines de expansión, o como algunos lo llaman comodines pegajosos, cubren todo el carrete y permanece fijo en el mismo lugar durante un determinado número de rondas. Muy a menudo habilita las rondas de bonificación.</p>
+                    <h3>Scatters</h3>
+                    <p>Conocidos también como símbolos de dispersión, estos comúnmente dan acceso a tiradas gratis o a los juegos de bonificación. Se combinan entre tres y cinco símbolos por tablero y suelen dar mayor ganancia.</p>
+                    <h3>Re-spins</h3>
+                    <p>Son giros de bonificación, en donde los carretes podrán seguir girando hasta que puedas obtener una combinación ganadora.</p>
+                    <h3>Wild</h3>
+                    <p>Son un comodín que podrían sustituir cualquier símbolo del juego, a excepción del Scatter y te ayuda a formar combinaciones ganadoras en las líneas de pago. Por lo general, el símbolo Wild corresponde al logotipo del juego o a la temática del juego.</p>
+                    <h3>Pick and Click</h3>
+                    <p>Este comodín le da al jugador la opción de elegir símbolos que ocultan distintos  tipos de bonificaciones.</p>
+                    <h3>Multiplicador</h3>
+                    <p>El multiplicador tiene la ventaja de que te ofrece la posibilidad de aumentar las rondas de bonificación.</p>
+                    <p>Sin duda nuestro casino online tiene todo lo que necesitas para ganar y divertite,  ofreciéndote una gran variedad de juegos y grandes ventajas.</p>
+                </div>
+            </div>
+            <label for="post-1" class="read-more-trigger btn-seo-action"></label>
+            <a href="#SEO" class="anclaSeo"></a>
+        </div>
+    </section>
+
+------------------------------------------
+
+LOS ASUNTOS RELACIONADOS CON EL h1 AQUI LOS VE LA VISTA DE SEO
+
+------------------------------------------
+
+------------------------------------------
+
+SE COONVERTIRA EL PRIMER h2 EN H1
+
+------------------------------------------
+
+------------------------------------------
+
+15. /casino-online/tragamonedas-frutas
+
+------------------------------------------
+
