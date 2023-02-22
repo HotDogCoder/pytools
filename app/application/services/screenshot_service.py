@@ -123,6 +123,11 @@ class ScreenshotService(ScreenshotServiceInterface):
                     report_type.url = report_type.url.replace("[GETDATE]",f"{today}")
                     screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver, target_iterations=0, zoom=39)
 
+                elif report_type.id == 12:
+                    print("12")
+                    # report_type.url = report_type.url.replace("[GETDATE]",f"{today}")
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver, target_iterations=0, zoom=39)
+
                 else:
                     screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver)
                     pass

@@ -15,3 +15,7 @@ out/
 # PyCharm virtualenv
 .idea_virtualenvs/
 venv/
+
+#Storage
+
+/storage/screenshots/*.png
