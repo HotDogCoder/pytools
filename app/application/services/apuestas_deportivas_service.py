@@ -112,6 +112,17 @@ class ApuestasDeportivasService(ApuestasDeportivasServiceInterface):
 
             orden_promos = [
 
+                Promocion(4, "TORNEO_DE_VERANO", 1),  ("IZQUIERDA LUGAR DEL TORNEO ,DERECHA EL NIVEL")
+                Promocion(2, "TORNEO_DE_VERANO", 2),
+                Promocion(1, "TORNEO_DE_VERANO", 3),
+                Promocion(1, "TORNEO_DE_VERANO", 5),
+                Promocion(1, "TORNEO_DE_VERANO", 6),
+                Promocion(1, "TORNEO_DE_VERANO", 7),
+                Promocion(1, "TORNEO_DE_VERANO", 8),
+                Promocion(1, "TORNEO_DE_VERANO", 9),
+                Promocion(1, "TORNEO_DE_VERANO", 0),
+
+
                 Promocion(4, "TORNEO_DE_VERANO", 1),
                 Promocion(2, "TORNEO_DE_VERANO", 2),
                 Promocion(1, "TORNEO_DE_VERANO", 3),
@@ -122,10 +133,35 @@ class ApuestasDeportivasService(ApuestasDeportivasServiceInterface):
                 Promocion(1, "TORNEO_DE_VERANO", 9),
                 Promocion(1, "TORNEO_DE_VERANO", 0),
 
-                Promocion(1, "SORTEO ESTELAR", 1),
-                Promocion(1, "SORTEO ESTELAR", 2),
-                Promocion(2, "SORTEO ESTELAR", level=3),
-                Promocion(2, "SORTEO ESTELAR", 5),
+                Promocion(4, "TORNEO_DE_VERANO", 1),
+                Promocion(2, "TORNEO_DE_VERANO", 2),
+                Promocion(1, "TORNEO_DE_VERANO", 3),
+                Promocion(1, "TORNEO_DE_VERANO", 5),
+                Promocion(1, "TORNEO_DE_VERANO", 6),
+                Promocion(1, "TORNEO_DE_VERANO", 7),
+                Promocion(1, "TORNEO_DE_VERANO", 8),
+                Promocion(1, "TORNEO_DE_VERANO", 9),
+                Promocion(1, "TORNEO_DE_VERANO", 0),
+
+                Promocion(4, "TORNEO_DE_VERANO", 1),
+                Promocion(2, "TORNEO_DE_VERANO", 2),
+                Promocion(1, "TORNEO_DE_VERANO", 3),
+                Promocion(1, "TORNEO_DE_VERANO", 5),
+                Promocion(1, "TORNEO_DE_VERANO", 6),
+                Promocion(1, "TORNEO_DE_VERANO", 7),
+                Promocion(1, "TORNEO_DE_VERANO", 8),
+                Promocion(1, "TORNEO_DE_VERANO", 9),
+                Promocion(1, "TORNEO_DE_VERANO", 0),
+
+                Promocion(4, "TORNEO_DE_VERANO", 1),
+                Promocion(2, "TORNEO_DE_VERANO", 2),
+                Promocion(1, "TORNEO_DE_VERANO", 3),
+                Promocion(1, "TORNEO_DE_VERANO", 5),
+                Promocion(1, "TORNEO_DE_VERANO", 6),
+                Promocion(1, "TORNEO_DE_VERANO", 7),
+                Promocion(1, "TORNEO_DE_VERANO", 8),
+                Promocion(1, "TORNEO_DE_VERANO", 9),
+                Promocion(1, "TORNEO_DE_VERANO", 0),
 
                 Promocion(4, "TORNEO_DE_VERANO", 1),
                 Promocion(2, "TORNEO_DE_VERANO", 2),
