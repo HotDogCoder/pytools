@@ -1,5 +1,6 @@
 import math
 from datetime import datetime
+from itertools import _tee_dataobject
 from time import sleep
 
 from selenium.common import NoSuchElementException
@@ -12,6 +13,7 @@ from core.domain.models.url import Url
 from core.util.debug.trace_helper import TraceHelper
 from core.util.excel.excel_helper import ExcelHelper
 from core.util.excel.sheet import Sheet
+from core.util.path.path_helper import PathHelper
 
 
 class AliraHelper:
@@ -26,6 +28,7 @@ class AliraHelper:
         self.table_page_total = table_page_total
         self.sheets = []
         self.trace_helper = TraceHelper()
+        self.row = 0
 
     def login(self, url, username="rterrones", password="P@ssw0rd123."):
         self.driver.maximize_window()
@@ -716,6 +719,150 @@ class AliraHelper:
             self.trace_helper.log(text=f"{self.url}")
             self.trace_helper.log(text=f"------------------------------------------")
             print("--------- no results -------------")
+
+    def iterate_main_datatable_exportation(self, save=True, type="PAGE"):
+
+        # table_target = Wait(self.driver, timeout=30).until(
+        #     ec.visibility_of_element_located((By.ID, "allPagesEditor")))
+        # table_target.click()
+        # table_input = table_target.find_elements(By.CSS_SELECTOR, "input")[2]
+        # table_input.clear()
+        # table_input.send_keys(self.url)
+        # table_input.send_keys(Keys.RETURN)
+
+        sleep(2)
+
+        table_paginator = self.driver.find_element(By.CSS_SELECTOR, ".dataTables_paginate.paging_simple_numbers")
+        table_paginator_options = table_paginator.find_elements(By.CSS_SELECTOR, "li")
+        # table_paginator_next = driver.find_element(By.ID, "allPagesEditor_next")
+        table_paginator_options_len = len(table_paginator_options) - 2
+
+        # current_window = self.driver.current_window_handle
+
+        self.table_page_total = int(table_paginator_options[table_paginator_options_len].text.strip())
+
+        print(f"-------- total pages: {self.table_page_total} ----------")
+        try:
+            # for index in range(self.table_page_total):
+            if self.page > 1:
+                table_paginator_options[1].find_element(By.CSS_SELECTOR, "a").click()
+                for thing in range(self.page - 1):
+                    table_paginator_next_container = Wait(self.driver, timeout=20).until(
+                        ec.visibility_of_element_located((By.ID, "allPagesEditor_next")))
+                    table_paginator_next = table_paginator_next_container.find_element(By.CSS_SELECTOR, "a")
+                    table_paginator_next.click()
+
+            print(f"--------- page : {self.page} ----------")
+
+            try:
+                table_target = Wait(self.driver, timeout=20).until(
+                    ec.visibility_of_element_located((By.ID, "allPagesEditor")))
+
+                sleep(4)
+
+                flag = False
+
+                table_target_tr_list = table_target.find_elements(By.CSS_SELECTOR, "tbody tr")
+
+                tr = table_target_tr_list[self.row]
+                if self.row == 1 and self.page == 3:
+                    print("ERROR RARO")
+                print(f"Fila : {self.row}")
+                tds = tr.find_elements(By.CSS_SELECTOR, "td")
+                # target_url_str = target_url.url.strip()
+                # target_new_url_str = target_url.new_url.strip()
+                td_str = ""
+                try:
+                    td_str = tds[3].text
+                    td_str = td_str.strip()
+                    if "/casino-online/tragamonedas" == td_str:
+                        print("LET ME DO IT FOR YOU")
+                except Exception as e:
+                    print(f"Error : {self.trace_helper.get_trace_str(e)}")
+
+                td_str_arr = td_str.split("/")
+                if td_str != "" and ("slots" in td_str.split("/") or "slot" in td_str.split("/")) is False:
+                    self.trace_helper.log(text=f"------------------------------------------")
+                    self.trace_helper.log(text=f"SE EXPORTARA {td_str} :")
+                    self.trace_helper.log(text=f"------------------------------------------")
+                    # print(f"there is a match with some url : {td_str}")
+                    flag = True
+                    print("searching for popup menu button")
+                    new_tab_buttons = tr.find_elements(By.CSS_SELECTOR, "button")
+                    new_tab_buttons[1].click()
+                    sleep(1)
+                    print("searching for link")
+                    new_tab_links = tr.find_elements(By.CSS_SELECTOR, "a")
+                    new_tab_links[1].click()
+                    print("loading page link")
+                    sleep(5)
+
+                    if type == "PAGE":
+                        target_buttons = self.driver.find_elements(By.CSS_SELECTOR, "button")
+                        for target_button in target_buttons:
+                            data_id = target_button.get_attribute("data-id")
+
+                            if data_id == "pageLayout":
+                                title = target_button.get_attribute("title")
+                                self.layouts.append(title)
+
+                    html = self.driver.execute_script(
+                        'return document.querySelector("#pageBody_es-ES").value;'
+                    )
+
+                    self.trace_helper.log(text=f"------------------------------------------")
+                    self.trace_helper.log(text=f"HTML")
+                    self.trace_helper.log(text=f"------------------------------------------")
+                    path_helper = PathHelper()
+                    root_path = path_helper.get_project_root_path()
+                    folder_path = f"{root_path}/storage/exportations/alira_exportation{td_str.strip()}"
+                    file_name = td_str.replace("/", "_", 999)
+                    file_name = file_name.replace("-", "_", 999)
+                    folder_path = path_helper.create_directory(folder_path)
+                    file_path = path_helper.create_file(
+                        path=folder_path,
+                        name=file_name,
+                        content=html,
+                        extension="html"
+                    )
+                    self.trace_helper.log(text=file_path)
+                    self.driver.implicitly_wait(5)
+                    # self.driver.execute_script("PageEditor.onGoToList(true)")
+                    if save is True:
+                        self.driver.execute_script("window.scrollTo(0,0)")
+                        sleep(2)
+                        self.driver.execute_script("PageEditor.onSave()")
+                        sleep(5)
+                        self.driver.execute_script("PageEditor.onGoToList(true)")
+
+                    else:
+                        self.driver.execute_script("PageEditor.onGoToList(true)")
+
+                    self.row = self.row + 1
+                    sleep(5)
+
+                    Wait(self.driver, timeout=30).until(
+                        ec.visibility_of_element_located((By.ID, "allPagesEditor")))
+
+                elif ("slots" in td_str.split("/") or "slot" in td_str.split("/")) is True and td_str != "":
+                    self.trace_helper.log(text=f"------------------------------------------")
+                    self.trace_helper.log(text=f"SE RECHAZA {td_str} :")
+                    self.trace_helper.log(text=f"------------------------------------------")
+                    self.row = self.row + 1
+
+                if self.row == len(table_target_tr_list):
+                    self.page = self.page + 1
+                    self.row = 0
+
+            except (Exception, NoSuchElementException) as e:
+                print(f"Error : {self.trace_helper.get_trace_str(e)}")
+
+            if self.page == self.table_page_total:
+                raise StopIteration
+
+        except (NoSuchElementException, StopIteration) as e:
+            print(f"Error : {self.trace_helper.get_trace_str(e)}")
+
 
     def get_kwr(self, excel_path):
 

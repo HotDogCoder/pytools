@@ -1,0 +1,91 @@
+<link href="/css/ca-datepicker.css" rel="stylesheet">
+<script src="/js/modules/ca-datepicker.js"></script>
+<style>
+	.contenedor {
+		width: 100%;
+		max-width: 1200px;
+		margin: 30px auto;
+		padding: 40px;
+	}
+	.dame-scroll {
+		height: 500px;
+	}
+	.ml60 {
+	    margin-left: 60px;
+	}
+	
+	ul li {
+	    margin-bottom: 20px;
+	}
+	pre {
+	    background-color: #eee;
+	    border-radius: 3px;
+	    padding: 3px;
+	    display: inline;
+	}
+	pre blue {
+	    color: #00f;
+	}
+	pre green {
+	    color: #0a0;
+	}
+</style>
+
+<div class="contenedor">
+    <h1>Widget Calendario JS</h1>
+    
+    <h5>Como utilizarlo:</h5>
+    <ul>
+        <li>Importar liberías:
+            <p><pre>&lt;script src=<green>"/js/modules/ca-datepicker.js"</green>&gt;&lt;/script&gt;</pre></p>
+            <p><pre>&lt;link href=<green>"/css/ca-datepicker.css"</green> rel=<green>"stylesheet"</green>&gt;</pre></p>
+        </li>
+        <li>Inicializar componente: <p class="ml60"><pre>CADatepicker.init({container: <green>"div.TU_CONTENEDOR"</green>, lang: <green>"es"</green>});</pre></p></li>
+    </ul>
+</div>
+
+<div class="contenedor">
+	<input data-datepicker="1" placeholder="Widget!">
+	<input data-datepicker="1" placeholder="Widget!">
+	<input data-datepicker="1" placeholder="Widget!">
+</div>
+
+<div class="contenedor flex noWrap">
+	<input data-datepicker="1" placeholder="Widget!">
+	<input data-datepicker="1" placeholder="Widget!">
+	<input data-datepicker="1" placeholder="Widget!">
+</div>
+
+<div class="contenedor">
+	<div><input data-datepicker="1" placeholder="Widget!"></div>
+	<div><input placeholder="NO"></div>
+	<div><input data-datepicker="1" placeholder="Widget!"></div>
+</div>
+
+<div class="contenedor flex noWrap">
+	<div><input data-datepicker="1" placeholder="Widget!"></div>
+	<div><input data-datepicker="1" placeholder="Widget!"></div>
+	<div><input data-datepicker="1" placeholder="Widget!"></div>
+</div>
+
+<div class="contenedor">
+    <div class="flex noWrap">
+        <div><input data-datepicker="1" placeholder="Widget!"></div>
+    	<div><input data-datepicker="1" placeholder="Widget!"></div>
+    	<div><input placeholder="NO"></div>
+    </div>
+    <div class="flex noWrap">
+        <div><input data-datepicker="1" placeholder="Widget!"></div>
+    	<div><input placeholder="NO"></div>
+    	<div><input data-datepicker="1" placeholder="Widget!"></div>
+    </div>
+    <div class="flex noWrap">
+        <div><input placeholder="NO"></div>
+    	<div><input data-datepicker="1" placeholder="Widget!"></div>
+    	<div><input data-datepicker="1" placeholder="Widget!"></div>
+    </div>
+</div>
+
+<script type="module">
+    CADatepicker.init({container: "div.contenedor", lang: "es"});
+</script>

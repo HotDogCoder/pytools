@@ -1,0 +1,24 @@
+------------------------------------------
+
+BUSCANDO LA SIGUIENTE DATA
+
+------------------------------------------
+
+['/casino-online/tragamonedas-nuevas', '/live-casino/poker-online', '/casino-online/tragamonedas-frutas', '/casino-online/tragamonedas-progresivas', '/casino-online/tragamonedas-jackpot', '/casino-online/tragamonedas-populares', '/live-casino/ruleta-en-vivo', '/live-casino/baccarat-online', '/bono-casino-online', '/casino-online/blackjack-online', '/casino-online/slots-power', '/casino-online/megaways', '/casino-online/tragamonedas-clasicas', '/live-casino/blackjack-en-vivo', '/casino-en-vivo', '/ruleta-online', '/casino-online/tragamonedas']
+
+------------------------------------------
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /slots/MegaWheel /slots/zodiacwheel :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+

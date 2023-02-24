@@ -88,20 +88,21 @@ class AliraService(AliraServiceInterface):
             alira.alira_helper.trace_helper.log(text=f"BUSCANDO LA SIGUIENTE DATA")
             alira.alira_helper.trace_helper.log(text=f"------------------------------------------")
             alira.alira_helper.trace_helper.log(text=f"{references_1_1}")
-            for index, reference in enumerate(references_1):
+            # for index, reference in enumerate(references_1):
 
+            alira.alira_helper.trace_helper.log(text=f"------------------------------------------")
+            # alira.alira_helper.trace_helper.log(text=f"{index}. {reference}")
+            alira.alira_helper.trace_helper.log(text=f"------------------------------------------")
+            alira.alira_helper.url = "reference"
+            alira.alira_helper.page = 1
+            alira.alira_helper.iterate_main_datatable_exportation(save=False, type="PAGE")
+            while alira.alira_helper.page < alira.alira_helper.table_page_total:
                 alira.alira_helper.trace_helper.log(text=f"------------------------------------------")
-                alira.alira_helper.trace_helper.log(text=f"{index}. {reference}")
+                alira.alira_helper.trace_helper.log(text=f"Pagina : {alira.alira_helper.page} |"
+                                                         f" Row: {alira.alira_helper.row}"
+                                                         f" {alira.alira_helper.table_page_total}")
                 alira.alira_helper.trace_helper.log(text=f"------------------------------------------")
-                alira.alira_helper.url = reference
-                alira.alira_helper.page = 1
-                alira.alira_helper.iterate_main_datatable(save=True)
-                while alira.alira_helper.page < alira.alira_helper.table_page_total:
-                    alira.alira_helper.trace_helper.log(text=f"------------------------------------------")
-                    alira.alira_helper.trace_helper.log(text=f"Pagina : {alira.alira_helper.page} |"
-                                                             f" {alira.alira_helper.table_page_total}")
-                    alira.alira_helper.trace_helper.log(text=f"------------------------------------------")
-                    alira.alira_helper.iterate_main_datatable(save=True)
+                alira.alira_helper.iterate_main_datatable_exportation(save=False, type="PAGE")
             """ """
 
             """" APUESTAS DEPORTIVAS """

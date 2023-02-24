@@ -1,0 +1,208 @@
+------------------------------------------
+
+BUSCANDO LA SIGUIENTE DATA
+
+------------------------------------------
+
+['/casino-online/megaways', '/casino-online/tragamonedas', '/casino-online/blackjack-online', '/live-casino/blackjack-en-vivo', '/live-casino/poker-online', '/bono-casino-online', '/casino-online/tragamonedas-jackpot', '/live-casino/baccarat-online', '/casino-en-vivo', '/casino-online/tragamonedas-frutas', '/casino-online/tragamonedas-populares', '/casino-online/tragamonedas-progresivas', '/ruleta-online', '/casino-online/tragamonedas-nuevas', '/casino-online/slots-power', '/casino-online/tragamonedas-clasicas', '/live-casino/ruleta-en-vivo']
+
+------------------------------------------
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 2 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/winner-de-winner :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+
+
+------------------------------------------
+
+Pagina : 3 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 4 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /members/payout-visanet.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+<a class="ico--back" href="javascript:backMPU();void(0);">
+    <img src="/img/icos/arrow-left.svg">
+</a>
+<h2 class="type2 titulo_popup">Retiro Visa</h2>
+<div class="mpucontainer modal-body gtm—ret-VisaDirect">
+    {module(306)}
+</div>
+
+
+
+------------------------------------------
+
+Pagina : 4 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /test/widget-calendario.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+<link href="/css/ca-datepicker.css" rel="stylesheet">
+<script src="/js/modules/ca-datepicker.js"></script>
+<style>
+	.contenedor {
+		width: 100%;
+		max-width: 1200px;
+		margin: 30px auto;
+		padding: 40px;
+	}
+	.dame-scroll {
+		height: 500px;
+	}
+	.ml60 {
+	    margin-left: 60px;
+	}
+	
+	ul li {
+	    margin-bottom: 20px;
+	}
+	pre {
+	    background-color: #eee;
+	    border-radius: 3px;
+	    padding: 3px;
+	    display: inline;
+	}
+	pre blue {
+	    color: #00f;
+	}
+	pre green {
+	    color: #0a0;
+	}
+</style>
+
+<div class="contenedor">
+    <h1>Widget Calendario JS</h1>
+    
+    <h5>Como utilizarlo:</h5>
+    <ul>
+        <li>Importar liberías:
+            <p><pre>&lt;script src=<green>"/js/modules/ca-datepicker.js"</green>&gt;&lt;/script&gt;</pre></p>
+            <p><pre>&lt;link href=<green>"/css/ca-datepicker.css"</green> rel=<green>"stylesheet"</green>&gt;</pre></p>
+        </li>
+        <li>Inicializar componente: <p class="ml60"><pre>CADatepicker.init({container: <green>"div.TU_CONTENEDOR"</green>, lang: <green>"es"</green>});</pre></p></li>
+    </ul>
+</div>
+
+<div class="contenedor">
+	<input data-datepicker="1" placeholder="Widget!">
+	<input data-datepicker="1" placeholder="Widget!">
+	<input data-datepicker="1" placeholder="Widget!">
+</div>
+
+<div class="contenedor flex noWrap">
+	<input data-datepicker="1" placeholder="Widget!">
+	<input data-datepicker="1" placeholder="Widget!">
+	<input data-datepicker="1" placeholder="Widget!">
+</div>
+
+<div class="contenedor">
+	<div><input data-datepicker="1" placeholder="Widget!"></div>
+	<div><input placeholder="NO"></div>
+	<div><input data-datepicker="1" placeholder="Widget!"></div>
+</div>
+
+<div class="contenedor flex noWrap">
+	<div><input data-datepicker="1" placeholder="Widget!"></div>
+	<div><input data-datepicker="1" placeholder="Widget!"></div>
+	<div><input data-datepicker="1" placeholder="Widget!"></div>
+</div>
+
+<div class="contenedor">
+    <div class="flex noWrap">
+        <div><input data-datepicker="1" placeholder="Widget!"></div>
+    	<div><input data-datepicker="1" placeholder="Widget!"></div>
+    	<div><input placeholder="NO"></div>
+    </div>
+    <div class="flex noWrap">
+        <div><input data-datepicker="1" placeholder="Widget!"></div>
+    	<div><input placeholder="NO"></div>
+    	<div><input data-datepicker="1" placeholder="Widget!"></div>
+    </div>
+    <div class="flex noWrap">
+        <div><input placeholder="NO"></div>
+    	<div><input data-datepicker="1" placeholder="Widget!"></div>
+    	<div><input data-datepicker="1" placeholder="Widget!"></div>
+    </div>
+</div>
+
+<script type="module">
+    CADatepicker.init({container: "div.contenedor", lang: "es"});
+</script>
+
+------------------------------------------
+
+Pagina : 4 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 5 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 6 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/torneo-ruleta-online :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+
+

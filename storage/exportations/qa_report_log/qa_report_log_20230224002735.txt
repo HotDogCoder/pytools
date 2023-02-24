@@ -1,0 +1,190 @@
+------------------------------------------
+
+BUSCANDO LA SIGUIENTE DATA
+
+------------------------------------------
+
+['/live-casino/blackjack-en-vivo', '/casino-online/megaways', '/casino-online/blackjack-online', '/casino-en-vivo', '/casino-online/tragamonedas-nuevas', '/live-casino/baccarat-online', '/live-casino/ruleta-en-vivo', '/live-casino/poker-online', '/ruleta-online', '/casino-online/tragamonedas', '/bono-casino-online', '/casino-online/slots-power', '/casino-online/tragamonedas-clasicas', '/casino-online/tragamonedas-frutas', '/casino-online/tragamonedas-jackpot', '/casino-online/tragamonedas-populares', '/casino-online/tragamonedas-progresivas']
+
+------------------------------------------
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 2 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/winner-de-winner :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools.torneo.winner-de-winner..html
+
+------------------------------------------
+
+Pagina : 3 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 4 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /members/payout-visanet.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools.members.payout-visanet.html..html
+
+------------------------------------------
+
+Pagina : 4 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /test/widget-calendario.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools.test.widget-calendario.html..html
+
+------------------------------------------
+
+Pagina : 4 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 5 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 6 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/torneo-ruleta-online :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools.torneo.torneo-ruleta-online..html
+
+------------------------------------------
+
+Pagina : 6 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /members/deposit-visanetQR.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools.members.deposit-visanetQR.html..html
+
+------------------------------------------
+
+Pagina : 6 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /return-visanet.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools.return-visanet.html..html
+
+------------------------------------------
+
+Pagina : 6 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /members/deposit-visanet.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools.members.deposit-visanet.html..html
+
+------------------------------------------
+
+Pagina : 6 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /return-visanet-payout-iframe.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools.return-visanet-payout-iframe.html..html
+

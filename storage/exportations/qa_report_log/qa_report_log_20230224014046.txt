@@ -1,0 +1,1358 @@
+------------------------------------------
+
+BUSCANDO LA SIGUIENTE DATA
+
+------------------------------------------
+
+['/casino-online/tragamonedas-nuevas', '/casino-online/tragamonedas-populares', '/casino-online/slots-power', '/casino-online/blackjack-online', '/casino-online/tragamonedas', '/casino-online/tragamonedas-progresivas', '/ruleta-online', '/casino-en-vivo', '/casino-online/tragamonedas-clasicas', '/casino-online/megaways', '/casino-online/tragamonedas-frutas', '/casino-online/tragamonedas-jackpot', '/live-casino/poker-online', '/live-casino/blackjack-en-vivo', '/bono-casino-online', '/live-casino/baccarat-online', '/live-casino/ruleta-en-vivo']
+
+------------------------------------------
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 2 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/winner-de-winner :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/torneo/winner-de-winner\_torneo_winner-de-winner..html
+
+------------------------------------------
+
+Pagina : 3 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 4 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /members/payout-visanet.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/members/payout-visanet.html\_members_payout-visanet.html..html
+
+------------------------------------------
+
+Pagina : 4 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /test/widget-calendario.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/test/widget-calendario.html\_test_widget-calendario.html..html
+
+------------------------------------------
+
+Pagina : 4 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 5 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 6 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/torneo-ruleta-online :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/torneo/torneo-ruleta-online\_torneo_torneo-ruleta-online..html
+
+------------------------------------------
+
+Pagina : 6 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /members/deposit-visanetQR.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/members/deposit-visanetQR.html\_members_deposit-visanetQR.html..html
+
+------------------------------------------
+
+Pagina : 6 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /return-visanet.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/return-visanet.html\_return-visanet.html..html
+
+------------------------------------------
+
+Pagina : 6 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /members/deposit-visanet.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/members/deposit-visanet.html\_members_deposit-visanet.html..html
+
+------------------------------------------
+
+Pagina : 6 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /return-visanet-payout-iframe.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/return-visanet-payout-iframe.html\_return-visanet-payout-iframe.html..html
+
+------------------------------------------
+
+Pagina : 6 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 7 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /promotions/tournamentWinnersBatchWeekly.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/promotions/tournamentWinnersBatchWeekly.html\_promotions_tournamentWinnersBatchWeekly.html..html
+
+------------------------------------------
+
+Pagina : 7 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /video/youtube_registrate.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/video/youtube_registrate.html\_video_youtube_registrate.html..html
+
+------------------------------------------
+
+Pagina : 7 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /video/youtube_juega.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/video/youtube_juega.html\_video_youtube_juega.html..html
+
+------------------------------------------
+
+Pagina : 7 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /video/youtube_gana.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/video/youtube_gana.html\_video_youtube_gana.html..html
+
+------------------------------------------
+
+Pagina : 7 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /video/youtube_apuesta.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/video/youtube_apuesta.html\_video_youtube_apuesta.html..html
+
+------------------------------------------
+
+Pagina : 7 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 8 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/torneo_bienvenida :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/torneo/torneo_bienvenida\_torneo_torneo_bienvenida..html
+
+------------------------------------------
+
+Pagina : 8 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 9 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /threecardpoker :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/threecardpoker\_threecardpoker..html
+
+------------------------------------------
+
+Pagina : 9 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /updateForgottenPassword.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/updateForgottenPassword.html\_updateForgottenPassword.html..html
+
+------------------------------------------
+
+Pagina : 9 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /updateForgotPasswordOk.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/updateForgotPasswordOk.html\_updateForgotPasswordOk.html..html
+
+------------------------------------------
+
+Pagina : 9 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /ultimatetexasholdem :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/ultimatetexasholdem\_ultimatetexasholdem..html
+
+------------------------------------------
+
+Pagina : 10 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /terminos-deportivos.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/terminos-deportivos.html\_terminos-deportivos.html..html
+
+------------------------------------------
+
+Pagina : 10 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /terminos-y-condiciones-apuestas-deportivas :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/terminos-y-condiciones-apuestas-deportivas\_terminos-y-condiciones-apuestas-deportivas..html
+
+------------------------------------------
+
+Pagina : 10 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 11 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 11 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /members/deposit-safetypay.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/members/deposit-safetypay.html\_members_deposit-safetypay.html..html
+
+------------------------------------------
+
+Pagina : 11 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /members/reports/transactionsReport.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/members/reports/transactionsReport.html\_members_reports_transactionsReport.html..html
+
+------------------------------------------
+
+Pagina : 11 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 12 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /supersicbo :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/supersicbo\_supersicbo..html
+
+------------------------------------------
+
+Pagina : 12 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /promotions/tournamentWinnersBatchMonthly.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/promotions/tournamentWinnersBatchMonthly.html\_promotions_tournamentWinnersBatchMonthly.html..html
+
+------------------------------------------
+
+Pagina : 12 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /promotions/tournamentWinnersBatchExtra.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/promotions/tournamentWinnersBatchExtra.html\_promotions_tournamentWinnersBatchExtra.html..html
+
+------------------------------------------
+
+Pagina : 12 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /promotions/tournamentWinnersBatchDaily.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/promotions/tournamentWinnersBatchDaily.html\_promotions_tournamentWinnersBatchDaily.html..html
+
+------------------------------------------
+
+Pagina : 12 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/torneo_turbo :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/torneo/torneo_turbo\_torneo_torneo_turbo..html
+
+------------------------------------------
+
+Pagina : 12 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/top_50 :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/torneo/top_50\_torneo_top_50..html
+
+------------------------------------------
+
+Pagina : 12 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/top_100 :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/torneo/top_100\_torneo_top_100..html
+
+------------------------------------------
+
+Pagina : 12 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /test-torneo :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/test-torneo\_test-torneo..html
+
+------------------------------------------
+
+Pagina : 13 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/torneo-ruleta-online :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/torneo/torneo-ruleta-online\_torneo_torneo-ruleta-online..html
+
+------------------------------------------
+
+Pagina : 13 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/torneo_pop-up :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/torneo/torneo_pop-up\_torneo_torneo_pop-up..html
+
+------------------------------------------
+
+Pagina : 13 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/torneo_navidad :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/torneo/torneo_navidad\_torneo_torneo_navidad..html
+
+------------------------------------------
+
+Pagina : 13 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /apuestas_deportivas/fijas-mundialistas :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/apuestas_deportivas/fijas-mundialistas\_apuestas_deportivas_fijas-mundialistas..html
+
+------------------------------------------
+
+Pagina : 13 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /casino-online/love-for-money :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/casino-online/love-for-money\_casino-online_love-for-money..html
+
+------------------------------------------
+
+Pagina : 13 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /casino-online/torneo-greentube :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/casino-online/torneo-greentube\_casino-online_torneo-greentube..html
+
+------------------------------------------
+
+Pagina : 13 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/torneo-verano :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/torneo/torneo-verano\_torneo_torneo-verano..html
+
+------------------------------------------
+
+Pagina : 13 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/cuota-apuesta-deportiva :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/torneo/cuota-apuesta-deportiva\_torneo_cuota-apuesta-deportiva..html
+
+------------------------------------------
+
+Pagina : 13 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/torneo_bienvenida_pop-up :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/torneo/torneo_bienvenida_pop-up\_torneo_torneo_bienvenida_pop-up..html
+
+------------------------------------------
+
+Pagina : 13 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/torneo_bienvenida_pop-up :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/torneo/torneo_bienvenida_pop-up\_torneo_torneo_bienvenida_pop-up..html
+
+------------------------------------------
+
+Pagina : 14 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/torneo_bienvenida :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/torneo/torneo_bienvenida\_torneo_torneo_bienvenida..html
+
+------------------------------------------
+
+Pagina : 14 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/torneo_atlantic_test :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/torneo/torneo_atlantic_test\_torneo_torneo_atlantic_test..html
+
+------------------------------------------
+
+Pagina : 14 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/torneo_atlantic_popup :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/torneo/torneo_atlantic_popup\_torneo_torneo_atlantic_popup..html
+
+------------------------------------------
+
+Pagina : 14 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/torneo_aniversario_atlantic :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/torneo/torneo_aniversario_atlantic\_torneo_torneo_aniversario_atlantic..html
+
+------------------------------------------
+
+Pagina : 14 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/torneo_atlantic :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/torneo/torneo_atlantic\_torneo_torneo_atlantic..html
+
+------------------------------------------
+
+Pagina : 14 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/torneo-aniversario-pop-up :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/torneo/torneo-aniversario-pop-up\_torneo_torneo-aniversario-pop-up..html
+
+------------------------------------------
+
+Pagina : 14 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 15 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 15 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /pruebas-api :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/pruebas-api\_pruebas-api..html
+
+------------------------------------------
+
+Pagina : 15 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 16 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /members/deposit-safetypay.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/members/deposit-safetypay.html\_members_deposit-safetypay.html..html
+
+------------------------------------------
+
+Pagina : 16 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 17 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /rouletteEzugiEvolution.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/rouletteEzugiEvolution.html\_rouletteEzugiEvolution.html..html
+
+------------------------------------------
+
+Pagina : 17 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 18 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /torneo/reto-atlantic-personalizado :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/torneo/reto-atlantic-personalizado\_torneo_reto-atlantic-personalizado..html
+
+------------------------------------------
+
+Pagina : 18 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 19 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /registro :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/registro\_registro..html
+
+------------------------------------------
+
+Pagina : 19 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /pagina-testing :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/pagina-testing\_pagina-testing..html
+
+------------------------------------------
+
+Pagina : 19 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /test-torneo-ppq.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/test-torneo-ppq.html\_test-torneo-ppq.html..html
+
+------------------------------------------
+
+Pagina : 19 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /prueba-libreria :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/prueba-libreria\_prueba-libreria..html
+
+------------------------------------------
+
+Pagina : 19 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /test_prueba_carrusel :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/test_prueba_carrusel\_test_prueba_carrusel..html
+
+------------------------------------------
+
+Pagina : 19 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /test/nuevos-lobbies :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/test/nuevos-lobbies\_test_nuevos-lobbies..html
+
+------------------------------------------
+
+Pagina : 19 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /test-page/new-react-build-2 :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/test-page/new-react-build-2\_test-page_new-react-build-2..html
+
+------------------------------------------
+
+Pagina : 19 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /test-page/new-react-build-1 :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/test-page/new-react-build-1\_test-page_new-react-build-1..html
+
+------------------------------------------
+
+Pagina : 19 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /test-torneo.html :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/test-torneo.html\_test-torneo.html..html
+
+------------------------------------------
+
+Pagina : 19 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /terminos-y-condiciones-torneo-bienvenida :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/terminos-y-condiciones-torneo-bienvenida\_terminos-y-condiciones-torneo-bienvenida..html
+
+------------------------------------------
+
+Pagina : 20 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 20 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /react :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+C:\Users\jhospinal\Documents\Repositories\hotdogcoder\pytools/storage/exportations/alira_esportation/react\_react..html
+
+------------------------------------------
+
+Pagina : 20 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 21 | 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /promotions/prueba1.html /quienes-somos :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 21 | 172
+
+------------------------------------------
+

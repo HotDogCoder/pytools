@@ -1,0 +1,84 @@
+------------------------------------------
+
+BUSCANDO LA SIGUIENTE DATA
+
+------------------------------------------
+
+['/casino-online/tragamonedas-nuevas', '/casino-online/tragamonedas-jackpot', '/live-casino/baccarat-online', '/live-casino/ruleta-en-vivo', '/casino-en-vivo', '/live-casino/blackjack-en-vivo', '/casino-online/slots-power', '/ruleta-online', '/casino-online/blackjack-online', '/casino-online/tragamonedas-progresivas', '/casino-online/tragamonedas-clasicas', '/bono-casino-online', '/casino-online/megaways', '/live-casino/poker-online', '/casino-online/tragamonedas-frutas', '/casino-online/tragamonedas-populares', '/casino-online/tragamonedas']
+
+------------------------------------------
+
+------------------------------------------
+
+------------------------------------------
+
+SE RECHAZA /slots/MegaWheel /slots/zodiacwheel :
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 1 | Row: 1 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE RECHAZA /slots/zodiac :
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 1 | Row: 1 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE RECHAZA /slots/yumyumpowerways :
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 1 | Row: 1 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE RECHAZA /slots/yggdrasil :
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 1 | Row: 1 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE RECHAZA /slots/yehhsien :
+
+------------------------------------------
+
+------------------------------------------
+
+Pagina : 1 | Row: 1 172
+
+------------------------------------------
+
+------------------------------------------
+
+SE EXPORTARA /slot/xtrahot :
+
+------------------------------------------
+
+------------------------------------------
+
+HTML
+
+------------------------------------------
+
