@@ -129,7 +129,7 @@ class ScreenshotService(ScreenshotServiceInterface):
                     screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver, target_iterations=0, zoom=39)
 
                 else:
-                    screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver)
+                    screenshot_helper.scroll_and_take_screenshot(screenshot, report_type, driver, zoom=40)
                     pass
 
             driver.close()
