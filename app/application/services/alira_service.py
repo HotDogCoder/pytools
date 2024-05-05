@@ -78,7 +78,7 @@ class AliraService(AliraServiceInterface):
             alira_helper.get_sheet_url_reference(3, 3)
             references_2 = list(set(alira_helper.sheets[3].data))
 
-            alira_helper.access_to_pages_tab()
+            # alira_helper.access_to_pages_tab()
 
             for reference in references_2:
                 alira_helper.get_sheet_data(

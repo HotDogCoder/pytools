@@ -1,6 +1,7 @@
 from time import sleep
 
 from selenium.common import NoSuchElementException
+from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.support.ui import WebDriverWait as Wait
@@ -66,7 +67,7 @@ class AliraHelper:
                 if text == "CMS":
                     targets_menu_a.click()
                     sleep(15)
-                    print("uwu")
+                    print("cms link clicked")
                     raise StopIteration
 
         except (Exception, NoSuchElementException, StopIteration) as e:
@@ -74,12 +75,13 @@ class AliraHelper:
 
     def iterate_main_datatable(self):
 
-        table_target = Wait(self.driver, timeout=20).until(
+        table_target = Wait(self.driver, timeout=30).until(
             ec.visibility_of_element_located((By.ID, "allPagesEditor")))
         # table_target.click()
         table_input = table_target.find_elements(By.CSS_SELECTOR, "input")[2]
         table_input.clear()
         table_input.send_keys(self.url)
+        table_input.send_keys(Keys.RETURN)
 
         sleep(2)
 
@@ -125,7 +127,12 @@ class AliraHelper:
 
                         for target_url in target_urls:
                             target_url_str = target_url.url.strip()
-                            td_str = tds[3].text.strip()
+                            td_str = ""
+                            try:
+                                td_str = tds[3].text
+                                td_str = td_str.strip()
+                            except Exception as e:
+                                print(f"Error : {self.trace_helper.get_trace_str(e)}")
                             if target_url_str == td_str and target_url.flag is True:
                                 print(f"there is a match with some url : {target_url.url}")
                                 flag = True
