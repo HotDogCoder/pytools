@@ -1,2 +1,5 @@
 /venv/
 /storage/screenshots/*.*
+**/__pycache__/
+build/
+dist/
