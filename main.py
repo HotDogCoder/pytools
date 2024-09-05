@@ -277,6 +277,14 @@ class VisaHelper:
             server.login(smtp_username, smtp_password)
             server.send_message(msg)
             
+    def check_for_maintenance_page(self):
+        try:
+            maintenance_page = self.driver.find_element(By.CSS_SELECTOR, ".maintenance-page")
+            if maintenance_page:
+                return True
+        except NoSuchElementException:
+            return False
+
 class VisaRepositoryInterface(ABC):
     def __init__(self):
         super().__init__()
